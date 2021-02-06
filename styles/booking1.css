@@ -1,0 +1,58 @@
+body{
+  background-color: #eeeeee;
+}
+
+
+.choiceheader{
+  font-size: 1.5em;
+  color: rgb(99, 129, 99);
+  margin-left: 35.5%;
+  margin-top: -26%;
+  display: flex;
+}
+
+.container  {
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  width: 30%;
+  padding: 220px 30px 220px;
+  margin-top: 15%;
+  margin-left: 33.2%;
+}
+
+.dateChoice {
+  margin-left: 41%;
+  margin-top: 1%;
+  display: inline-block;
+}
+
+#selectyear, #selectmonth, #selectday{
+  padding: 10px 15px;
+  color: #333333;
+  background-color: #eeeeee;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+  border-radius: 5px;
+ 
+
+  /*replace default styling arrow*/
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon points="0,0 100,0 50,50" style="fill:%23666666;"/></svg>');
+  background-position: right 10px top 50%;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  padding-right: 30px;
+}
+
+#selectyear:focus, #selectyear:hover,
+#selectmonth:focus, #selectmonth:hover,
+#selectday:focus, #selectday:hover  {
+  outline: none;
+  border: 1px solid #bbbbbb;
+}
+
+#selectyear option, #selectmonth option, #selectday option   {
+  background: #c7eecd;
+}
