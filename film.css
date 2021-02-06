@@ -1,0 +1,23 @@
+.dynamic-films {
+  margin-left: -10px;
+  display: flow-root; 
+}
+
+.film{
+  display: block;
+  width: 200px;
+  margin: 10px;
+  float: left;
+  text-decoration: none;
+  color: #000;
+}
+
+.film img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.film h3 {
+  margin-top: 5px;
+  text-align: center;
+}
