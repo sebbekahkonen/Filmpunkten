@@ -1,14 +1,20 @@
 h1{
-  float:left;
+  /*float:left;
 /*position: relative;*/
+/*
 padding-left: 400px;
-padding-top:30px;
+padding-top:30px;*/
   font-size: 40px;
+  margin-bottom:8px;
+border-bottom: 2px solid;
+  }
 
-  /*
-}
+
+
 body{
-  border-bottom: 2px solid; /* Kan inte lägga in border-bottom pga float*/
+  text-align:center;
+  margin-top:50px;
+  /*border-bottom: 2px solid; /* Kan inte lägga in border-bottom pga float*/
  
 }
 .selectBox
@@ -27,12 +33,19 @@ body{
 
 #container /* id för hela knappen*/
 {
-float: left;
- margin-top:50; /*selectbox position och marginal efter knapptryck*/
-    position:relative;
+/*float: left;*/
+ /*margin-top:50; /*selectbox position och marginal efter knapptryck*/
+    /*position:relative;*/
     
-top:55px;
-left:10px;
+     position: center;
+  display: inline-block;
+float:right;
+margin-right: 300px;
+margin-top:-70px;
+
+/*top:55px;*/
+
+/*left:10px;*/
 }
 .toggler
 {
@@ -55,7 +68,7 @@ left:10px;
       cursor: pointer;
       margin: 5px;
       background-size: 200% 100%;
-  text-align:center;
+ text-align:center;
   
 cursor:pointer;/* muspekare blir hand*/
  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -123,4 +136,72 @@ color: white;
 {
     background: rgb(53, 50, 50); /* startfärg #ddd; ändrar färgen på upplysningen av muspekare*/
    
+}
+
+.film h3 {
+  margin-top: 5px;
+  text-align: center;
+}
+
+img{
+ margin-top:30px; 
+display: flow-root; 
+margin-left: 20px;
+ display: flow-root;
+width:150px;
+height:220px;
+  border-radius: 10px;
+   display: block;
+
+}
+#av{
+  margin-left: 110px;
+  
+ float:left;
+}
+#harry{
+ float:right;
+ margin-right: 50px;;
+}
+
+#husdj{
+ float:right;
+}
+#ice{
+ float:right;
+}
+
+#in{
+  margin-left: 110px;
+  
+ float:left;
+}
+#kung{
+ margin-right: 110px;;
+ float:right;
+
+}
+
+#skönhet{
+ float:right;
+}
+#sky{
+ float:right;
+}
+
+#the{
+  margin-left: 110px;
+  
+ float:left;
+}
+#tjenare{
+ float:right;
+ margin-right: 120px;;
+}
+
+#vaiana{
+ float:right;
+}
+#venom{
+ float:right;
 }
