@@ -1,3 +1,16 @@
+
+
+buildMainHtml();
+
+async function buildMainHtml() {
+  let html = `
+    ${await $.get('main.html')}
+  `;
+
+  $('body').append(html);
+}
+
+
 async function buildNavigation() {
   let html = `
     ${await $.get('html-files/header.html')}
