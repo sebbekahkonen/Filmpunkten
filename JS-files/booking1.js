@@ -1,7 +1,11 @@
 
 /*FUNKTIONER FÖR ATT BYGGA SIDORNA*/
 
+console.log('hej');
+
 buildMainHtml();
+
+console.log('hej');
 
 async function buildMainHtml() {
   let html = `
@@ -25,16 +29,20 @@ function buildBooking() {
 
 
 /*CLICK-EVENT FÖR LÄNKAR PÅ STARTSIDA*/
-
-$('#booking').click(function () {
-    buildBooking() 
-});
-
-$('#start').click(function () {
-    buildMainHtml();
-})
+/*
+    $('#booking').click(function () {
+        buildBooking()
+    });
 
 
+$(function()) {
+
+    $('#start').click(function (e) {
+        e.preventDefault();
+    
+    });
+}
+*/
 
 /*
 async function buildBooking() {
