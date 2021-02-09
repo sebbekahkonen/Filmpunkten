@@ -1,5 +1,6 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
 
 h1{
   text-align: center;
@@ -170,4 +171,91 @@ header nav a:hover {
 
 header nav a.active {
   color: rgb(247, 15, 15);
+}
+
+
+
+/* LOGIN.CSS*/
+.designLineTop{
+  text-align: center;
+  color: black;
+  margin-top: 10%;
+  width: 100%;
+}
+
+
+.username label{
+  float: left;
+  margin-left: 4%;
+  font-family: 'Barlow Condensed', sans-serif;
+  display: block;
+  margin-top: 10%;
+}
+
+.password label{
+  float: left;
+  width: 20%;
+  font-family: 'Barlow Condensed', sans-serif;
+  display: block;
+  margin-top: 5%;
+}
+
+.username input{
+  margin: auto;
+  padding: 5px;
+  border-radius: 5px;
+  border-color: black;
+  width: 90%;
+}
+
+.password input{ 
+  padding: 5px;
+  border-radius: 5px;
+  border-color: black;
+  width: 90%;
+}
+
+.forgot{
+  font-size: medium;
+  margin-left: 65%;
+}
+
+.login{
+  font-family: 'Barlow Condensed', sans-serif;
+  padding: 5px;
+  border-radius: 5px;
+  width: 93%;
+  margin-top: 10%;
+  background-color: dimgrey;
+  color: white;
+}
+
+.ellerLine{
+  font-family: 'Barlow Condensed', sans-serif;
+  margin-top: 5%;
+  width: 90%;
+  border-bottom: 1px solid #000;
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  line-height: 0.1em;
+}
+.ellerLine span{
+  background:rgb(197, 198, 199); 
+  padding: 0 10px;
+}
+
+.register{
+  font-family: 'Barlow Condensed', sans-serif;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10%;
+  width: 93%;
+  background-color: rgb(61, 59, 59);
+  color: white;
+}
+.designLineBottom{
+  text-align: center;
+  color: black;
+  width: 100%; 
 }
