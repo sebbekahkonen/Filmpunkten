@@ -1,58 +1,161 @@
-body{
-  background-color: #eeeeee;
+
+html, body{
+  height: auto;
+  margin: 0;
+  padding: 0;
 }
 
+body{
+  background-color: #929292;
+  text-align: center;
+  min-height: 100%;
+}
+
+h1{
+  font-size: 3em;
+}
+
+#datum {
+  padding: 10px 20px;
+  margin: 0 0 2% 0;
+  border-radius: 10px;
+  border: 4px solid  rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+header{
+  background-color: teal;
+  padding: 10px 0 0 0;
+}
+
+#links a  {
+  display: inline-flex;
+  margin: 15px 15px 0 0;
+  font-size: 1.3em;
+  color: rgb(0, 0, 0);
+  padding: 0;
+}
+
+.iconTitle{
+  display: flex;
+  margin: 100px 0 0 20vw;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.iconTitle h1{
+  display: inline;
+  margin: 0 20px 0 0;
+  font-weight: 800;
+}
+
+.iconTitle img{
+  height: 5em;
+  margin-top: -1.2em;
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 10px; 
+}
 
 .choiceheader{
-  font-size: 1.5em;
-  color: rgb(99, 129, 99);
-  margin-left: 35.5%;
-  margin-top: -26%;
-  display: flex;
+  font-size: 1.9em;
+  font-weight: 550;
+  color: rgb(0, 0, 0);
+  padding: 2%;
+  box-sizing: border-box;
+  resize: vertical;
 }
 
 .container  {
+  display: block;
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   width: 30%;
-  padding: 220px 30px 220px;
-  margin-top: 15%;
-  margin-left: 33.2%;
+  padding: 30px;
+  margin: 1% auto 0 auto;
+  min-height: 35em;
+  text-align: center;
 }
 
-.dateChoice {
-  margin-left: 41%;
-  margin-top: 1%;
-  display: inline-block;
+@media(max-width: 768px){
+  body{
+    background-color: rgb(223, 190, 190);
+  }
 }
 
-#selectyear, #selectmonth, #selectday{
-  padding: 10px 15px;
-  color: #333333;
-  background-color: #eeeeee;
-  border: 1px solid #dddddd;
+
+
+
+.dropbtn {
+  background-color: black;
+  color: white;
+  padding: 20px 20px;
+  font-size: 15px;
+  border: black;
   cursor: pointer;
-  border-radius: 5px;
- 
-
-  /*replace default styling arrow*/
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon points="0,0 100,0 50,50" style="fill:%23666666;"/></svg>');
-  background-position: right 10px top 50%;
-  background-repeat: no-repeat;
-  background-size: 10px;
-  padding-right: 30px;
 }
 
-#selectyear:focus, #selectyear:hover,
-#selectmonth:focus, #selectmonth:hover,
-#selectday:focus, #selectday:hover  {
-  outline: none;
-  border: 1px solid #bbbbbb;
+.dropdown {
+  padding: 18px 0 0 0;
+  position: center;
+  display: inline-block;
+  float: left;
+  margin-top: 103px;
 }
 
-#selectyear option, #selectmonth option, #selectday option   {
-  background: #c7eecd;
+.dropdown-content {
+  display: none;
+  position: center;
+  background-color: #f9f9f9;
+  min-width: 80px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: -10;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  z-index: -10;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+  display:block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: black;
+}
+
+footer {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+}
+
+footer p {
+ position: fixed;
+ bottom: 0;
+ text-align: center;
+ margin-top: -30px;
+}
+
+#colPics{
+  display: inline-block;
+  float: left;
+  max-width: 180px;
+  height: 800px;
+}
+
+#film1 {
+  margin: 15px 0 0 15px;
+  width: 100%;
+  height: 100%;
+  max-height: 33%;
 }
