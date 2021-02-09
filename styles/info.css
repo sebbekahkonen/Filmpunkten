@@ -1,0 +1,67 @@
+.biljetter{
+ margin-right: 40%;
+}
+.mina-sidor{
+margin-right: 5%;
+}
+.Search{
+ float: right;
+}
+/*
+ body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: grey;
+  text-align: center;
+}
+
+
+nav{
+text-align: center;
+}
+
+footer {
+   position: fixed;
+   text-align: center;
+   bottom: 10px;
+   margin-left: 40%;
+ }
+*/
+ .infoContainer {
+   background-color:white;
+   padding: 5px;
+   margin: 0;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -40%);
+   width: 450px;
+   height: auto;
+   border-radius: 10px;
+ }
+
+ h2 {
+   text-align: left;
+   margin-left: 24px;
+   margin-bottom: -10px;
+ }
+
+.openingTimes {
+  text-align: left;
+  margin: auto;
+  height: auto;
+  width: 400px;
+}
+
+.aboutUs {
+  text-align: left;
+  margin: auto;
+  height: auto;
+  width: 400px;
+}
+
+.contactUs {
+  text-align: left;
+  margin: auto;
+  height: auto;
+  width: 400px;
+}
