@@ -1,6 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
 
 h1{
   text-align: center;
@@ -170,6 +169,25 @@ header nav a.active {
   color: rgb(247, 15, 15);
 }
 
+/* CSS BOKNINGSSIDA */
+
+#selectDate {
+  padding: 10px 20px;
+  margin: 0 0 2% 0;
+  border-radius: 10px;
+  border: 4px solid  rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.choiceheader{
+  font-size: 1.9em;
+  font-weight: 550;
+  color: rgb(0, 0, 0);
+  padding: 2%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
 
 
 /* LOGIN.CSS*/
@@ -255,22 +273,4 @@ header nav a.active {
   text-align: center;
   color: black;
   width: 100%; 
-}
-/* CSS BOKNINGSSIDA */
-
-#selectDate {
-  padding: 10px 20px;
-  margin: 0 0 2% 0;
-  border-radius: 10px;
-  border: 4px solid  rgb(0, 0, 0);
-  cursor: pointer;
-}
-
-.choiceheader{
-  font-size: 1.9em;
-  font-weight: 550;
-  color: rgb(0, 0, 0);
-  padding: 2%;
-  box-sizing: border-box;
-  resize: vertical;
 }
