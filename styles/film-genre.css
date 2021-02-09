@@ -5,30 +5,43 @@ h1{
 padding-left: 400px;
 padding-top:30px;*/
   font-size: 40px;
-  margin-bottom:8px;
-border-bottom: 2px solid;
-  }
+  /*margin-bottom:8px;*/
+}
+h1:after{
+  content:''; /* behövs för att pseudo elementet ska fungera*/
+  display:block; /* ätter elementet på sin egna linja*/
+  margin:0 auto; /* centrerar bordern*/
+  width:70%; /* önskad längd*/
 
-
+  padding-top:20px; /* skapar mellanrum mellan elementet och bordern*/
+  border-bottom:2px solid;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+      
+}
 
 body{
   text-align:center;
   margin-top:50px;
-  /*border-bottom: 2px solid; /* Kan inte lägga in border-bottom pga float*/
+
  
 }
 .selectBox
 {
+   
+  text-align:center;
  color:white;
     border: 1px solid black;;
   background-color: rgb(36, 34, 34);
     list-style-type: none;
-    margin: 0;
-    padding: 3px;
+  
+  margin: 0;
+    padding: 5px;
     position: absolute;
     width: 200px;/* standard 200*/
     display:none;
-    top: 29px; /* standard 25. Styr upp och ned positionen på selectBox*/
+    top: 83px; /* standard 25. Styr upp och ned positionen på selectBox*/
 }
 
 #container /* id för hela knappen*/
@@ -40,8 +53,9 @@ body{
      position: center;
   display: inline-block;
 float:right;
-margin-right: 300px;
-margin-top:-70px;
+margin-right: 370px;
+margin-top:-90px;
+ cursor: pointer;
 
 /*top:55px;*/
 
@@ -65,12 +79,10 @@ margin-top:-70px;
       transition: color 3s ease;
       transition: box-shadow 0.2s ease-in-out;
       border-radius: 5px;
-      cursor: pointer;
       margin: 5px;
       background-size: 200% 100%;
  text-align:center;
   
-cursor:pointer;/* muspekare blir hand*/
  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
       box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -88,47 +100,53 @@ color: white;
     /*position:absolute
    */ 
 }
+
 .item{
-  width: 90px;
-  float: left;
+    float: left;
+  width: 70px;
   height:30px;
-  margin: 10 px;
+
 
 }
 
 
 .item1{
-  width: 90px;
-  float: left;
+ float: right;
+  width: 70px;
+  
   height:30px;
-  margin: 10 px;
+  
 
 }
-.item2{
-  width: 90px;
-  float: left;
+.item2 {
+  
+    float: left;
+  width: 70px;
+ 
   height:30px;
-  margin: 10 px;
+
 }
 .item3{
- width: 100px;
-  float: left;
+  float:right;
+ width: 70px;
+  
   height:30px;
-  margin: 10 px;
+
 
 }
 .item4{
- width: 90px;
-  float: left;
+ float: left;
+width: 90px;
+  
   height:30px;
-  margin: 10 px;
 
 }
 .item5{
- width: 90px;
-  float: left;
+  float: right;
+ width: 70px;
+  
   height:30px;
-  margin: 10 px;
+ 
 
 }
 
@@ -146,7 +164,9 @@ color: white;
 img{
  margin-top:30px; 
 display: flow-root; 
+
 margin-left: 20px;
+margin-right: 25px;
  display: flow-root;
 width:150px;
 height:220px;
@@ -155,13 +175,13 @@ height:220px;
 
 }
 #av{
-  margin-left: 110px;
+  margin-left: 150px;
   
  float:left;
 }
 #harry{
  float:right;
- margin-right: 50px;;
+ margin-right: 102px;
 }
 
 #husdj{
@@ -172,12 +192,12 @@ height:220px;
 }
 
 #in{
-  margin-left: 110px;
+  margin-left: 150px;
   
  float:left;
 }
 #kung{
- margin-right: 110px;;
+ margin-right: 140px;
  float:right;
 
 }
@@ -190,13 +210,13 @@ height:220px;
 }
 
 #the{
-  margin-left: 110px;
+  margin-left: 145px;
   
  float:left;
 }
 #tjenare{
  float:right;
- margin-right: 120px;;
+margin-right: 140px;
 }
 
 #vaiana{
