@@ -1,22 +1,20 @@
 
 /*FUNKTIONER FÖR ATT BYGGA SIDORNA*/
 
-console.log('hej');
+
+/*MAIN-SIDAN INITIALISERAS MED HTML FRÅN STARTSIDA.HTML (DÄR LIGGER ALLT CONTENT SOM SKA IN I CONTAINER FÖR STARTSIDA)*/
 
 buildMainHtml();
 
-console.log('hej');
-
 async function buildMainHtml() {
   let html = `
-    ${await $.get('main.html')}
+    ${await $.get('startsida.html')}
   `;
 
-  $('body').html(html);
+  $('.container').html(html);
 }
 
-
-
+/*
 function buildBooking() {
     $('.container').html(`
         <h2 class="choiceheader">Välj datum för att boka biljetter</h2>
@@ -25,7 +23,7 @@ function buildBooking() {
         min="2021-01-01" max="2022-12-31"></input>
     `);
 }
-
+*/
 
 
 /*CLICK-EVENT FÖR LÄNKAR PÅ STARTSIDA*/
@@ -34,15 +32,27 @@ function buildBooking() {
         buildBooking()
     });
 
-
-$(function()) {
-
-    $('#start').click(function (e) {
-        e.preventDefault();
-    
-    });
-}
 */
+
+$(function(){
+        /*NEDANSTÅENDE LÄSER AV CLICK PÅ ALLA <A>-TAGGAR OCH FÖRHINDRAR ATT DEN GÅR TILL HTML-ADRESSEN. DEN HÄMTAR
+        ISTÄLLET HTML-ADRESSENS CONTENT OCH LÄGGER IN DET I CONTAINER, DÄR ALL CONTENT SKA LIGGA.*/
+    $('.navigation a').click(function(e) {
+        e.preventDefault();
+
+        $.get($(this).attr("href"), function(data) {
+            $(".container").html(data);
+        });
+
+    });
+
+    $('.container').on("change", "#selectDate", function (e) {
+        console.log($(this).val());
+    });
+
+
+});
+
 
 /*
 async function buildBooking() {
