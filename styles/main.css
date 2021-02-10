@@ -325,6 +325,11 @@ header nav a.active {
 }
 
 /* FILM-GENRE CSS*/
+
+.filmheader{
+  text-align:center;
+  margin-left:-200px;
+}
 .selectBox
 {
  color:white;
@@ -336,7 +341,7 @@ header nav a.active {
     position: absolute;
     width: 200px;/* standard 200*/
     display:none;
-    top: 29px; /* standard 25. Styr upp och ned positionen på selectBox*/
+    /*top: 26px; /* standard 25. Styr upp och ned positionen på selectBox*/
 }
 
 #container2 /* id för hela knappen*/
@@ -344,13 +349,18 @@ header nav a.active {
 /*float: left;*/
  /*margin-top:50; /*selectbox position och marginal efter knapptryck*/
     /*position:relative;*/
-    
+     position: absolute;
+     top:190px;
+  left: 60%;
+  margin-left: -50px;
+  /*display: block;*/
      position: center;
+     cursor:pointer;/* muspekare blir hand*/
   /*display: inline-block;*/
-float:auto;
+/*float:auto;
 margin-right: 300px;
 margin-top:-70px;
-
+*/
 /*top:55px;*/
 
 /*left:10px;*/
@@ -378,10 +388,10 @@ margin-top:-70px;
       background-size: 200% 100%;
  text-align:center;
   
-cursor:pointer;/* muspekare blir hand*/
+
  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 5px 0px rgba(227, 227, 227, 0.75);
 
   
   /*
@@ -420,7 +430,7 @@ color: white;
 }
 .item3{
  width: 100px;
-  float: left;
+  float:left;
   height:30px;
   margin: 10 px;
 
@@ -451,25 +461,27 @@ color: white;
   text-align: center;
 }
 
-img{
- margin-top:30px; 
-display: flow-root; 
-margin-left: 20px;
- display: flow-root;
-width:150px;
-height:220px;
+.filmImg{
+ /*margin-top:30px; 
+/*margin-left: 10px;
+ /*display: flow-root;*/
+width: 100px; /*150px;*/
+height:170px; /*220px;*/
   border-radius: 10px;
-   display: block;
+  /*float:left;
+  /* display: block;*/
 
 }
-#av{
-  margin-left: 110px;
+#av,#harry,#husdj,#ice{
+  /*float: left;/*110px;*/
   
- float:left;
-}
+ /*float:left;
+
+/*
 #harry{
- float:right;
+float:right;
  margin-right: 50px;;
+ 
 }
 
 #husdj{
@@ -477,39 +489,48 @@ height:220px;
 }
 #ice{
  float:right;
+ */
 }
 
 #in{
-  margin-left: 110px;
+  /*margin-left: 110px;*/
   
- float:left;
+ /*float:left;
 }
 #kung{
- margin-right: 110px;;
- float:right;
+ /*margin-right: 110px;*/
+ float:left;
 
 }
 
 #skönhet{
- float:right;
+ /*float:right;
+ */
 }
 #sky{
+  /*
  float:right;
+ */
 }
 
+
 #the{
-  margin-left: 110px;
-  
+  /*margin-left: 110px;
  float:left;
+ */
 }
 #tjenare{
- float:right;
- margin-right: 120px;;
+ /*float:right;
+ /*margin-right: 120px;*/
 }
 
 #vaiana{
+  /*
  float:right;
+ */
 }
 #venom{
+  /*
  float:right;
+ */
 }
