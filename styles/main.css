@@ -233,6 +233,10 @@ header nav a.active {
   width: 90%;
 }
 
+#video1, #video2 {
+  max-width: 80%;
+}
+
 .forgot{
   font-size: medium;
   margin-left: 65%;
