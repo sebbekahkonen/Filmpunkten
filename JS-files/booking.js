@@ -46,7 +46,7 @@ $(function(){
 
     });
 
-    $('.footer a').click(function(e) {
+    $('footer a').click(function(e) {
         e.preventDefault();
 
         $.get($(this).attr("href"), function(data) {
