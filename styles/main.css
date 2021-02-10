@@ -1,5 +1,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
+
 
 h1{
   text-align: center;
@@ -191,6 +193,7 @@ header nav a.active {
 
 
 /* LOGIN.CSS*/
+
 .designLineTop{
   text-align: center;
   color: black;
@@ -273,4 +276,46 @@ header nav a.active {
   text-align: center;
   color: black;
   width: 100%; 
+}
+
+
+/* REGISTER CSS */
+
+.lineoverLabels{
+  margin-top: 10%;
+}
+
+.maindivRegister  {
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.maindivRegister label{
+  font-family: 'Barlow Condensed', sans-serif;
+  margin-bottom: 1%;
+  margin-top: 20%;
+  display: block;
+  
+}
+
+.leftRegister{
+  float: left;
+}
+
+.rightRegister{
+  float: right;
+}
+
+.lineunderLabels{
+  margin-bottom: 10%;
+}
+
+.registerNow{
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  background-color: dimgrey;
+  color: white;
+  border-color: #000;
 }
