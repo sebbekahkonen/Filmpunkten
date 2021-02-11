@@ -14,29 +14,13 @@ async function buildMainHtml() {
   $('.container').html(html);
 }
 
-/*
-function buildBooking() {
-    $('.container').html(`
-        <h2 class="choiceheader">Välj datum för att boka biljetter</h2>
-        <input type="date" id="datum" name="trip-start"
-        value="2021-02-08"
-        min="2021-01-01" max="2022-12-31"></input>
-    `);
-}
-*/
+ /*NEDANSTÅENDE LÄSER AV CLICK PÅ ALLA <A>-TAGGAR OCH FÖRHINDRAR ATT DEN GÅR TILL HTML-ADRESSEN. DEN HÄMTAR
+        ISTÄLLET HTML-ADRESSENS CONTENT OCH LÄGGER IN DET I CONTAINER, DÄR ALL CONTENT SKA LIGGA.*/
 
-
-/*CLICK-EVENT FÖR LÄNKAR PÅ STARTSIDA*/
-/*
-    $('#booking').click(function () {
-        buildBooking()
-    });
-
-*/
+let dateChoice;
 
 $(function(){
-        /*NEDANSTÅENDE LÄSER AV CLICK PÅ ALLA <A>-TAGGAR OCH FÖRHINDRAR ATT DEN GÅR TILL HTML-ADRESSEN. DEN HÄMTAR
-        ISTÄLLET HTML-ADRESSENS CONTENT OCH LÄGGER IN DET I CONTAINER, DÄR ALL CONTENT SKA LIGGA.*/
+       
     $('.navigation a').click(function(e) {
         e.preventDefault();
 
@@ -55,34 +39,12 @@ $(function(){
 
     });
 
-    $('.container').on("change", "#selectDate", function (e) {
+    $('.container').on("change", "#selectDate", function () {
         console.log($(this).val());
+        dateChoice = new date($(this).val());
     });
 
 
 });
 
-
-/*
-async function buildBooking() {
-    let htmlBooking = `
-    ${await $.get('booking1.html')}
-    `;
-
-    $('.container').html(htmlBooking);
-}*/
-
-
-
-/*
-
-let container = $('.container');
-
-container.append(`<h2 class="choiceheader">Välj datum för att boka biljetter</h2>`);
-
-container.append(`<input type="date" id="datum" name="trip-start"
-    value="2021-02-08"
-    min="2021-01-01" max="2022-12-31"></input>`
-);
-
-*/
+console.log(dateChoice);
