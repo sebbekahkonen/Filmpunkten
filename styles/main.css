@@ -2,18 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
 
-
+body{
+background: url(/images/Starsky.jpg);
+background-size: 100%;
+  animation: animation 150s linear infinite;
+}
+@keyframes animation {
+   100%{
+    background-position:0px -3000px;
+  }
+}
+  
 h1{
   text-align: center;
 }
 
 header{
   color: rgb(77, 74, 74);
+  /*
   background-color: rgb(197, 198, 199);
   margin: 0 20px;
+  */
   padding: 10px 0;
   font-family: 'Alfa Slab One', cursive;
-  border-bottom: 0.5px solid black;
+  border-bottom: 2px solid black;
 }
 
 .dropdown {
@@ -61,7 +73,8 @@ footer a{
   list-style: none;
   display: flex;
   justify-content: space-between;
-  padding-left: 0;
+  padding-left: 5%;
+  padding-right: 5%
 }
 
 li a{
@@ -79,7 +92,7 @@ header nav a.active {
 .container  {
   display: block;
   border-radius: 10px;
-  background-color: rgb(197, 198, 199);
+  /*background-color: rgb(197, 198, 199);*/
   width: 40%;
   padding: 30px;
   margin: 1% auto 0 auto;
@@ -126,7 +139,7 @@ body{
 
 footer {
   color: rgb(77, 74, 74);
-  background-color: rgb(197, 198, 199);
+  /*background-color: rgb(197, 198, 199);*/
   padding: 10px 20px;
   font-family: 'Alfa Slab One', cursive;
   position: fixed;
