@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
 
 body{
+color: rgb(77, 74, 74);
 background: url(/images/Starsky.jpg);
 background-size: 100%;
   animation: animation 150s linear infinite;
@@ -197,7 +198,7 @@ header nav a.active {
 .choiceheader{
   font-size: 1.9em;
   font-weight: 550;
-  color: rgb(0, 0, 0);
+  /*color: rgb(0, 0, 0);*/
   padding: 2%;
   box-sizing: border-box;
   resize: vertical;
