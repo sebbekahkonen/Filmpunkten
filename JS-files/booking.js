@@ -1,4 +1,33 @@
 
+/*
+    GRUNDKOD MED LITE DATA FÖR ATT BYGGA FILM-SCHEMA FÖR BOKA-SIDAN
+*/
+
+let movies = [
+    {
+        "title": "Up",
+        "date":
+            [
+                { "view": "2021-03-01" },
+                { "view": "2021-02-24" }
+            ],
+        "runtime": "107 min"
+    },
+    {
+        "title": "Harry Potter",
+        "date":
+            [
+                { "view": "2021-03-01" },
+                { "view": "2021-02-20" }
+            ],
+        "runtime": "134 min"
+    }
+];
+
+
+
+
+
 /*FUNKTIONER FÖR ATT BYGGA SIDORNA*/
 
 
@@ -17,7 +46,7 @@ async function buildMainHtml() {
  /*NEDANSTÅENDE LÄSER AV CLICK PÅ ALLA <A>-TAGGAR OCH FÖRHINDRAR ATT DEN GÅR TILL HTML-ADRESSEN. DEN HÄMTAR
         ISTÄLLET HTML-ADRESSENS CONTENT OCH LÄGGER IN DET I CONTAINER, DÄR ALL CONTENT SKA LIGGA.*/
 
-let dateChoice;
+
 
 $(function(){
        
@@ -40,11 +69,74 @@ $(function(){
     });
 
     $('.container').on("change", "#selectDate", function () {
-        console.log($(this).val());
-        dateChoice = new date($(this).val());
+        dateChoice = $(this).val();
+        
+        let moviesToDisplay = '';
+        for (movie of movies) {
+            for (movieShow of movie.date) {
+                if (movieShow.view === dateChoice) {
+                    console.log(movie.title + '\nis displayed on chosen day')
+                    moviesToDisplay += '|' + movie.title + '|' + 'runtime: ' + movie.runtime + '<br>';
+                }
+            }
+        }
+
+        if (moviesToDisplay !== undefined) {
+            $('.container').append('<div class="movieDiv"><p id="movieText">', dateChoice,'<br>', moviesToDisplay, '</p></div>');
+        }
+        
     });
-
-
 });
 
-console.log(dateChoice);
+/*
+let moviePlay = movies.map(movies => movies.date.filter(movie => movie.date === '2021-02-24') );
+console.log(moviePlay);
+*/
+
+/*
+let moviePlay = movies.map((movie) => {
+    return {...movie, date: movie.date.filter((date) => movie.date === '2021-03-24' )}
+})
+*/
+/*
+for (movie of movies) {
+    
+    
+
+    for (movieShow of movie.date) {
+        if (movieShow.view === '2021-03-01') {
+            console.log(movie.title + '\nis displayed on chosen day');
+        }
+    }
+}
+*/
+/*
+let moviePlay = movies.map((movie) => {
+    return {...movie, date: movie.date.filter((date) => date.view === '2021-02-24')}
+})
+console.log(moviePlay);
+*/
+
+
+/*
+arrayOfElements.map((element) => {
+  return {...element, subElements: element.subElements.filter((subElement) => subElement.surname === 1)}
+})
+*/
+
+/*
+
+for (let i = 0; i < movies.length; i++) {
+    let movie = movies[i];
+    let moviesDate = movie.date;
+
+    for (let j = 0; j < moviesDate.length; j++)    {
+        let date = moviesDate[j];
+        if (date === "2021-02-24") {
+            console.log(movie.title);
+        }
+    }
+}
+*/
+
+
