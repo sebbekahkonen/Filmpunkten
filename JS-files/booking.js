@@ -8,7 +8,7 @@ buildMainHtml();
 
 async function buildMainHtml() {
   let html = `
-    ${await $.get('Startsida.html')}
+    ${await $.get('startsida.html')}
   `;
 
   $('.container').html(html);
@@ -35,6 +35,25 @@ function buildBooking() {
 */
 
 $(function(){
+        /*NEDANSTÅENDE LÄSER AV CLICK PÅ ALLA <A>-TAGGAR OCH FÖRHINDRAR ATT DEN GÅR TILL HTML-ADRESSEN. DEN HÄMTAR
+        ISTÄLLET HTML-ADRESSENS CONTENT OCH LÄGGER IN DET I CONTAINER, DÄR ALL CONTENT SKA LIGGA.*/
+    $('.navigation a').click(function(e) {
+        e.preventDefault();
+
+        $.get($(this).attr("href"), function(data) {
+            $(".container").html(data);
+        });
+
+    });
+
+    $('footer a').click(function(e) {
+        e.preventDefault();
+
+        $.get($(this).attr("href"), function(data) {
+            $(".container").html(data);
+        });
+
+    });
 
     $('.container').on("change", "#selectDate", function (e) {
         console.log($(this).val());
