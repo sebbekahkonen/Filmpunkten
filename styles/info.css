@@ -34,8 +34,7 @@ footer {
    top: 50%;
    left: 50%;
    transform: translate(-50%, -40%);
-   width: 450px;
-   height: auto;
+   width: 30%;
    border-radius: 10px;
  }
 
@@ -48,20 +47,17 @@ footer {
 .openingTimes {
   text-align: left;
   margin: auto;
-  height: auto;
-  width: 400px;
+  width: 88%;
 }
 
 .aboutUs {
   text-align: left;
   margin: auto;
-  height: auto;
-  width: 400px;
+  width: 88%;
 }
 
 .contactUs {
   text-align: left;
   margin: auto;
-  height: auto;
-  width: 400px;
+  width: 88%;
 }
