@@ -3,9 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
 
 body{
-color: rgb(77, 74, 74);
-background: url(/images/Starsky.jpg);
-background-size: 100%;
+  color: rgb(77, 74, 74);
+  background: url(/images/Starsky.jpg);
+  background-size: 100%;
   animation: animation 150s linear infinite;
 }
 @keyframes animation {
@@ -209,6 +209,13 @@ header nav a.active {
 
 
 /* LOGIN.CSS*/
+.wrongLogin{
+  font-family: 'Barlow Condensed', sans-serif;
+  margin-bottom: 5%;
+  padding: 0;
+  color: red;
+  width: 100%;
+}
 
 .designLineTop{
   text-align: center;
@@ -253,9 +260,23 @@ header nav a.active {
   max-width: 80%;
 }
 
-.forgot{
-  font-size: medium;
-  margin-left: 65%;
+
+.showpasswordbox{
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+.showpasswordbox > .forgot {
+  margin-right: 4%;
+  margin-left: 5%;
+}
+.showpasswordbox > input{
+  margin-left: 4.5%;
+  margin-right: 0;
+}
+.showpasswordbox > label{
+  margin-right: 42%;
 }
 
 .login{
@@ -268,19 +289,22 @@ header nav a.active {
   color: white;
 }
 
+.ellerLine span{
+  background: url(/images/Starsky.jpg);
+  animation: animation 150s linear infinite;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+
 .ellerLine{
   font-family: 'Barlow Condensed', sans-serif;
   margin-top: 5%;
   width: 90%;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid dimgrey;
   margin: auto;
   margin-top: 10%;
   margin-bottom: 10%;
   line-height: 0.1em;
-}
-.ellerLine span{
-  background:rgb(197, 198, 199); 
-  padding: 0 10px;
 }
 
 .register{
