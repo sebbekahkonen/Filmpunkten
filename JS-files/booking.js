@@ -72,30 +72,48 @@ $(function(){
 
     $('.container').on("change", "#selectDate", function () {
         dateChoice = $(this).val();
+
         
         $('.container').append($('#dateToView'));
         $('.container').append($('#moviesToView'));
         
         let moviesToDisplay = '';
+        let index = 1;
         for (movie of movies) {
             for (movieShow of movie.date) {
                 if (movieShow.view === dateChoice) {
-                    console.log(movie.title + '\nis displayed on chosen day')
-                    moviesToDisplay += movie.title + '&nbsp;' + '&nbsp;' + '&nbsp;' + '&nbsp;' + '&nbsp;' +'&nbsp;' +'&nbsp;' + '(runtime: ' + movie.runtime + ')' + '<br>';
+                    moviesToDisplay += `<button id="selectMovie" value="${movie.title}"> ${movie.title} </button><br>`;
+                    
+                    /*moviesToDisplay += movie.title + '&nbsp;' + '&nbsp;' + '&nbsp;' + '&nbsp;' + '&nbsp;' + '&nbsp;' + '&nbsp;' + '(runtime: ' + movie.runtime + ')' + '<br>';*/
                 }
             }
         }
         
-                    /* LÄGGA I EGEN CONTAINER, SE BOOKING.HTML*/
-        if (moviesToDisplay.length > 1) {
-            $('#dateToView').html(dateChoice);
+        if (moviesToDisplay.length > 2) {
+            $('#dateToView').html('<br>Choose movie to proceed:');
             $('#moviesToView').html(moviesToDisplay);
+            $('#moviesToView').append('<div></div>');
         }
         else {
-            $('#dateToView').html(dateChoice);
+            $('#dateToView').empty();
             $('#moviesToView').html('No movies shown on chosen date');
         }
     });
+
+    let clickTitle;
+    $('.container').on('click', 'button', function () {
+        clickTitle = $(this).attr('value');
+
+        if (clickTitle !== undefined) {
+        $('#moviesToView div').html('<button id="nextStageBooking">Nästa</button>');
+    }
+    });
+    
+
+      
+
+
+
 });
 
 /*

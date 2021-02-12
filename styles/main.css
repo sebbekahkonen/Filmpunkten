@@ -189,17 +189,36 @@ header nav a.active {
 
 #dateToView {
   color: rgb(233, 233, 233);
-  font-size: 1.5em;
-  padding: 2% 0;
+  font-size: 1.3em;
+  padding: 0;
+  font-weight: bold;
 }
 
 #moviesToView{
+  font-size: 1.7em;
   color: rgb(233, 233, 233);
-  line-height: 2em;
-  font-size: 1.25em;
-  text-align: left;
-  margin: 1% 0 0 18%;
 }
+
+#selectMovie{
+  display: flex;
+  background-color: black;
+  color: rgb(233, 233, 233);
+  font-size: 1.1em;
+  font-weight: bold;
+  border: 0.5px solid  rgb(77, 74, 74);
+  border-radius: 18px;
+  margin-left: 20%;
+  cursor: pointer;
+}
+
+#moviesToView div button{
+  float: right;
+  margin-right: 10%;
+  background-color: rgb(77, 74, 74);
+  color: rgb(233, 233, 233);
+  cursor: pointer;
+}
+
 
 #selectDate {
   padding: 10px 20px;
