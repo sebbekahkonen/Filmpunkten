@@ -1,7 +1,7 @@
 
 .filmheader{
   text-align:center;
-  margin-left:-200px;
+  margin-left:-20%;
 }
 .selectBox
 {
@@ -21,28 +21,32 @@
 
 #container2 /* id för hela knappen*/
 {
-/*float: left;*/
- /*margin-top:50; /*selectbox position och marginal efter knapptryck*/
-    /*position:relative;*/
-    
-     position: center;
-  display: inline-block;
-float:right;
-margin-right: 150px;
-margin-top:-50px;
+margin-top:10%;
+display:flex;
+flex-wrap:wrap;
+justify-content: space-between;
+   /* text-align:center;*/
 cursor:pointer;/* muspekare blir hand*/
-/*top:55px;*/
+}
+/*
+#container>div{
+margin: 5px;
+}
+*/
 
-/*left:10px;*/
+#container2 img{
+width:120px; /*150*/
+height:160px; /* 220*/
+  border-radius: 10px;
 }
 .toggler
 {
     overflow:visible;
 }
 
-.button
-{
- 
+.button{
+margin-right:50%;
+margin-top:80%;
   border: none;
   color: white;
    background: linear-gradient(to right, rgb(36, 34, 34) 50%, white 50%);
@@ -56,7 +60,6 @@ cursor:pointer;/* muspekare blir hand*/
       cursor: pointer;
       margin: 5px;
       background-size: 200% 100%;
- text-align:center;
   
  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -86,67 +89,4 @@ color: white;
 {
     background: rgb(53, 50, 50); /* startfärg #ddd; ändrar färgen på upplysningen av muspekare*/
    
-}
-
-.container img {
- margin-top:30px; 
-
-margin-left: 20px;
-
-width:150px;
-height:220px;
-  border-radius: 10px;
-   display: block;
-
-}
-#av{
-  margin-left: 110px;
-  
- float:left;
-}
-#harry{
- float:right;
- margin-right: 50px;;
-}
-
-#husdj{
- float:right;
-}
-#ice{
- float:right;
-}
-
-#in{
-  margin-left: 110px;
-  
- float:left;
-}
-#kung{
- margin-right: 110px;;
- float:right;
-
-}
-
-#skönhet{
- float:right;
-}
-#sky{
- float:right;
-}
-
-#the{
-  margin-left: 110px;
-  
- float:left;
-}
-#tjenare{
- float:right;
- margin-right: 120px;;
-}
-
-#vaiana{
- float:right;
-}
-#venom{
- float:right;
 }
