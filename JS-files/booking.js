@@ -59,6 +59,8 @@ $(function(){
 
     });
 
+    
+
     $('footer a').click(function(e) {
         e.preventDefault();
 
@@ -71,20 +73,28 @@ $(function(){
     $('.container').on("change", "#selectDate", function () {
         dateChoice = $(this).val();
         
+        $('.container').append($('#dateToView'));
+        $('.container').append($('#moviesToView'));
+        
         let moviesToDisplay = '';
         for (movie of movies) {
             for (movieShow of movie.date) {
                 if (movieShow.view === dateChoice) {
                     console.log(movie.title + '\nis displayed on chosen day')
-                    moviesToDisplay += '|' + movie.title + '|' + 'runtime: ' + movie.runtime + '<br>';
+                    moviesToDisplay += movie.title + '&nbsp;' + '&nbsp;' + '&nbsp;' + '&nbsp;' + '&nbsp;' +'&nbsp;' +'&nbsp;' + '(runtime: ' + movie.runtime + ')' + '<br>';
                 }
             }
         }
-
-        if (moviesToDisplay !== undefined) {
-            $('.container').append('<div class="movieDiv"><p id="movieText">', dateChoice,'<br>', moviesToDisplay, '</p></div>');
-        }
         
+                    /* LÄGGA I EGEN CONTAINER, SE BOOKING.HTML*/
+        if (moviesToDisplay.length > 1) {
+            $('#dateToView').html(dateChoice);
+            $('#moviesToView').html(moviesToDisplay);
+        }
+        else {
+            $('#dateToView').html(dateChoice);
+            $('#moviesToView').html('No movies shown on chosen date');
+        }
     });
 });
 

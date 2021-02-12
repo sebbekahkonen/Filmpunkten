@@ -187,7 +187,19 @@ header nav a.active {
 
 /* CSS BOKNINGSSIDA */
 
+#dateToView {
+  color: rgb(233, 233, 233);
+  font-size: 1.5em;
+  padding: 2% 0;
+}
 
+#moviesToView{
+  color: rgb(233, 233, 233);
+  line-height: 2em;
+  font-size: 1.25em;
+  text-align: left;
+  margin: 1% 0 0 18%;
+}
 
 #selectDate {
   padding: 10px 20px;
