@@ -19,7 +19,7 @@
     top: 230px; /* standard 25. Styr upp och ned positionen på selectBox*/
 }
 
-#container /* id för hela knappen*/
+#container2 /* id för hela knappen*/
 {
 /*float: left;*/
  /*margin-top:50; /*selectbox position och marginal efter knapptryck*/
@@ -75,7 +75,7 @@ color: white;
     /*position:absolute
    */ 
 }
-ul li{
+.selectBox li{
   width: 90px;
   float: left;
   height:30px;
@@ -88,12 +88,7 @@ ul li{
    
 }
 
-.film h3 {
-  margin-top: 5px;
-  text-align: center;
-}
-
-img{
+.container img {
  margin-top:30px; 
 
 margin-left: 20px;
