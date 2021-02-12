@@ -1,4 +1,8 @@
 
+.filmheader{
+  text-align:center;
+  margin-left:-200px;
+}
 .selectBox
 {
  color:white;
@@ -6,11 +10,13 @@
   background-color: rgb(36, 34, 34);
     list-style-type: none;
     margin: 0;
-    padding: 3px;
-    position: absolute;
+    padding: 8px;
+    position:absolute;
     width: 200px;/* standard 200*/
     display:none;
-    top: 29px; /* standard 25. Styr upp och ned positionen på selectBox*/
+     justify-content: space-between;
+
+    top: 230px; /* standard 25. Styr upp och ned positionen på selectBox*/
 }
 
 #container /* id för hela knappen*/
@@ -22,9 +28,9 @@
      position: center;
   display: inline-block;
 float:right;
-margin-right: 300px;
-margin-top:-70px;
-
+margin-right: 150px;
+margin-top:-50px;
+cursor:pointer;/* muspekare blir hand*/
 /*top:55px;*/
 
 /*left:10px;*/
@@ -52,7 +58,6 @@ margin-top:-70px;
       background-size: 200% 100%;
  text-align:center;
   
-cursor:pointer;/* muspekare blir hand*/
  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
       box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -70,48 +75,11 @@ color: white;
     /*position:absolute
    */ 
 }
-.item{
+ul li{
   width: 90px;
   float: left;
   height:30px;
   margin: 10 px;
-
-}
-
-
-.item1{
-  width: 90px;
-  float: left;
-  height:30px;
-  margin: 10 px;
-
-}
-.item2{
-  width: 90px;
-  float: left;
-  height:30px;
-  margin: 10 px;
-}
-.item3{
- width: 100px;
-  float: left;
-  height:30px;
-  margin: 10 px;
-
-}
-.item4{
- width: 90px;
-  float: left;
-  height:30px;
-  margin: 10 px;
-
-}
-.item5{
- width: 90px;
-  float: left;
-  height:30px;
-  margin: 10 px;
-
 }
 
 .selectBox li:hover
@@ -127,9 +95,9 @@ color: white;
 
 img{
  margin-top:30px; 
-display: flow-root; 
+
 margin-left: 20px;
- display: flow-root;
+
 width:150px;
 height:220px;
   border-radius: 10px;
