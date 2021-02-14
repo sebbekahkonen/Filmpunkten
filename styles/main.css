@@ -355,6 +355,13 @@ header nav a.active {
 
 
 /* REGISTER CSS */
+.emptyFields{
+  font-family: 'Barlow Condensed', sans-serif;
+  margin-bottom: 5%;
+  padding: 0;
+  color: red;
+  width: 100%;
+}
 
 .lineoverLabels{
   margin-top: 10%;
