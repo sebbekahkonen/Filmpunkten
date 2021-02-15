@@ -17,12 +17,12 @@
   margin-left:-20%;
   margin-bottom:30%;
 }
-#container2>span 
+#container2>span,#container2 a:link 
 {
   padding-top: 5px;
 
   display:inline-block;
-width:220px;
+width:170px;
 cursor:pointer;
 }
 
@@ -38,7 +38,7 @@ height:160px;
 #buttonPosition{
 margin-left:190px;
 margin-bottom:30%;
-margin-top:-39%;
+margin-top:-37%;
 }
 
 .button{
@@ -69,14 +69,14 @@ margin-top:-39%;
   background-color: rgb(36, 34, 34);
     list-style-type: none;
     margin: 7px;
-    margin-left:58px;
+    margin-left:90px;
     margin-top: 6px;/* Styr upp och ned positionen på selectBox*/
     padding: 8px;
     position:absolute;
     width: 200px;
     display:none;
      justify-content: space-between;
-
+cursor:pointer;
 
 }
 

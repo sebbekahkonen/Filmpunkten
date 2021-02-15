@@ -1,0 +1,84 @@
+iframe{
+  margin-left:10%;
+  margin-bottom:2%;
+}
+
+div a:link{
+  text-decoration:none;
+}
+div #sidetext{
+  margin-top:8%;
+  
+  text-align:right;
+  
+}
+ #headpic{
+margin-top:-8%
+  
+}
+ #headpic{
+   border-radius: 10px;
+  width:150px;
+height:220px;
+ border-radius: 10px;
+}
+#bottomPics img{
+  width:180px;
+height:190px;
+ border-radius: 20px;
+}
+
+#bottomPics{
+display:flex;
+flex-direction:row;
+  margin-top:10%;
+
+  justify-content:space-evenly;
+  vertical-align: top;
+}
+#imdb{
+width:60px;
+height:40px;
+border-radius: 10px;
+}
+#imdbRate{
+  margin-top:6%;
+display:inline-flex;
+flex-wrap:wrap;
+gap:20px;
+}
+#action {
+  margin-top:-15px;
+  margin-left:10%;
+}
+
+#imdb #headpic{
+  float:left;
+margin:10%;
+  
+}
+span.ticketButton{
+
+   margin-left:40%;
+}
+.ticketButton{
+ 
+cursor: pointer;
+  border: none;
+  color: black;
+   background: linear-gradient(to right, rgb(202, 197, 197) 50%, white 50%);
+   
+   font-size: 16px;
+      padding: 5px 10px;/* standard 10px,20px*/
+
+      transition: color 3s ease;
+      transition: box-shadow 0.2s ease-in-out;
+      border-radius: 5px;
+      margin: 5px;
+      background-size: 200% 100%;
+ text-align:center;
+
+ -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
