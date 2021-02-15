@@ -6,7 +6,7 @@ body{
   color: rgb(77, 74, 74);
   background: url(/images/Starsky.jpg);
   background-size: 100%;
-  animation: animation 150s linear infinite;
+  /*animation: animation 150s linear infinite;*/
 }
 @keyframes animation {
    100%{
@@ -211,12 +211,15 @@ header nav a.active {
   cursor: pointer;
 }
 
-#moviesToView div button{
+#nextStageBooking{
   float: right;
   margin-right: 10%;
-  background-color: rgb(77, 74, 74);
+  background-color: black;
   color: rgb(233, 233, 233);
   cursor: pointer;
+  padding:1.5%;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
 
@@ -231,13 +234,44 @@ header nav a.active {
 .choiceheader{
   font-size: 1.9em;
   font-weight: 550;
-  /*color: rgb(0, 0, 0);*/
   padding: 2%;
   box-sizing: border-box;
   resize: vertical;
 }
 
+/*CSS Bokingssida-2*/
 
+.chosenMovie{
+  font-size: 1.9em;
+  font-weight: 550;
+  padding: 2%;
+  box-sizing: border-box;
+  resize: vertical;
+}  
+
+.chosenMovie span{
+  color: white;
+  font-weight: 800;
+}
+
+#chooseTypeTitle  {
+  color: rgb(233, 233, 233);
+  font-size: 1.3em;
+  padding: 0;
+  font-weight: bold;
+}
+
+#ticketButtons button  {
+  
+  background-color: black;
+  color: rgb(233, 233, 233);
+  font-size: 1.1em;
+  font-weight: bold;
+  border: 0.5px solid  rgb(77, 74, 74);
+  border-radius: 30px;
+  margin-left: 1%;
+  cursor: pointer;
+}
 
 /* LOGIN.CSS*/
 .wrongLogin{

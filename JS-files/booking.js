@@ -11,7 +11,8 @@ let movies = [
                 { "view": "2021-03-01" },
                 { "view": "2021-02-24" }
             ],
-        "runtime": "107 min"
+        "runtime": "107 min",
+        "salong": "lillan"
     },
     {
         "title": "Harry Potter",
@@ -20,7 +21,30 @@ let movies = [
                 { "view": "2021-03-01" },
                 { "view": "2021-02-20" }
             ],
-        "runtime": "134 min"
+        "runtime": "134 min",
+        "salong": "storan"
+    },
+    {
+        "title": "Inception",
+        "date":
+            [
+                { "view": "2021-03-01" },
+                { "view": "2021-02-24" },
+                { "view": "2021-02-28" }
+            ],
+        "runtime": "107 min",
+        "salong": "storan"
+    },
+    {
+        "title": "Avengers",
+        "date":
+            [
+                { "view": "2021-03-01" },
+                { "view": "2021-02-20" },
+                { "view": "2021-02-25" }
+            ],
+        "runtime": "134 min",
+        "salong": "mellan"
     }
 ];
 
@@ -49,25 +73,22 @@ async function buildMainHtml() {
 
 
 $(function(){
-       
+    /*FUNKTION LÄNKAR I HEADER*/
     $('.navigation a').click(function(e) {
         e.preventDefault();
 
         $.get($(this).attr("href"), function(data) {
             $(".container").html(data);
         });
-
     });
 
-    
-
+    /*FUNKTION LÄNKAR I FOOTER*/
     $('footer a').click(function(e) {
         e.preventDefault();
 
         $.get($(this).attr("href"), function(data) {
             $(".container").html(data);
         });
-
     });
 
     $('.container').on("change", "#selectDate", function () {
@@ -90,27 +111,38 @@ $(function(){
         }
         
         if (moviesToDisplay.length > 2) {
-            $('#dateToView').html('<br>Choose movie to proceed:');
+            $('#dateToView').html('<br>Välj film för att fortsätta:');
             $('#moviesToView').html(moviesToDisplay);
             $('#moviesToView').append('<div></div>');
         }
         else {
             $('#dateToView').empty();
-            $('#moviesToView').html('No movies shown on chosen date');
+            $('#moviesToView').html('Inga filmer visas på valt datum');
         }
     });
 
     let clickTitle;
+
     $('.container').on('click', 'button', function () {
         clickTitle = $(this).attr('value');
 
         if (clickTitle !== undefined) {
-        $('#moviesToView div').html('<button id="nextStageBooking">Nästa</button>');
-    }
+            $('#moviesToView div').html('<a href="tickets.html" id="nextStageBooking">Nästa</a>');
+        }
     });
-    
 
-      
+    /*FUNKTION LÄNK 'NÄSTA' PÅ BOOKING-SIDAN*/
+    $('.container').on('click', '#nextStageBooking', function (e) {
+        e.preventDefault();
+
+        $.get($(this).attr("href"), function(data) {
+            $(".container").html(data);
+            $('.chosenMovie span').text(clickTitle);
+        });
+
+    });
+
+    
 
 
 
