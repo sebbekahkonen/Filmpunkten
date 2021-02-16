@@ -1,0 +1,25 @@
+{
+  "name": "Filmpunkten",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebbekahkonen/Filmpunkten.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebbekahkonen/Filmpunkten/issues"
+  },
+  "homepage": "https://github.com/sebbekahkonen/Filmpunkten#readme",
+  "dependencies": {
+    "best-sqlite3": "^1.0.17",
+    "best-sqlite3-frontend": "^1.0.2",
+    "express": "^4.17.1"
+  }
+}
