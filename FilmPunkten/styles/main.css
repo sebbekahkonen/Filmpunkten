@@ -13,6 +13,18 @@ body{
     background-position:0px -3000px;
   }
 }
+
+main{
+  display: block;
+  border-radius: 10px;
+  /*background-color: rgb(197, 198, 199);*/
+  width: 40%;
+  padding: 30px;
+  margin: 1% auto 0 auto;
+  min-height: 35em;
+  text-align: center;
+  /*border: 1.3px solid  rgb(134, 121, 121);*/
+}
   
 h1{
   text-align: center;
@@ -89,18 +101,19 @@ header nav a:hover {
 header nav a.active {
   color: rgb(247, 15, 15);
 }
-
+/*
 .container  {
   display: block;
   border-radius: 10px;
-  /*background-color: rgb(197, 198, 199);*/
+  //background-color: rgb(197, 198, 199);
   width: 40%;
   padding: 30px;
   margin: 1% auto 0 auto;
   min-height: 35em;
   text-align: center;
-  /*border: 1.3px solid  rgb(134, 121, 121);*/
+  //border: 1.3px solid  rgb(134, 121, 121);
 }
+*/
 
 html, body{
   height: auto;

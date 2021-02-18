@@ -1,31 +1,17 @@
-
-
-buildMainHtml();
-
-async function buildMainHtml() {
+async function buildNavigationHTML() {
   let html = `
-    ${await $.get('main.html')}
-  `;
-
-  $('body').append(html);
-}
-
-
-async function buildNavigation() {
-  let html = `
-    ${await $.get('html-files/header.html')}
+    ${await $.get('html-files/headerAndFooter.html')}
     <main></main>
-    ${await $.get('html-files/footer.html')}
   `;
-  $('body').append(html);
-  replaceMain();
-}
 
+  $('body').append(html);
+  replaceContent();
+}
 
 let savedCache = {};
 
 
-async function replaceMain() {
+async function replaceContent() {
   $('header nav a').removeClass('active');
   $(`a[href="${location.hash}"]`).addClass('active');
 
@@ -38,10 +24,9 @@ async function replaceMain() {
   else {
     html = await $.get(fileName).catch(e => 'error');
   }
-  html = await $.get(fileName).catch(e => 'error');
 
   if (html === 'error') {
-    location.hash = '#start';
+    location.hash = '#Startsida';
   }
   else {
     savedCache[fileName] = html;
@@ -50,6 +35,6 @@ async function replaceMain() {
 }
 
 
-window.onhashchange = replaceMain;
+window.onhashchange = replaceContent;
 
-buildNavigation();
+buildNavigationHTML();
