@@ -14,6 +14,11 @@ async function getInfo() {
   if (foundUser > -1) {
     loginOkay = result[foundUser].password === password;
     console.log('Found it');
+    $('#login_href').attr("href", "#myPage");
+    $('#login_href').text('Min sida');
+    $('#register_href').attr("href", "#logout");
+    $('#register_href').text('Logga ut');
+    location.hash = "#Startsida";
   }
   //loginOkay === false;
   if (!loginOkay) {
