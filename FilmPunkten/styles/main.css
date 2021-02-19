@@ -448,3 +448,71 @@ header nav a.active {
   color: white;
   border-color: #000;
 }
+
+/* MYPAGESCSS */
+.myPagesDiv{
+  border-radius: 10px;
+  height: 100%;
+  color: white;
+  margin-top: 20%;
+  width: 100%;
+}
+.myPagesDiv label{
+  display: block;
+}
+.myPagesDiv input{
+}
+.myPagesNameDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
+  
+}
+.myPagesBirthdateDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+.myPagesEmailDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+.myPagesNumberDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+.myPages label{
+  
+}
+.myPagesSideNav{
+  background-color: rgba(1,1,1, 0.5);
+  border-radius: 20px;
+  height: 100%;
+  width: 30%;
+  padding-bottom: 50%;
+  padding-right: 60%;
+  padding-left: 10%;
+  float: left;
+}
+.myPagesSideNav a{
+  color: #818181;
+  text-decoration: none;
+  margin-top: 5%;
+  padding: 0;
+  display: block; 
+  text-align: left;
+}
+.myPagesSideNav a:hover{
+  color: #f1f1f1;
+}
+
+/* .myPages > input{
+  float:right;
+}
+.myPages > label{
+  float: left;
+} */
+
+
