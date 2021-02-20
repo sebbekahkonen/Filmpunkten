@@ -12,7 +12,7 @@ let savedCache = {};
 
 
 async function replaceContent() {
-  $('header nav a').removeClass('active');
+  $('header .navigation a').removeClass('active');
   $(`a[href="${location.hash}"]`).addClass('active');
 
   let fileName = 'html-files/' + location.hash.slice(1) + '.html';
