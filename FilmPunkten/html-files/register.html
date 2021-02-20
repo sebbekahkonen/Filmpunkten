@@ -4,20 +4,26 @@
   <div class="maindivRegister">
     <div class="leftRegister">
       <label class="usernameRegister">Användarnamn (E-postadress)*</label>
-      <input id="username" type="text" placeholder="Användarnamn">
+      <input id="username" type="text" placeholder="Användarnamn" onkeypress="checkSpace(event)"
+        onchange="checkUsernameLength(this.value)">
       <label class="passwordRegister">Ditt Lösenord*</label>
-      <input id="password" type="text" placeholder="Lösenord">
+      <input id="password" type="text" placeholder="Lösenord" onkeypress="checkSpace(event)"
+        onchange="checkPasswordLength(this.value)">
       <label class="repeatpasswordRegister">Repetera Lösenord*</label>
-      <input id="repeatPassword" type="text" placeholder="Repetera Lösenord">
+      <input id="repeatPassword" type="text" placeholder="Repetera Lösenord" onkeypress="checkSpace(event)"
+        onchange="checkRepeatedPassword(this.value)">
     </div>
 
     <div class="rightRegister">
       <label class="firstnameRegister">Förnamn*</label>
-      <input id="firstName" type="text" placeholder="Förnamn">
+      <input id="firstName" type="text" placeholder="Förnamn" onkeypress="checkSpace(event)"
+        onchange="checkFirstName(this.value)">
       <label class="lastnameRegister">Efternamn*</label>
-      <input id="lastName" type="text" placeholder="Efternamn">
+      <input id="lastName" type="text" placeholder="Efternamn" onkeypress="checkSpace(event)"
+        onchange="checkLastName(this.value)">
       <label class="phonenumberRegister">Telefonnummer*</label>
-      <input id="phoneNumber" type="text" placeholder="Telefonnummer">
+      <input id="phoneNumber" type="text" placeholder="Telefonnummer" onkeypress="checkSpace(event)"
+        onchange="checkPhoneNumber(this.value)">
     </div>
   </div>
   </div>
