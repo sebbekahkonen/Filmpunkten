@@ -50,13 +50,15 @@ async function showMovies(dateChoice) {
 
     let moviesToDisplay = '';
     let result = await db.run(/*sql*/`
-        SELECT bokning_filmer_test.*
-        FROM bokning_filmer_test
-        JOIN bokning_datum
-        ON bokning_datum.bokning_filmer_test_id=bokning_filmer_test.id
-        WHERE bokning_datum.datum='${dateChoice}'
-        ORDER BY bokning_filmer_test.title
+        SELECT FilmTable.*
+        FROM FilmTable
+        JOIN show_times
+        ON show_times.film_table_id = FilmTable.id
+        WHERE show_times.date='${dateChoice}'
+        ORDER BY FilmTable.title
     `);
+
+    console.log(result);
 
     for (let row of result) {
         moviesToDisplay += `<button id="selectMovie" value="${row.title}"> ${row.title} </button><br>`;
