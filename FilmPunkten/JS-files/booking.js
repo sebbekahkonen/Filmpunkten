@@ -27,11 +27,12 @@ $(function () {
     let clickTitle;
     let selectedBookingId;
     let tickets = [];
-    seatTable;
+    seatTable = '';
 
     $('main').on('click', 'button', function () {
         selectedBookingId = $(this).attr('value');
         clickTitle = $(this).text();
+        console.log(clickTitle);
 
         if (clickTitle !== undefined) {
             $('#moviesToView div').html('<a href="/html-files/tickets.html" id="nextStageBooking">Nästa</a>');
