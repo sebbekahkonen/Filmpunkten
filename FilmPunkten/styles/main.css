@@ -325,6 +325,8 @@ header nav a.active {
   border-radius: 5px;
   border-color: black;
   width: 90%;
+  background-color: rgba(145, 141, 141, 0.2);
+  color: white;
 }
 
 .password input{ 
@@ -332,12 +334,9 @@ header nav a.active {
   border-radius: 5px;
   border-color: black;
   width: 90%;
+  background-color: rgba(145, 141, 141, 0.2);
+  color: white;
 }
-
-#video1, #video2 {
-  max-width: 80%;
-}
-
 
 .showpasswordbox{
   padding: 0;
@@ -409,37 +408,39 @@ header nav a.active {
   color: red;
   width: 100%;
 }
-
 .lineoverLabels{
   margin-top: 10%;
 }
-
 .maindivRegister  {
   margin-bottom: 5%;
   display: flex;
   justify-content: space-between;
 }
-
 .maindivRegister label{
   font-family: 'Barlow Condensed', sans-serif;
   margin-bottom: 1%;
   margin-top: 20%;
   display: block;
-  
 }
-
 .leftRegister{
   float: left;
 }
-
+.leftRegister input{
+  border: 1px solid rgb(28, 31, 31);
+  background-color: rgba(145, 141, 141, 0.2);
+  color: white;
+}
 .rightRegister{
   float: right;
 }
-
+.rightRegister input{
+  border: 1px solid rgb(28, 31, 31);
+  background-color: rgba(145, 141, 141, 0.2);
+  color: white;
+}
 .lineunderLabels{
   margin-bottom: 10%;
 }
-
 .registerNow{
   padding: 10px;
   border-radius: 5px;
@@ -449,70 +450,61 @@ header nav a.active {
   border-color: #000;
 }
 
-/* MYPAGESCSS */
-.myPagesDiv{
+
+
+/* MYPAGES CSS */
+.myPagesNav nav{
+  padding: 20px 20px;
+}
+.myPagesNav nav a{
+  color: white;
+  width: 100%;
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 2%;
+  border: 1px solid rgb(28, 31, 31);
+  background-color: rgba(28, 31, 31, 0.3);
+  border-radius: 5px;
+  text-decoration: none;
+}
+.myPagesNav a:hover{
+  color: #504b4b;
+}
+.privateInfoDiv{
   border-radius: 10px;
   height: 100%;
   color: white;
-  margin-top: 20%;
+  margin-top: 5%;
   width: 100%;
 }
-.myPagesDiv label{
+.privateInfoDiv label{
   display: block;
 }
-.myPagesDiv input{
+.privateInfoDiv input{
+  width: 50%;
+  border: 1px solid rgb(28, 31, 31);
+  background-color: rgba(145, 141, 141, 0.2);
+  color: white;
 }
-.myPagesNameDiv{
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 5%;
-  
-}
-.myPagesBirthdateDiv{
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 5%;
-}
-.myPagesEmailDiv{
+.privateNameDiv{
   display: flex;
   justify-content: space-between;
   padding-bottom: 5%;
 }
-.myPagesNumberDiv{
+.privateBirthdateDiv{
   display: flex;
   justify-content: space-between;
   padding-bottom: 5%;
 }
-.myPages label{
-  
+.privateEmailDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
 }
-.myPagesSideNav{
-  background-color: rgba(1,1,1, 0.5);
-  border-radius: 20px;
-  height: 100%;
-  width: 30%;
-  padding-bottom: 50%;
-  padding-right: 60%;
-  padding-left: 10%;
-  float: left;
+.privateNumberDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
 }
-.myPagesSideNav a{
-  color: #818181;
-  text-decoration: none;
-  margin-top: 5%;
-  padding: 0;
-  display: block; 
-  text-align: left;
-}
-.myPagesSideNav a:hover{
-  color: #f1f1f1;
-}
-
-/* .myPages > input{
-  float:right;
-}
-.myPages > label{
-  float: left;
-} */
 
 
