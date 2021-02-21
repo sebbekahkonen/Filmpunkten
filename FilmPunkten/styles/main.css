@@ -434,7 +434,7 @@ header nav a.active {
 
 
 /* REGISTER CSS */
-.emptyFields{
+.popupMessage{
   font-family: 'Barlow Condensed', sans-serif;
   margin-bottom: 5%;
   padding: 0;
