@@ -1,13 +1,26 @@
-<main>
+
   <h2 class="chosenMovie">Du har valt: <br><span></span></h2>
 
-  <div>
-    <p id="chooseTypeTitle">Välj biljett-typ</p>
-    <div id="ticketButtons">
-      <button>Vuxen</button>
-      <button>Student</button>
-      <button>Barn</button>
-      <button>Pensionär</button>
+  <p id="chooseTypeTitle">Välj biljett-typ och antal</p>
+
+    <div id="ticketChoice">
+      <table id="chooseTickets">
+        <tr>
+          <th>Vuxen</th>
+          <th><input type="number" id="adult" step="1" value="0" min="0" max="99"></th>
+        </tr>
+        <tr>
+          <th>Student</th>
+          <th><input type="number" id="student" step="1" value="0" min="0" max="99"></th>
+        </tr>
+        <tr>
+          <th>Barn</th>
+          <th><input type="number" id="child" step="1" value="0" min="0" max="99"></th>
+        </tr>
+        <tr>
+          <th>Pensionär</th>
+          <th><input type="number" id="retired" step="1" value="0" min="0" max="99"></th>
+        </tr>
+      </table>
     </div>
-  </div>
-</main>
+    <a href="/html-files/seat.html" style="display:none;" id="nextButtonTickets">Nästa</a>

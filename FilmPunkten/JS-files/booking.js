@@ -25,9 +25,13 @@ $(function () {
 
     
     let clickTitle;
+    let selectedBookingId;
+    let tickets = [];
+    seatTable;
 
     $('main').on('click', 'button', function () {
-        clickTitle = $(this).attr('value');
+        selectedBookingId = $(this).attr('value');
+        clickTitle = $(this).text();
 
         if (clickTitle !== undefined) {
             $('#moviesToView div').html('<a href="/html-files/tickets.html" id="nextStageBooking">Nästa</a>');
@@ -44,13 +48,63 @@ $(function () {
         });
 
     });
+
+    $('main').on('change', '#chooseTickets input', function (e) {
+
+        let showNext = false;
+
+        $('#chooseTickets input').each(function () {
+
+            if ($(this).val() > 0) {
+                showNext = true;
+            }
+            
+            tickets[$(this).attr('id')] = $(this).val();
+        });
+
+        if (showNext) {
+            $('#nextButtonTickets').show();
+        } else {
+            $('#nextButtonTickets').hide();
+        }
+
+    });
+
+    $('main').on('click', '#nextButtonTickets', function (e) {
+        e.preventDefault();
+
+        $.get($(this).attr("href"), function (data) {
+            $("main").html(data);
+        });
+
+        console.log(tickets);
+
+        seatTable = $('#bookingSeats');
+        updateSeats();
+
+    });
+    
 });
 
+
+function updateSeats()
+{
+    let seatCount = 0;
+    let numOfSeat = 100;
+   
+
+    // TODO: skpaka en function för o hämta bokade platser, retunera svar hit för kontroll vid utmatning
+
+}
+
+    
+    
 async function showMovies(dateChoice) {
 
     let moviesToDisplay = '';
     let result = await db.run(/*sql*/`
-        SELECT FilmTable.*
+        SELECT FilmTable.*,
+        show_times.id AS show_times_id
         FROM FilmTable
         JOIN show_times
         ON show_times.film_table_id = FilmTable.id
@@ -58,10 +112,8 @@ async function showMovies(dateChoice) {
         ORDER BY FilmTable.title
     `);
 
-    console.log(result);
-
     for (let row of result) {
-        moviesToDisplay += `<button id="selectMovie" value="${row.title}"> ${row.title} </button><br>`;
+        moviesToDisplay += `<button id="selectMovie" value="${row.show_times_id}"> ${row.title} </button><br>`;
     }
 
     if (moviesToDisplay.length > 2) {
