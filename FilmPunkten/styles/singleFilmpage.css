@@ -1,22 +1,38 @@
 iframe{
-
+  
   margin-bottom:2%;
+
+ -webkit-box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 div a:link{
   text-decoration:none;
 }
+/*
 div #sidetext{
   margin-top:8%;
   
   text-align:right;
-  
+
+}*/
+div #sidetext{
+  width:200%;
 }
+ #sidetext,#headpic{
+  display:flex;
+
+margin-top:8%;
+justify-content:space-evenly;
+}
+/*
  #headpic{
 margin-top:-8%
   
-}
+}*/
  #headpic{
+  margin-top:-25%;
    border-radius: 10px;
   width:150px;
 height:220px;
@@ -52,7 +68,7 @@ gap:20px;
   margin-left:10%;
 }
 
-#imdb #headpic{
+#imdb {
   float:left;
 margin:10%;
   
