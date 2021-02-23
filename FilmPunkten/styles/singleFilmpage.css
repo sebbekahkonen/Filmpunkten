@@ -2,55 +2,29 @@ iframe{
   
   margin-bottom:2%;
 
- -webkit-box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.5);
-      -moz-box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.5);
-      box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.5);
+ 
+      box-shadow: -1px -1px 11px 8px rgb(0 0 0 / 50%);
 }
 
 div a:link{
   text-decoration:none;
 }
-/*
-div #sidetext{
-  margin-top:8%;
-  
-  text-align:right;
 
-}*/
-div #sidetext{
-  width:200%;
+#topItems, #sidetext{
+margin-top:20%;
+margin-left:2%;
 }
- #sidetext,#headpic{
-  display:flex;
+#sidetext{
+ 
+  width:100%;
 
-margin-top:8%;
-justify-content:space-evenly;
 }
-/*
- #headpic{
-margin-top:-8%
-  
-}*/
- #headpic{
-  margin-top:-25%;
+
+ #picSize{
    border-radius: 10px;
-  width:150px;
-height:220px;
+  width:160px;
+height:240px;
  border-radius: 10px;
-}
-#bottomPics img{
-  width:180px;
-height:190px;
- border-radius: 20px;
-}
-
-#bottomPics{
-display:flex;
-flex-direction:row;
-  margin-top:10%;
-
-  justify-content:space-evenly;
-  vertical-align: top;
 }
 #imdb{
 width:60px;
@@ -58,24 +32,33 @@ height:40px;
 border-radius: 10px;
 }
 #imdbRate{
-  margin-top:6%;
 display:inline-flex;
 flex-wrap:wrap;
 gap:20px;
-}
-#action {
-  margin-top:-15px;
-  margin-left:10%;
+padding-top:10%;
+margin-left:5%;
 }
 
-#imdb {
-  float:left;
-margin:10%;
-  
+
+#bottomPics img{
+  width:230px;
+height:170px;
+ border-radius: 20px;
+ border:4px solid black;
+ margin-top:30%;
+
 }
+
+#bottomPics{
+display:flex;
+flex-direction:row;
+  justify-content:space-evenly;
+  vertical-align: top;
+}
+
 span.ticketButton{
 
-   margin-left:40%;
+   margin-left:5%;
 }
 .ticketButton{
  
