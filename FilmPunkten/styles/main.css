@@ -540,4 +540,10 @@ header nav a.active {
   padding-bottom: 5%;
 }
 
-
+/* ABOUT US/CONTACT US CSS */
+.infoContainer {
+  background: rgba(0,0,0,0.5);
+  box-shadow: 5px 10px 15px #000000;
+  border-radius: 25px;
+  padding: 5px;
+}
