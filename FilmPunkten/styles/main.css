@@ -434,7 +434,7 @@ header nav a.active {
 
 
 /* REGISTER CSS */
-.emptyFields{
+.popupMessage{
   font-family: 'Barlow Condensed', sans-serif;
   margin-bottom: 5%;
   padding: 0;
@@ -524,7 +524,7 @@ header nav a.active {
   justify-content: space-between;
   padding-bottom: 5%;
 }
-.privateBirthdateDiv{
+.privateLastnameDiv{
   display: flex;
   justify-content: space-between;
   padding-bottom: 5%;
@@ -540,4 +540,10 @@ header nav a.active {
   padding-bottom: 5%;
 }
 
-
+/* ABOUT US/CONTACT US CSS */
+.infoContainer {
+  background: rgba(0,0,0,0.5);
+  box-shadow: 5px 10px 15px #000000;
+  border-radius: 25px;
+  padding: 5px;
+}

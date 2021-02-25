@@ -1,9 +1,10 @@
 async function getInfo() {
   $('.wrongLogin').remove();
   let result = await db.run(/*sql*/`
-      SELECT *
-      FROM LoginTable 
+      SELECT username,password
+      FROM RegisterTable 
       `);
+  console.log(result);
   let loginOkay = false;
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
@@ -13,18 +14,32 @@ async function getInfo() {
   })
   if (foundUser > -1) {
     loginOkay = result[foundUser].password === password;
-    console.log('Found it');
-    $('#login_href').attr("href", "#myPage");
-    $('#login_href').text('Min sida');
-    $('#register_href').attr("href", "#logout");
-    $('#register_href').text('Logga ut');
-    location.hash = "#Startsida";
+    if (loginOkay) {
+      sessionStorage.setItem("user", foundUser);
+      sessionStorage.setItem("result", result);
+      $('#login_href').attr("href", "#myPage");
+      $('#login_href').text('Min sida');
+      $('#register_href').attr("href", "#Startsida");
+      $('#register_href').text('Logga ut');
+      location.hash = "#Startsida";
+      document.getElementById("register_href").addEventListener("click", logItOut);
+    }
+    else {
+      $('<h4 class= "wrongLogin">Fel användarnamn eller lösenord, vänligen försök igen.<h4>').appendTo('.designLineTop');
+    }
   }
-  //loginOkay === false;
-  if (!loginOkay) {
-    console.log("Didn't find it");
+  else {
     $('<h4 class= "wrongLogin">Fel användarnamn eller lösenord, vänligen försök igen.<h4>').appendTo('.designLineTop');
   }
+}
+
+
+
+function logItOut() {
+  $('#login_href').attr("href", "#login");
+  $('#login_href').text('Logga in');
+  $('#register_href').attr("href", "#register");
+  $('#register_href').text("Bli medlem");
 }
 
 
@@ -36,8 +51,6 @@ function showPassword() {
   } else {
     inputShow.type = "password";
   }
-
 }
 document.getElementById("loginbutton").addEventListener("click", getInfo);
 document.getElementById("checkbox1").addEventListener("click", showPassword);
-

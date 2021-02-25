@@ -1,13 +1,14 @@
 
 
-#container2 h3{
+/*#container2 h3{
 
-  /*font-size:0.7rem;*/
+  /*font-size:0.7rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   
-}
+}*/
+
 #container2 a:link, a:visited{
  text-decoration: none;
  color:rgb(77, 74, 74);
@@ -19,16 +20,17 @@
 }
 #container2>span,#container2 a:link 
 {
-  padding-top: 5px;
+  padding-top: 4px;
 
   display:inline-block;
-width:170px;
+width:185px;
+margin-bottom:16px;
 cursor:pointer;
 }
 
 #container2 img{
-width:120px; 
-height:160px; 
+width:160px; 
+height:230px; 
   border-radius: 10px;
 }
 .toggler
@@ -38,7 +40,7 @@ height:160px;
 #buttonPosition{
 margin-left:190px;
 margin-bottom:30%;
-margin-top:-37%;
+margin-top:-36%;
 }
 
 .button{
@@ -69,7 +71,7 @@ margin-top:-37%;
   background-color: rgb(36, 34, 34);
     list-style-type: none;
     margin: 7px;
-    margin-left:90px;
+    margin-left:98px;
     margin-top: 6px;/* Styr upp och ned positionen på selectBox*/
     padding: 8px;
     position:absolute;

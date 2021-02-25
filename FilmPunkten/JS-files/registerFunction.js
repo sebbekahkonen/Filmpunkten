@@ -5,41 +5,70 @@ let firstName = document.getElementById('firstName');
 let lastName = document.getElementById('lastName');
 let phoneNumber = document.getElementById('phoneNumber');
 
-let canBePressed = true;
+let usernameIsOkay = false;
+let passwordIsOkay = false;
+let repeatPasswordIsOkay = false;
+let firstNameIsOkay = false;
+let lastNameIsOkay = false;
+let phoneNumberIsOkay = false;
 
 function checkUsernameLength(usrnme) {
   if (usrnme.length < 10 || usrnme.length > 30) {
-    alert('Ditt användarnamn måste bestå av 10-30 tecken!');
+    $('.popupMessage').remove();
+    $('<h4 class="popupMessage">Ditt användarnamn måste bestå av 10-30 tecken!<h4>').appendTo('.lineoverLabels');
+  } else {
+    $('.popupMessage').remove();
+    usernameIsOkay = true;
   }
 }
 
 function checkPasswordLength(psswrd) {
   if (psswrd.length < 8 || psswrd.length > 25) {
-    alert('Ditt lösenord måste bestå av 8-25 tecken!');
+    $('.popupMessage').remove();
+    $('<h4 class="popupMessage">Ditt lösenord måste bestå av 8-25 tecken!<h4>').appendTo('.lineoverLabels');
+  } else {
+    $('.popupMessage').remove();
+    passwordIsOkay = true;
   }
 }
 
 function checkRepeatedPassword(rptdPsswrd) {
   if (rptdPsswrd !== password.value) {
-    alert('Lösenorden matchar inte!');
+    $('.popupMessage').remove();
+    $('<h4 class="popupMessage">Lösenorden matchar inte!<h4>').appendTo('.lineoverLabels');
+  } else {
+    $('.popupMessage').remove();
+    repeatPasswordIsOkay = true;
   }
 }
 
 function checkFirstName(frstNme) {
   if (frstNme.length < 2 || frstNme.length > 20) {
-    alert('Ditt förnamn måste bestå av 2-20 tecken!');
+    $('.popupMessage').remove();
+    $('<h4 class="popupMessage">Ditt förnamn måste bestå av 2-20 tecken!<h4>').appendTo('.lineoverLabels');
+  } else {
+    $('.popupMessage').remove();
+    firstNameIsOkay = true;
   }
 }
 
 function checkLastName(lstNme) {
   if (lstNme.length < 2 || lstNme.length > 25) {
-    alert('Ditt efternamn måste bestå av 2-25 tecken!');
+    $('.popupMessage').remove();
+    $('<h4 class="popupMessage">Ditt efternamn måste bestå av 2-25 tecken!<h4>').appendTo('.lineoverLabels');
+  } else {
+    $('.popupMessage').remove();
+    lastNameIsOkay = true;
   }
 }
 
 function checkPhoneNumber(phnenmbr) {
   if (phnenmbr.length < 10 || phnenmbr.length > 12) {
-    alert('Ditt telefonnummer måste bestå av 10-12 tecken!');
+    $('.popupMessage').remove();
+    $('<h4 class="popupMessage">Ditt telefonnummer måste bestå av 10-12 tecken!<h4>').appendTo('.lineoverLabels');
+  } else {
+    $('.popupMessage').remove();
+    phoneNumberIsOkay = true;
   }
 }
 
@@ -52,19 +81,24 @@ function checkSpace(event) {
 }
 
 async function createNewAccount() {
-  $('.emptyFields').remove();
-  console.log('Creating a new account...');
+  $('.popupMessage').remove();
   await db.run('INSERT INTO RegisterTable (username, password, firstName, lastName, phoneNumber) VALUES (?, ?, ?, ?, ?)', [username.value, password.value, firstName.value, lastName.value, phoneNumber.value]);
+  console.log('A new account has been created!');
+  username.value = '';
+  password.value = '';
+  repeatPassword.value = '';
+  firstName.value = '';
+  lastName.value = '';
+  phoneNumber.value = '';
+  $('<h4 class="popupMessage">Ditt konto har skapats!<h4>').appendTo('.lineoverLabels');
+  $('.popupMessage').css("color", "green");
 }
 
 $('.registerNow').click(function () {
   if (username.value.length == 0 || password.value.length == 0 || repeatPassword.value.length == 0 || firstName.value.length == 0 || lastName.value.length == 0 || phoneNumber.value.length == 0) {
-    $('.emptyFields').remove();
-    $('<h4 class="emptyFields">Vänligen fyll i alla fält.<h4>').appendTo('.lineoverLabels');
-  } else if (username.value.length < 5 || username.value.length > 12) {
-    $('.emptyFields').remove();
-    $('<h4 class="emptyFields">Det finns fält som har för få/många tecken.<h4>').appendTo('.lineoverLabels');
-  } else {
+    $('.popupMessage').remove();
+    $('<h4 class="popupMessage">Vänligen fyll i alla fält.<h4>').appendTo('.lineoverLabels');
+  } else if (usernameIsOkay && passwordIsOkay && repeatPasswordIsOkay && firstNameIsOkay && lastNameIsOkay && phoneNumberIsOkay) {
     createNewAccount();
   }
 });
