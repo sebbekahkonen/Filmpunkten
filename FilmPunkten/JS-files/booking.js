@@ -25,9 +25,9 @@ $(function () {
 
     
     let clickTitle;
-    let selectedBookingId;
+    selectedBookingId = 0;
     let tickets = [];
-    seatTable = '';
+    bookingSeats = '';
 
     $('main').on('click', 'button', function () {
         selectedBookingId = $(this).attr('value');
@@ -76,34 +76,78 @@ $(function () {
 
         $.get($(this).attr("href"), function (data) {
             $("main").html(data);
+            bookingSeats = $('#bookingSeats');
+            createSeats();
         });
 
         console.log(tickets);
 
-        seatTable = $('#bookingSeats');
-        updateSeats();
+        
 
     });
     
 });
 
-let smallSaloon = 60;
-let mediumSaloon = 80;
-let bigSaloon = 100;
 
+// let smallSaloon = 60;
+// let mediumSaloon = 80;
+// let bigSaloon = 100;
 
-
-function updateSeats()
+function createSeats()
 {
     let seatCount = 0;
     let numOfSeats = 100;
-    
+    let html = "";
+
+    html += "<tr>";
+    for (let i = 0; i < 100; i++) {
+
+        if (i % 10 == 0) {
+            html += "</tr><tr>";
+        }
+        
+        html += '<td data-seat="'+(i+1)+'">'+(i+1)+'</td>';
+
+    }
+    html += "</tr>";
+
+    bookingSeats.append(html);
+
+    bookingSeats.find("td").click(function () {
+        console.log($(this).text());
+    });
+
+    updateSeats();
 
     // TODO: skpaka en function för o hämta bokade platser, retunera svar hit för kontroll vid utmatning
 
 }
-    
-    
+
+async function updateSeats()
+{
+    // selectedBookingId
+
+    let seats = [];
+
+
+    let result = await db.run(/*sql*/`
+        SELECT seat
+        FROM booking
+        WHERE show_times_id='${selectedBookingId}'
+        ORDER BY seat
+    `);
+
+    for (let row of result) {
+
+        seats.push(row.seat);
+
+        bookingSeats.find("td[data-seat=" + row.seat + "]").addClass("reserved");
+
+    }
+
+    console.log(selectedBookingId, seats);
+}
+
 async function showMovies(dateChoice) {
 
     let moviesToDisplay = '';
