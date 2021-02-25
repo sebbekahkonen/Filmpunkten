@@ -87,17 +87,21 @@ $(function () {
     
 });
 
+let smallSaloon = 60;
+let mediumSaloon = 80;
+let bigSaloon = 100;
+
+
 
 function updateSeats()
 {
     let seatCount = 0;
-    let numOfSeat = 100;
-   
+    let numOfSeats = 100;
+    
 
     // TODO: skpaka en function för o hämta bokade platser, retunera svar hit för kontroll vid utmatning
 
 }
-
     
     
 async function showMovies(dateChoice) {
