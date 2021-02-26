@@ -28,10 +28,11 @@ main{
   
 h1{
   text-align: center;
+  box-shadow: 2px 2px 7px 1px #ce5937;
 }
 
 header{
-  color: rgb(77, 74, 74);
+  color: lightgray;
   /*
   background-color: rgb(197, 198, 199);
   margin: 0 20px;
