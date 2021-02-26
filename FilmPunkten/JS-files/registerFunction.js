@@ -14,60 +14,69 @@ let phoneNumberIsOkay = false;
 
 function checkUsernameLength(usrnme) {
   if (usrnme.length < 10 || usrnme.length > 30) {
-    $('.popupMessage').remove();
-    $('<h4 class="popupMessage">Ditt användarnamn måste bestå av 10-30 tecken!<h4>').appendTo('.lineoverLabels');
+    $('.usernameMessage').html('');
+    $('<h5 class="popupMessage">Ditt användarnamn måste bestå av 10-30 tecken!</h5>').appendTo('.usernameMessage');
   } else {
-    $('.popupMessage').remove();
+    $('.usernameMessage').html('');
     usernameIsOkay = true;
   }
 }
 
 function checkPasswordLength(psswrd) {
   if (psswrd.length < 8 || psswrd.length > 25) {
-    $('.popupMessage').remove();
-    $('<h4 class="popupMessage">Ditt lösenord måste bestå av 8-25 tecken!<h4>').appendTo('.lineoverLabels');
+    $('.passwordMessage').html('');
+    $('<h5 class="popupMessage">Ditt lösenord måste bestå av 8-25 tecken!</h5>').appendTo('.passwordMessage');
   } else {
-    $('.popupMessage').remove();
+    $('.passwordMessage').html('');
     passwordIsOkay = true;
   }
 }
 
 function checkRepeatedPassword(rptdPsswrd) {
-  if (rptdPsswrd !== password.value) {
-    $('.popupMessage').remove();
-    $('<h4 class="popupMessage">Lösenorden matchar inte!<h4>').appendTo('.lineoverLabels');
+  if (rptdPsswrd != password.value) {
+    $('.repeatPasswordMessage').html('');
+    $('<h5 class="popupMessage">Lösenorden matchar inte!</h5>').appendTo('.repeatPasswordMessage');
   } else {
-    $('.popupMessage').remove();
+    $('.repeatPasswordMessage').html('');
     repeatPasswordIsOkay = true;
   }
 }
 
 function checkFirstName(frstNme) {
-  if (frstNme.length < 2 || frstNme.length > 20) {
-    $('.popupMessage').remove();
-    $('<h4 class="popupMessage">Ditt förnamn måste bestå av 2-20 tecken!<h4>').appendTo('.lineoverLabels');
+  if (/[^a-zA-Z]/.test(frstNme)) {
+    $('.firstNameMessage').html('');
+    $('<h5 class="popupMessage">Ditt förnamn får bara innehålla bokstäver!</h5>').appendTo('.firstNameMessage');
+  } else if (frstNme.length < 2 || frstNme.length > 20) {
+    $('.firstNameMessage').html('');
+    $('<h5 class="popupMessage">Ditt förnamn måste bestå av 2-20 tecken!</h5>').appendTo('.firstNameMessage');
   } else {
-    $('.popupMessage').remove();
+    $('.firstNameMessage').html('');
     firstNameIsOkay = true;
   }
 }
 
 function checkLastName(lstNme) {
-  if (lstNme.length < 2 || lstNme.length > 25) {
-    $('.popupMessage').remove();
-    $('<h4 class="popupMessage">Ditt efternamn måste bestå av 2-25 tecken!<h4>').appendTo('.lineoverLabels');
+  if (/[^a-zA-Z]/.test(lstNme)) {
+    $('.lastNameMessage').html('');
+    $('<h5 class="popupMessage">Ditt efternamn får bara innehålla bokstäver!</h5>').appendTo('.lastNameMessage');
+  } else if (lstNme.length < 2 || lstNme.length > 25) {
+    $('.lastNameMessage').html('');
+    $('<h5 class="popupMessage">Ditt efternamn måste bestå av 2-25 tecken!</h5>').appendTo('.lastNameMessage');
   } else {
-    $('.popupMessage').remove();
+    $('.lastNameMessage').html('');
     lastNameIsOkay = true;
   }
 }
 
 function checkPhoneNumber(phnenmbr) {
-  if (phnenmbr.length < 10 || phnenmbr.length > 12) {
-    $('.popupMessage').remove();
-    $('<h4 class="popupMessage">Ditt telefonnummer måste bestå av 10-12 tecken!<h4>').appendTo('.lineoverLabels');
+  if (!/^\d+$/.test(phnenmbr)) {
+    $('.phoneNumberMessage').html('');
+    $('<h5 class="popupMessage">Ditt telefonnummer får bara innehålla siffror!</h5>').appendTo('.phoneNumberMessage');
+  } else if (phnenmbr.length < 10 || phnenmbr.length > 12) {
+    $('.phoneNumberMessage').html('');
+    $('<h5 class="popupMessage">Ditt telefonnummer måste bestå av 10-12 tecken!</h5>').appendTo('.phoneNumberMessage');
   } else {
-    $('.popupMessage').remove();
+    $('.phoneNumberMessage').html('');
     phoneNumberIsOkay = true;
   }
 }

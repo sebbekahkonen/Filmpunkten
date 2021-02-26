@@ -446,19 +446,43 @@ header nav a.active {
   width: 100%; 
 }
 
-
 /* REGISTER CSS */
+.usernameMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+.passwordMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+.repeatPasswordMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+.firstNameMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+.lastNameMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+.phoneNumberMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
 .popupMessage{
   font-family: 'Barlow Condensed', sans-serif;
-  margin-bottom: 5%;
-  padding: 0;
   color: red;
-  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .lineoverLabels{
   margin-top: 10%;
 }
 .maindivRegister  {
+  margin-top: 5%;
   margin-bottom: 5%;
   display: flex;
   justify-content: space-between;
@@ -466,7 +490,6 @@ header nav a.active {
 .maindivRegister label{
   font-family: 'Barlow Condensed', sans-serif;
   margin-bottom: 1%;
-  margin-top: 20%;
   display: block;
 }
 .leftRegister{
@@ -496,8 +519,6 @@ header nav a.active {
   color: white;
   border-color: #000;
 }
-
-
 
 /* MYPAGES CSS */
 .myPagesNav nav{
