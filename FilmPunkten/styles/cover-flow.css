@@ -4,8 +4,8 @@ h3{
   padding: 10px;
   }
 
-  .main-container {
-  margin: 4em auto 0 auto;
+.main-container {
+  margin: 10px auto 0 auto;
   width: 650px;
 }
 .main-container .controls {
@@ -91,4 +91,7 @@ input[type="radio"]:checked + .coverflow-item ~ .coverflow-item {
 }
 ol{
   padding: 0;
+}
+.right-now{
+  margin-top: -35px;
 }
