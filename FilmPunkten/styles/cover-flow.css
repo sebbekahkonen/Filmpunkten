@@ -61,20 +61,20 @@ label:hover {
 }
 
 .coverflow-list {
-  -webkit-transform: perspective(900px);
-  -webkit-transform-style: preserve-3d;
-  -webkit-perspective-origin: 100% 30%;
+  transform: perspective(900px);
+  transform-style: preserve-3d;
+  perspective-origin: 100% 30%;
 }
 .coverflow-list .coverflow-item {
-  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
   background: #212121;
-  -webkit-transform: rotateY(45deg);
+  transform: rotateY(45deg);
 }
 input[type="radio"] {
   display: none;
 }
 input[type="radio"]:checked + .coverflow-item {
-  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
   margin: 0 auto;
   background: #313131;
   transition: all 0.4s ease;
@@ -86,7 +86,7 @@ input[type="radio"]:checked + .coverflow-item figcaption {
   color: #FFFFFF;
 }
 input[type="radio"]:checked + .coverflow-item ~ .coverflow-item {
-  -webkit-transform: rotateY(-45deg);
+  transform: rotateY(-45deg);
   background: #515151;
 }
 ol{
