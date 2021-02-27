@@ -591,6 +591,23 @@ header nav a.active {
   justify-content: space-between;
   padding-bottom: 5%;
 }
+.bookedMovie{
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(145, 141, 141, 0.2);
+}
+.bookedMovie > label{
+  margin-top: 0.5%;
+  width: 50%;
+}
+.bookedMovie > input{
+  width: 100%;
+  color: #b3acac;
+  background-color: rgba(145, 141, 141, 0.01);
+  border-color: rgba(145, 141, 141, 0.01);
+}
 
 /* ABOUT US/CONTACT US CSS */
 .infoContainer {
