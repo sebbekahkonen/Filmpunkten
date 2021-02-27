@@ -1,19 +1,29 @@
-/*
-bokning_bokningar
-id, user_id, boking_datum_id, stol(0-99999),   typ
-    1        1                1                vuxen
-    1        1                51                barn
-*/
 
 
-
-/*NEDANSTÅENDE LÄSER AV CLICK PÅ ALLA <A>-TAGGAR OCH FÖRHINDRAR ATT DEN GÅR TILL HTML-ADRESSEN. DEN HÄMTAR
-       ISTÄLLET HTML-ADRESSENS CONTENT OCH LÄGGER IN DET I CONTAINER, DÄR ALL CONTENT SKA LIGGA.*/
 
 
 
 $(function () {
     
+    //Sätt datumväljaren till dagens datum och max ett år framåt
+    let today = new Date();
+    let yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1;
+    let dd = today.getDate();
+
+    if (mm < 10) mm = '0' + mm;
+    if (dd < 10) dd = '0' + dd;
+    
+    let todaysDate = yyyy + '-' + mm + '-' + dd;
+
+    let maxDate = (yyyy + 1) + '-' + mm + '-' + dd;
+
+    $('#selectDate').attr({
+        'min': todaysDate,
+        'max': maxDate
+    });
+
+    //Samlar upp valt datum och visar filmer därefter
     $('main').on("change", "#selectDate", function () {
         dateChoice = $(this).val();
         
@@ -23,89 +33,85 @@ $(function () {
         showMovies(dateChoice);
     });
 
-    
+    //Variabler för vald film, visningens id, biljetter, boka platser
     let clickTitle;
     selectedBookingId = 0;
-    let tickets = [];
+    tickets = [];
     bookingSeats = '';
 
+    //Samlar upp vald film (titel), den valda filmens visnings-id
     $('main').on('click', 'button', function () {
         selectedBookingId = $(this).attr('value');
         clickTitle = $(this).text();
-        console.log(clickTitle);
 
+        //Om clickTitle har fått ett värde lägger vi till knapp "nästa"
         if (clickTitle !== undefined) {
             $('#moviesToView div').html('<a href="/html-files/tickets.html" id="nextStageBooking">Nästa</a>');
         }
     });
 
-    /*FUNKTION LÄNK 'NÄSTA' PÅ BOOKING-SIDAN*/
+    //Funktion för "nästa"-knappen på bokningssidan
     $('main').on('click', '#nextStageBooking', function (e) {
         e.preventDefault();
 
+        //läser in innehållet från tickets.html och tar även med vald titel
         $.get($(this).attr("href"), function (data) {
             $("main").html(data);
             $('.chosenMovie span').text(clickTitle);
         });
-
     });
 
-    $('main').on('change', '#chooseTickets input', function (e) {
 
+    $('main').on('change', '#chooseTickets input', function (e) {
+        //"Boolean-värde för "nästa"-knapp i detta steg.
         let showNext = false;
 
         $('#chooseTickets input').each(function () {
-
+            //om någon biljett-typ har värde större än 0 visas knapp "nästa"
             if ($(this).val() > 0) {
                 showNext = true;
             }
-            
+            //fyller tickets med vald biljett-typ och antal med biljett-typ som nyckel till antal
             tickets[$(this).attr('id')] = $(this).val();
         });
 
+        //visa "nästa"-knapp om boolean = true
         if (showNext) {
             $('#nextButtonTickets').show();
         } else {
             $('#nextButtonTickets').hide();
         }
-
     });
 
+    //Om klicka på nästa, ladda nästa, stolsbokning
     $('main').on('click', '#nextButtonTickets', function (e) {
         e.preventDefault();
 
         $.get($(this).attr("href"), function (data) {
             $("main").html(data);
             bookingSeats = $('#bookingSeats');
+            //Kalla funktion för att skapa rendering av platser
             createSeats();
         });
-
-        console.log(tickets);
-
-        
-
     });
     
 });
 
+chosenSeats = [];
 
-// let smallSaloon = 60;
-// let mediumSaloon = 80;
-// let bigSaloon = 100;
-
-function createSeats()
-{
+function createSeats()  {
     let seatCount = 0;
     let numOfSeats = 100;
     let html = "";
 
+    //Bygga tabellens rader med rätt antal platser/rad
     html += "<tr>";
-    for (let i = 0; i < 100; i++) {
-
+    for (let i = 0; i < numOfSeats; i++) {
+        //10 platser/rad
         if (i % 10 == 0) {
             html += "</tr><tr>";
         }
-        
+        //Renderas med stolsnummer (och färg ledig/upptagen)
         html += '<td data-seat="'+(i+1)+'">'+(i+1)+'</td>';
 
     }
@@ -114,21 +120,26 @@ function createSeats()
     bookingSeats.append(html);
 
     bookingSeats.find("td").click(function () {
-        console.log($(this).text());
+        //Valda platser sparas i chosenSeats
+        //Om man klickar igen på plats man valt så av-väjer man den
+        let chosenNumber = $(this).text();
+        if (chosenSeats.includes(chosenNumber)) {
+            let indexOfNumber = chosenSeats.indexOf(chosenNumber);
+            chosenSeats.splice(indexOfNumber, 1);
+            console.log(chosenSeats);
+        } else {
+            chosenSeats.push($(this).text());
+            console.log(chosenSeats);
+        }    
     });
 
     updateSeats();
-
-    // TODO: skpaka en function för o hämta bokade platser, retunera svar hit för kontroll vid utmatning
-
 }
 
-async function updateSeats()
-{
-    // selectedBookingId
+//Hämta från DB vilka platser som är upptagna och rendera dem annorlunda
+async function updateSeats()    {
 
     let seats = [];
-
 
     let result = await db.run(/*sql*/`
         SELECT seat
@@ -144,10 +155,9 @@ async function updateSeats()
         bookingSeats.find("td[data-seat=" + row.seat + "]").addClass("reserved");
 
     }
-
-    console.log(selectedBookingId, seats);
 }
 
+//Visa filmer som visas på valt datum (matchar datum mot DB)
 async function showMovies(dateChoice) {
 
     let moviesToDisplay = '';
@@ -162,6 +172,7 @@ async function showMovies(dateChoice) {
     `);
 
     for (let row of result) {
+        //Plocka med visningens id från DB för att använda vid stolsbokning
         moviesToDisplay += `<button id="selectMovie" value="${row.show_times_id}"> ${row.title} </button><br>`;
     }
 
@@ -170,6 +181,7 @@ async function showMovies(dateChoice) {
         $('#moviesToView').html(moviesToDisplay);
         $('#moviesToView').append('<div></div>');
     }
+    //Om inga filmer matchar datum, rendera följande.
     else {
         $('#dateToView').empty();
         $('#moviesToView').html('Inga filmer visas på valt datum');

@@ -273,15 +273,29 @@ header nav a.active {
 
 /*seatbooking*/
 
+#screen {
+    height: 7px;
+    width: 55%;
+    background-color: grey;
+    border-radius: 10px;
+    margin: 0 22% 40px 22%;
+}
+
 #bookingSeats td {
-    background-color: #0F0;
+    background-color: rgb(59 164 59);
     border-radius: 4px;
     padding: 2px;
     width: 10%;
 }
 
+#bookingSeats {
+  cursor: pointer;
+  width: 50%;
+  margin: 2% 25%;
+}
+
 #bookingSeats td.reserved{
-   background-color: #F00;
+   background-color: rgb(195 34 34);
 }
 
 
