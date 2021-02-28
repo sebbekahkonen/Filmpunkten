@@ -5,28 +5,86 @@ async function privateInformation() {
   `)
 
   let user = sessionStorage.getItem("user");
-  $('.privateInfoDiv').remove();
-  $('main').append(`
+  // $('.privateInfoDiv').remove();
+  $("div.addMyPages").empty();
+  $("div.addMyPages").append(/* html */`
   <div class="privateInfoDiv">
     <div class="privateNameDiv">
       <label id="privateName">Namn:</label>
-      <input id="nameInput" type="Text" for="privateName" value=${value[user].firstName} oninput="updateInformation(${user})">
+      <input id="nameInput" type="Text" for="privateName" maxlength= "15" value=${value[user].firstName} oninput="updateInformation(${user})">
     </div>
     <div class="privateLastnameDiv">
       <label id="privateLastname">Efternamn:</label>
-      <input id= "lastnameInput" type="Text" for="privateLastname" value=${value[user].lastName} oninput="updateInformation(${user})">
-      </div>
+      <input id= "lastnameInput" type="Text" for="privateLastname" maxlength= "25" value=${value[user].lastName} oninput="updateInformation(${user})">
+    </div>
     <div class="privateEmailDiv">
       <label id="privateEmail">E-postadress:</label>
-      <input id= "usernameInput" type="Text" maxlength="35" for="privateEmail" value=${value[user].username} readonly>
-      </div>
+      <input id= "usernameInput" type="Text" maxlength="30" for="privateEmail" value=${value[user].username} readonly>
+    </div>
     <div class="privateNumberDiv">
       <label id="privateNumber">Telefonnummer:</label>
-      <input id= "numberInput" type="text" for="privateNumber" value=${value[user].phoneNumber} oninput="updateInformation(${user})">
-      </div>
+      <input id= "numberInput" type="text" for="privateNumber" maxlength= "12" value=${value[user].phoneNumber} oninput="updateInformation(${user})">
+    </div>
   </div>`)
+  console.log(user);
 }
 
+
+function bookingInformation() {
+  $("div.addMyPages").empty();
+  $(".addMyPages").append(/* html */`
+  <div class= "bookingInformation">
+    <p>HistorikIsWorking</p>
+  </div>`);
+}
+
+async function ongoingBookingInformation() {
+  let movies = await db.run(/*sql*/`
+  SELECT *
+  FROM booking
+  `);
+  let thisuser = await db.run(/*sql*/`
+  SELECT * 
+  FROM RegisterTable
+  `)
+  let saveSeats = [];
+
+  $("div.addMyPages").empty();
+  let userId = sessionStorage.getItem("user");
+  for (let i = 0; i < movies.length; i++) {
+    if (thisuser[userId].username === movies[i].LoginTable_username) {
+      console.log("saved");
+      saveSeats[i] = movies[i].seat;
+      $(".addMyPages").append(/* html */`
+    <div class= "bookingInformation">
+      <div class= "bookedMovie">
+        <label id= "bookedMovieTitle">Film: </label>
+        <input for= "bookedMovieTitle" value="TheTitle">
+        <label id= "bookedMovieTickets">Biljett: </label>
+        <input for= "bookedMovieTickets" value="Vuxen/barn/pensionär">
+        <button>Ändra</button>
+        <button>Avboka</button>
+      </div>
+    </div>`);
+    }
+  }
+  if (saveSeats.length === 0) {
+    $(".addMyPages").append(/* html */`
+      <div class= "noBookings">
+        <h3>Du har inga bokningar för tillfället.</h3>
+      </div>
+    `)
+  }
+}
+
+
+function receiptsInformation() {
+  $("div.addMyPages").empty();
+  $(".addMyPages").append(/* html */`
+  <div class= "bookingInformation">
+    <p>Kvitton is working</p>
+  </div>`);
+}
 
 async function updateInformation(user) {
   let value = await db.run(/*sql*/`
@@ -65,11 +123,9 @@ async function updateInformation(user) {
   }
 }
 
-function bookingInformation() { }
 
-function ongoingBookingInformation() { }
 
-function receiptsInformation() { }
+
 
 
 document.getElementById("privateInfo").addEventListener("click", privateInformation);
