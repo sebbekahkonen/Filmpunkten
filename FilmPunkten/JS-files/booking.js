@@ -157,23 +157,21 @@ function createSeats()  {
 
         let bookingNumber = Math.random().toString(36).substr(2, 8);
         let username = "user_"+bookingNumber;
+        
+        insertBooking(selectedBookingId, bookingNumber, username);
+
+        // let resultc = db.run("SELECT * FROM booking");
+        // console.table(resultc);
+
+        // console.log(bookingId);
+
 
         // Save booking
-        db.run(/*sql*/`
-            INSERT INTO booking (
-                number,
-                show_times_id,
-                RegisterTable_username
-            ) VALUES (
-                '${bookingNumber}',
-                '${selectedBookingId}',
-                '${username}'
-            );
-        `);
+        
 
         //aaa = db.run("SELECT last_insert_rowid() as id");
 
-        console.log(getInsertId());
+        // console.log(getInsertId());
         // console.log(getInsertId());
 
 
@@ -188,15 +186,58 @@ function createSeats()  {
 
 // TODO: skapa metod för insert
 
-async function getInsertId() {
+async function insertBooking(showTimesId, bookingNumber, username) {
+
+    console.log("InsertBooking");
+    /*
+    let result = db.run("SELECT last_insert_rowid() as id");
+    console.table(result);
+    let resulta = db.run("SELECT last_insert_rowid() as id");
+    console.table(resulta);
+    let resultb = db.run("SELECT last_insert_rowid() as id");
+    console.table(resultb);
+    let resultc = db.run("SELECT last_insert_rowid() as id");
+    console.table(resultc);
+    */
+    
+    let result = await db.run(`
+        INSERT INTO booking (
+            number,
+            show_times_id,
+            RegisterTable_username
+        ) VALUES (
+            $A_bookingNumber,
+            $A_showTimesId,
+            $A_username
+        );
+    `, {
+        A_bookingNumber : bookingNumber,
+        A_showTimesId : showTimesId,
+        A_username : username,
+    }, function (err) {
+        console.log(err);
+        console.log(this.lastID);
+    });
+
+
+    // return "ok";
+    // return getInsertId();
+}
+
+async function getBookingId() {
+
+    // TODO: get the booking id by username and showTimesId
     let result = await db.run("SELECT last_insert_rowid() as id");
+    let id = 0;
+
     for (let row of result) {
-        aaa = row.id;
+        id = row.id;
     }
 
-    console.log(aaa);
+    console.log(id);
     aaa = result;
-    return aaa;
+
+    return id;
 }
 
 //Hämta från DB vilka platser som är upptagna och rendera dem annorlunda
