@@ -11,11 +11,10 @@ $(function () {
     let mm = today.getMonth() + 1;
     let dd = today.getDate();
 
-    if (mm < 10) mm = '0' + mm;
-    if (dd < 10) dd = '0' + dd;
-    
-    let todaysDate = yyyy + '-' + mm + '-' + dd;
+    if (mm < 10) { mm = '0' + mm; }
+    if (dd < 10) { dd = '0' + dd; }
 
+    let todaysDate = yyyy + '-' + mm + '-' + dd;
     let maxDate = (yyyy + 1) + '-' + mm + '-' + dd;
 
     $('#selectDate').attr({
@@ -65,6 +64,7 @@ $(function () {
     $('main').on('change', '#chooseTickets input', function (e) {
         //"Boolean-värde för "nästa"-knapp i detta steg.
         let showNext = false;
+        let count = 0;
 
         $('#chooseTickets input').each(function () {
             //om någon biljett-typ har värde större än 0 visas knapp "nästa"
@@ -72,8 +72,11 @@ $(function () {
                 showNext = true;
             }
             //fyller tickets med vald biljett-typ och antal med biljett-typ som nyckel till antal
-            tickets[$(this).attr('id')] = $(this).val();
+            tickets[$(this).attr('id')] = parseInt($(this).val());
+            count += parseInt($(this).val());
         });
+
+        tickets["total"] = count;
 
         //visa "nästa"-knapp om boolean = true
         if (showNext) {
@@ -118,22 +121,82 @@ function createSeats()  {
     html += "</tr>";
 
     bookingSeats.append(html);
+    $('#bookingSeatsText span').text(tickets['total']);
 
     bookingSeats.find("td").click(function () {
         //Valda platser sparas i chosenSeats
         //Om man klickar igen på plats man valt så av-väjer man den
         let chosenNumber = $(this).text();
         if (chosenSeats.includes(chosenNumber)) {
+
             let indexOfNumber = chosenSeats.indexOf(chosenNumber);
             chosenSeats.splice(indexOfNumber, 1);
             console.log(chosenSeats);
-        } else {
+            $(this).removeClass('selectedSeat');
+
+        } else if (chosenSeats.length < tickets['total']) {
+
             chosenSeats.push($(this).text());
             console.log(chosenSeats);
-        }    
+            $(this).addClass('selectedSeat');
+        } else {
+            // Max seats selected
+        }
+        
+        if (chosenSeats.length == tickets['total']) {
+            $('#nextButtonConfBooking').show();
+        } else {
+            $('#nextButtonConfBooking').hide();
+        }
+
+        $('#bookingSeatsText span').text(tickets['total']-chosenSeats.length);
+    });
+
+    $('#nextButtonConfBooking').click(function (e) {
+        e.preventDefault();
+
+        let bookingNumber = Math.random().toString(36).substr(2, 8);
+        let username = "user_"+bookingNumber;
+
+        // Save booking
+        db.run(/*sql*/`
+            INSERT INTO booking (
+                number,
+                show_times_id,
+                RegisterTable_username
+            ) VALUES (
+                '${bookingNumber}',
+                '${selectedBookingId}',
+                '${username}'
+            );
+        `);
+
+        //aaa = db.run("SELECT last_insert_rowid() as id");
+
+        console.log(getInsertId());
+        // console.log(getInsertId());
+
+
+        // Show confirm
+
+        
+        // alert("Booking saved!");
     });
 
     updateSeats();
+}
+
+// TODO: skapa metod för insert
+
+async function getInsertId() {
+    let result = await db.run("SELECT last_insert_rowid() as id");
+    for (let row of result) {
+        aaa = row.id;
+    }
+
+    console.log(aaa);
+    aaa = result;
+    return aaa;
 }
 
 //Hämta från DB vilka platser som är upptagna och rendera dem annorlunda
@@ -142,8 +205,10 @@ async function updateSeats()    {
     let seats = [];
 
     let result = await db.run(/*sql*/`
-        SELECT seat
+        SELECT booking_seat.seat
         FROM booking
+        JOIN booking_seat
+        ON booking.id=booking_seat.booking_id
         WHERE show_times_id='${selectedBookingId}'
         ORDER BY seat
     `);

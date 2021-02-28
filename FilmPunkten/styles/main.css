@@ -289,13 +289,26 @@ header nav a.active {
 }
 
 #bookingSeats {
-  cursor: pointer;
   width: 50%;
   margin: 2% 25%;
+  color: #000;
 }
-
+#bookingSeats td{
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+#bookingSeats td:hover{
+  border: 1px solid #0F0;
+}
 #bookingSeats td.reserved{
-   background-color: rgb(195 34 34);
+  background-color: rgb(195 34 34);
+  cursor: default;
+}
+#bookingSeats td.reserved:hover{
+  border: 1px solid transparent;
+}
+#bookingSeats td.selectedSeat{
+  background-color: #0F0;
 }
 
 
