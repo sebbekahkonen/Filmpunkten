@@ -32,8 +32,8 @@ function checkPasswordLength(psswrd) {
   }
 }
 
-function checkRepeatedPassword(rptdPsswrd) {
-  if (rptdPsswrd != password.value) {
+function checkRepeatedPassword() {
+  if (repeatPassword.value !== password.value && repeatPassword.value !== '') {
     $('.repeatPasswordMessage').html('');
     $('<h5 class="popupMessage">Lösenorden matchar inte!</h5>').appendTo('.repeatPasswordMessage');
   } else {
