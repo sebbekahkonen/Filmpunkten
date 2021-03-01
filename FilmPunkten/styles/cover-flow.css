@@ -44,7 +44,7 @@ label:hover {
   margin: 0;
 }
 .coverflow-list .coverflow-item .album-cover img {
-  height: 150px;
+  height: 200px;
   width: 150px;
   opacity: 0.5;
 }
