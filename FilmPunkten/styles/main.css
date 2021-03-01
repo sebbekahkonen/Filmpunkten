@@ -154,7 +154,7 @@ body{
 }
 
 footer {
-  color: rgb(77, 74, 74);
+  color: lightgray;
   /*background-color: rgb(197, 198, 199);*/
   padding: 10px 20px;
   font-family: 'Alfa Slab One', cursive;
