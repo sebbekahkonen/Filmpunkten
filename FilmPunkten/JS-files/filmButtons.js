@@ -1,5 +1,6 @@
 
 let dramaImg = document.getElementsByClassName('drama/fantasy', 'skräck/drama', 'drama/biografi').src = "images/filmCovers.jpg"
+
 /*Image.src = this.getValue;*/
 $('.ticket').click(function () {
 });
