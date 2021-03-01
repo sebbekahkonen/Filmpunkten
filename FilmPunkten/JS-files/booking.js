@@ -156,50 +156,65 @@ function createSeats()  {
         e.preventDefault();
 
         let bookingNumber = Math.random().toString(36).substr(2, 8);
-        let username = "user_"+bookingNumber;
+        let username = "user_" + bookingNumber;
         
-        insertBooking(selectedBookingId, bookingNumber, username);
-
-        // let resultc = db.run("SELECT * FROM booking");
-        // console.table(resultc);
-
-        // console.log(bookingId);
-
-
-        // Save booking
+        console.log("TEST");
+        let banan = testtest(bookingNumber);
+        console.log(banan);
+        console.log("END TEST");
         
+        let bookingId = insertBooking(selectedBookingId, bookingNumber, username);
 
-        //aaa = db.run("SELECT last_insert_rowid() as id");
-
-        // console.log(getInsertId());
-        // console.log(getInsertId());
-
-
-        // Show confirm
+        // let bookingId = 28; //Dev!
 
         
-        // alert("Booking saved!");
+
+        console.log(bookingId);
+
+        // Här
+
     });
 
     updateSeats();
 }
 
-// TODO: skapa metod för insert
+async function testtest(bookingNumber) {
+
+    aaa = "SELECT id FROM booking WHERE number='87lo1ovd'";
+    let result2 = await db.run(aaa);
+
+    apa = result2;
+
+    // return result2.pop(0).id;
+
+    // row.id bör returnera värdet men får tillbaka ett Promise objekt istället, varför?
+    // Samma lösning för att hämta från databas fungerar på andra ställen, ex. updateSeats()
+    // Fungerar att plocka utt värdet i console
+    for (let row of result2) {
+        return row.id;
+    }
+}
+
+async function getBookingId(bookingNumber) {
+
+    aaa = "SELECT id FROM booking WHERE number='" + bookingNumber + "'";
+    let result2 = await db.run(aaa);
+
+    bbb = result2;
+
+    // return result2.pop(0).id;
+
+    for (let row of result2) {
+        ccc = row;
+        return row.id;
+    }
+}
 
 async function insertBooking(showTimesId, bookingNumber, username) {
 
     console.log("InsertBooking");
-    /*
-    let result = db.run("SELECT last_insert_rowid() as id");
-    console.table(result);
-    let resulta = db.run("SELECT last_insert_rowid() as id");
-    console.table(resulta);
-    let resultb = db.run("SELECT last_insert_rowid() as id");
-    console.table(resultb);
-    let resultc = db.run("SELECT last_insert_rowid() as id");
-    console.table(resultc);
-    */
     
+    await db.run('BEGIN');
     let result = await db.run(`
         INSERT INTO booking (
             number,
@@ -218,27 +233,14 @@ async function insertBooking(showTimesId, bookingNumber, username) {
         console.log(err);
         console.log(this.lastID);
     });
+    await db.run('COMMIT');
 
+    bookingId = await getBookingId(bookingNumber);
+    return bookingId;
 
-    // return "ok";
-    // return getInsertId();
+    // return "test";
 }
 
-async function getBookingId() {
-
-    // TODO: get the booking id by username and showTimesId
-    let result = await db.run("SELECT last_insert_rowid() as id");
-    let id = 0;
-
-    for (let row of result) {
-        id = row.id;
-    }
-
-    console.log(id);
-    aaa = result;
-
-    return id;
-}
 
 //Hämta från DB vilka platser som är upptagna och rendera dem annorlunda
 async function updateSeats()    {
