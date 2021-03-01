@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
 
 body{
-  color: rgb(77, 74, 74);
+  color: lightgray;
   background: url(/images/Starsky.jpg);
   background-size: 100%;
   /*animation: animation 150s linear infinite;*/
@@ -78,7 +78,7 @@ header{
 }
 
 footer a{
-  color: rgb(77, 74, 74);
+  color: lightgray;
   text-align: center;
 }
 
@@ -190,7 +190,7 @@ footer {
 }
 
 li a{
-  color: rgb(77, 74, 74);
+  color: lightgray;
 }
 
 header nav a:hover {

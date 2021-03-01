@@ -40,7 +40,8 @@ label:hover {
 }
 .coverflow-list .coverflow-item .album-cover {
   display: block;
-  height: 150px;
+  height: 200px;
+  width: 150px;
   margin: 0;
 }
 .coverflow-list .coverflow-item .album-cover img {
