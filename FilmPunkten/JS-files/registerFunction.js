@@ -1,9 +1,9 @@
-let username = document.getElementById('username');
-let password = document.getElementById('password');
-let repeatPassword = document.getElementById('repeatPassword');
-let firstName = document.getElementById('firstName');
-let lastName = document.getElementById('lastName');
-let phoneNumber = document.getElementById('phoneNumber');
+var username = document.getElementById('username');
+var password = document.getElementById('password');
+var repeatPassword = document.getElementById('repeatPassword');
+var firstName = document.getElementById('firstName');
+var lastName = document.getElementById('lastName');
+var phoneNumber = document.getElementById('phoneNumber');
 
 let usernameIsOkay = false;
 let passwordIsOkay = false;
@@ -90,8 +90,9 @@ function checkSpace(event) {
 }
 
 async function createNewAccount() {
-  $('.popupMessage').remove();
+  await db.run('BEGIN TRANSACTION');
   await db.run('INSERT INTO RegisterTable (username, password, firstName, lastName, phoneNumber) VALUES (?, ?, ?, ?, ?)', [username.value, password.value, firstName.value, lastName.value, phoneNumber.value]);
+  await db.run('COMMIT');
   console.log('A new account has been created!');
   username.value = '';
   password.value = '';
@@ -99,14 +100,14 @@ async function createNewAccount() {
   firstName.value = '';
   lastName.value = '';
   phoneNumber.value = '';
-  $('<h4 class="popupMessage">Ditt konto har skapats!<h4>').appendTo('.lineoverLabels');
+  $('<h4 class="popupMessage">Ditt konto har skapats!</h4>').appendTo('.lineoverLabels');
   $('.popupMessage').css("color", "green");
 }
 
 $('.registerNow').click(function () {
+  $('.lineoverLabels .popupMessage').remove();
   if (username.value.length == 0 || password.value.length == 0 || repeatPassword.value.length == 0 || firstName.value.length == 0 || lastName.value.length == 0 || phoneNumber.value.length == 0) {
-    $('.popupMessage').remove();
-    $('<h4 class="popupMessage">Vänligen fyll i alla fält.<h4>').appendTo('.lineoverLabels');
+    $('<h4 class="popupMessage">Vänligen fyll i alla fält.</h4>').appendTo('.lineoverLabels');
   } else if (usernameIsOkay && passwordIsOkay && repeatPasswordIsOkay && firstNameIsOkay && lastNameIsOkay && phoneNumberIsOkay) {
     createNewAccount();
   }

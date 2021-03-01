@@ -511,6 +511,9 @@ header nav a.active {
 .lineoverLabels{
   margin-top: 10%;
 }
+.lineoverLabels .popupMessage {
+  margin-top: 1%;
+}
 .maindivRegister  {
   margin-top: 5%;
   margin-bottom: 5%;
