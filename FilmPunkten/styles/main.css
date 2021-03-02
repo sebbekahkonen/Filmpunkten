@@ -227,11 +227,7 @@ header nav a.active {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 #nextStageBooking, #nextButtonTickets {
-=======
-#nextStageBooking, #nextButtonTickets{
->>>>>>> c376ccaf6c674e86291bdcbbbfde634fbb474c1c
   float: right;
   margin-right: 10%;
   background-color: black;
