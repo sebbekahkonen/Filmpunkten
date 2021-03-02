@@ -1,0 +1,90 @@
+.usernameMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.passwordMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.repeatPasswordMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.firstNameMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.lastNameMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.phoneNumberMessage {
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.popupMessage {
+  font-family: 'Barlow Condensed', sans-serif;
+  color: red;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.lineoverLabels {
+  margin-top: 10%;
+}
+
+.lineoverLabels .popupMessage {
+  margin-top: 1%;
+}
+
+.maindivRegister {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.maindivRegister label {
+  font-family: 'Barlow Condensed', sans-serif;
+  margin-bottom: 1%;
+  display: block;
+}
+
+.leftRegister {
+  float: left;
+}
+
+.leftRegister input {
+  border: 1px solid rgb(28, 31, 31);
+  background-color: rgba(145, 141, 141, 0.2);
+  color: white;
+}
+
+.rightRegister {
+  float: right;
+}
+
+.rightRegister input {
+  border: 1px solid rgb(28, 31, 31);
+  background-color: rgba(145, 141, 141, 0.2);
+  color: white;
+}
+
+.lineunderLabels {
+  margin-bottom: 10%;
+}
+
+.registerNow {
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  background-color: dimgrey;
+  color: white;
+  border-color: #000;
+}
