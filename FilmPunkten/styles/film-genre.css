@@ -11,7 +11,7 @@
 
 #container2 a:link, a:visited{
  text-decoration: none;
- color:rgb(77, 74, 74);
+color:lightgray;
 }
 .filmheader{
   text-align:center;
@@ -50,7 +50,7 @@ margin-top:-36%;
    background: linear-gradient(to right, rgb(36, 34, 34) 50%, white 50%);
    
    font-size: 16px;
-      padding: 5px 10px;/* standard 10px,20px*/
+      padding: 5px 10px;
 
       transition: color 3s ease;
       transition: box-shadow 0.2s ease-in-out;
@@ -72,7 +72,7 @@ margin-top:-36%;
     list-style-type: none;
     margin: 7px;
     margin-left:98px;
-    margin-top: 6px;/* Styr upp och ned positionen på selectBox*/
+    margin-top: 6px;
     padding: 8px;
     position:absolute;
     width: 200px;
@@ -92,6 +92,6 @@ cursor:pointer;
 
 .selectBox li:hover
 {
-    background: rgb(53, 50, 50); /* startfärg #ddd; ändrar färgen på upplysningen av muspekare*/
+    background: rgb(53, 50, 50); 
    
 }

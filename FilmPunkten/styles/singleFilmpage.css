@@ -10,7 +10,7 @@ div a:link{
 }
 
 #topItems, #sidetext{
-  align-content:centre;
+ 
 margin-top:20%;
 margin-left:2%;
 }
@@ -38,7 +38,7 @@ display:inline-flex;
 flex-wrap:wrap;
 gap:20px;
 padding-top:10%;
-margin-left:5%;
+margin-left:12%;
 }
 
 
