@@ -52,7 +52,7 @@ label:hover {
 .coverflow-list .coverflow-item .album-name {
   text-align: center;
   display: block;
-  color: #444;
+  color: lightslategrey;
 }
 .coverflow-list .coverflow-item label {
   padding: 0;
