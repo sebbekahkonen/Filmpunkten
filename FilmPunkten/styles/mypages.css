@@ -1,0 +1,88 @@
+.myPagesNav nav{
+  padding: 20px 20px;
+}
+.myPagesNav nav a{
+  color: white;
+  width: 100%;
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 2%;
+  border: 1px solid rgb(28, 31, 31);
+  background-color: rgba(28, 31, 31, 0.3);
+  border-radius: 5px;
+  text-decoration: none;
+}
+.myPagesNav a:hover{
+  color: #504b4b;
+}
+.privateInfoDiv{
+  border-radius: 10px;
+  height: 100%;
+  color: white;
+  margin-top: 5%;
+  width: 100%;
+}
+.privateInfoDiv label{
+  display: block;
+}
+.privateInfoDiv input{
+  width: 50%;
+  border: 1px solid rgb(28, 31, 31);
+  background-color: rgba(145, 141, 141, 0.2);
+  color: white;
+}
+.privateNameDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+.privateLastnameDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+.privateEmailDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+.privateNumberDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+.bookedMovie{
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(145, 141, 141, 0.2);
+}
+.bookedMovie > label{
+  margin-top: 0.5%;
+  width: 50%;
+}
+.bookedMovie > input{
+  width: 100%;
+  color: #b3acac;
+  background-color: rgba(145, 141, 141, 0.01);
+  border-color: rgba(145, 141, 141, 0.01);
+}
+
+.receiptDiv{
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(145, 141, 141, 0.2);
+}
+.receiptDiv > label{
+  margin-top: 0.5%;
+  width: 50%;
+}
+.receiptDiv > input{
+  width: 100%;
+  color: #b3acac;
+  background-color: rgba(145, 141, 141, 0.01);
+  border-color: rgba(145, 141, 141, 0.01);
+}

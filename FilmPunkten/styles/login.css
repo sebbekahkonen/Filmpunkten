@@ -1,0 +1,90 @@
+.wrongLogin{
+  margin-bottom: 5%;
+  padding: 0;
+  color: red;
+  width: 100%;
+}
+.designLineTop{
+  text-align: center;
+  color: black;
+  margin-top: 10%;
+  width: 100%;
+}
+.username label{
+  float: left;
+  margin-left: 4%;
+  display: block;
+  margin-top: 10%;
+}
+.password label{
+  float: left;
+  width: 20%;
+  display: block;
+  margin-top: 5%;
+}
+.username input{
+  margin: auto;
+  padding: 5px;
+  border-radius: 5px;
+  border-color: black;
+  width: 90%;
+  background-color: rgba(145, 141, 141, 0.2);
+  color: white;
+}
+.password input{ 
+  padding: 5px;
+  border-radius: 5px;
+  border-color: black;
+  width: 90%;
+  background-color: rgba(145, 141, 141, 0.2);
+  color: white;
+}
+.showpasswordbox{
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+.showpasswordbox > .forgot {
+  text-decoration: none;
+  color: lightgrey;
+  margin-right: 4%;
+  margin-left: 5%;
+}
+.showpasswordbox > input{
+  margin-left: 4.5%;
+  margin-right: 0;
+}
+.showpasswordbox > label{
+  margin-right: 50%;
+}
+.login{
+  padding: 5px;
+  border-radius: 5px;
+  width: 93%;
+  margin-top: 10%;
+  background-color: dimgrey;
+  color: white;
+}
+.ellerLine{
+  margin-top: 5%;
+  width: 90%;
+  border-bottom: 1px solid dimgrey;
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  line-height: 0.1em;
+}
+.register{
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10%;
+  width: 93%;
+  background-color: rgb(61, 59, 59);
+  color: white;
+}
+.designLineBottom{
+  text-align: center;
+  color: black;
+  width: 100%; 
+}

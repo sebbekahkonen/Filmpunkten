@@ -1,134 +1,79 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap');
 
 body{
+  text-align: center;
+  min-height: 100%;
+  margin-bottom: 50px;
   color: lightgray;
   background: url(/images/Starsky.jpg);
   background-size: 100%;
-  /*animation: animation 150s linear infinite;*/
+  animation: animation 600s linear infinite;
 }
 @keyframes animation {
    100%{
     background-position:0px -3000px;
   }
 }
-
 main{
   display: block;
   border-radius: 10px;
-  /*background-color: rgb(197, 198, 199);*/
   width: 40%;
   padding: 30px;
   margin: 1% auto 0 auto;
   min-height: 35em;
   text-align: center;
-  /*border: 1.3px solid  rgb(134, 121, 121);*/
-}
-  
-h1{
+  font-family: 'Changa', sans-serif;
+} 
+h1 a{
+  color: lightgrey;
   text-align: center;
-  box-shadow: 2px 2px 7px 1px #ce5937;
+  text-decoration: none;
+  padding: 5px 5px;
+  border-radius: 10px;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 60px;
+  box-shadow: 3px 3px 4px 3px rgba(206, 202, 202, 0.3);
 }
-
 header{
   color: lightgray;
-  /*
-  background-color: rgb(197, 198, 199);
-  margin: 0 20px;
-  */
-  padding: 10px 0;
+  padding: 10px 0px;
   font-family: 'Alfa Slab One', cursive;
-  border-bottom: 2px solid black;
+  box-shadow: 5px 5px 7px 2px rgba(206, 202, 202, 0.3);
 }
-
-.dropdown {
-  position: absolute;
-  left: 50%;
-  margin-left: -50px;
-  display: block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: rgb(119, 116, 116);
-}
-
 footer a{
-  color: lightgray;
+  color: rgb(199, 195, 195);
   text-align: center;
+  font-family: 'Changa', sans-serif;
+  text-decoration: none;
 }
-
 .navigation{
   color: white;
   list-style: none;
   display: flex;
   justify-content: space-between;
-  padding-left: 5%;
-  padding-right: 5%
+  padding-right: 2%;
 }
-
 li a{
-  color: rgb(77, 74, 74);
+  padding: 3px 5px;
+  text-decoration: none;
+  color: lightgray;
+  font-family: 'Changa', sans-serif;
+  font-size: 20px;
 }
-
-header nav a:hover {
-  color: rgb(233, 13, 13);
+header li a:hover {
+  color: rgb(77, 77, 77);
 }
-
-header nav a.active {
-  color: rgb(247, 15, 15);
+header li a.active {
+  color: rgb(66, 66, 66)
 }
-/*
-.container  {
-  display: block;
-  border-radius: 10px;
-  //background-color: rgb(197, 198, 199);
-  width: 40%;
-  padding: 30px;
-  margin: 1% auto 0 auto;
-  min-height: 35em;
-  text-align: center;
-  //border: 1.3px solid  rgb(134, 121, 121);
-}
-*/
-
 html, body{
   height: auto;
   margin: 0;
   padding: 0;
 }
-
-body{
-  background-color: rgb(197, 198, 199);
-  text-align: center;
-  min-height: 100%;
-  margin-bottom: 50px;
-}
-
 #leftPics{
   display: inline-block;
   float: left;
@@ -136,7 +81,6 @@ body{
   height: 800px;
   padding: 10px 0 0 15px;
 }
-
 #leftPics img, #rightPics img {
   margin: 0 0 5px 0;
   width: 100%;
@@ -144,7 +88,6 @@ body{
   border: 2px solid #929292;
   border-radius: 10px;
 }
-
 #rightPics  {
   display: inline-block;
   float: right;
@@ -152,54 +95,33 @@ body{
   height: 800px;
   padding: 10px 15px 0 0;
 }
-
 footer {
   color: lightgray;
-  /*background-color: rgb(197, 198, 199);*/
   padding: 10px 20px;
-  font-family: 'Alfa Slab One', cursive;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
-  
 }
-
 @media(max-width: 768px){
   #leftPics img, #rightPics img {
     display: none;
   }
-
   .container  {
     width: 80%;
     font-size: 0.8em;
   }
-
   header, footer{
     font-size: 0.75em;
   }
-   
 }
 
-.navigation{
-  color: white;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-}
 
-li a{
-  color: lightgray;
-}
 
-header nav a:hover {
-  color: rgb(233, 13, 13);
-}
 
-header nav a.active {
-  color: rgb(247, 15, 15);
-}
+
+
 
 /* CSS BOKNINGSSIDA */
 
@@ -381,189 +303,4 @@ header nav a.active {
   justify-content: space-between;
   padding: 3px 5px 0 5px;
   text-align: left;
-}
-
-/* LOGIN.CSS*/
-.wrongLogin{
-  font-family: 'Barlow Condensed', sans-serif;
-  margin-bottom: 5%;
-  padding: 0;
-  color: red;
-  width: 100%;
-}
-
-.designLineTop{
-  text-align: center;
-  color: black;
-  margin-top: 10%;
-  width: 100%;
-}
-
-
-.username label{
-  float: left;
-  margin-left: 4%;
-  font-family: 'Barlow Condensed', sans-serif;
-  display: block;
-  margin-top: 10%;
-}
-
-.password label{
-  float: left;
-  width: 20%;
-  font-family: 'Barlow Condensed', sans-serif;
-  display: block;
-  margin-top: 5%;
-}
-
-.username input{
-  margin: auto;
-  padding: 5px;
-  border-radius: 5px;
-  border-color: black;
-  width: 90%;
-  background-color: rgba(145, 141, 141, 0.2);
-  color: white;
-}
-
-.password input{ 
-  padding: 5px;
-  border-radius: 5px;
-  border-color: black;
-  width: 90%;
-  background-color: rgba(145, 141, 141, 0.2);
-  color: white;
-}
-
-.showpasswordbox{
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2%;
-}
-.showpasswordbox > .forgot {
-  margin-right: 4%;
-  margin-left: 5%;
-}
-.showpasswordbox > input{
-  margin-left: 4.5%;
-  margin-right: 0;
-}
-.showpasswordbox > label{
-  margin-right: 42%;
-}
-
-.login{
-  font-family: 'Barlow Condensed', sans-serif;
-  padding: 5px;
-  border-radius: 5px;
-  width: 93%;
-  margin-top: 10%;
-  background-color: dimgrey;
-  color: white;
-}
-
-.ellerLine span{
-  background: url(/images/Starsky.jpg);
-  animation: animation 150s linear infinite;
-  padding: 0 10px;
-  border-radius: 10px;
-}
-
-.ellerLine{
-  font-family: 'Barlow Condensed', sans-serif;
-  margin-top: 5%;
-  width: 90%;
-  border-bottom: 1px solid dimgrey;
-  margin: auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
-  line-height: 0.1em;
-}
-
-.register{
-  font-family: 'Barlow Condensed', sans-serif;
-  padding: 5px;
-  border-radius: 5px;
-  margin-bottom: 10%;
-  width: 93%;
-  background-color: rgb(61, 59, 59);
-  color: white;
-}
-.designLineBottom{
-  text-align: center;
-  color: black;
-  width: 100%; 
-}
-
-/* MYPAGES CSS */
-.myPagesNav nav{
-  padding: 20px 20px;
-}
-.myPagesNav nav a{
-  color: white;
-  width: 100%;
-  display: inline-block;
-  padding: 5px;
-  margin-bottom: 2%;
-  border: 1px solid rgb(28, 31, 31);
-  background-color: rgba(28, 31, 31, 0.3);
-  border-radius: 5px;
-  text-decoration: none;
-}
-.myPagesNav a:hover{
-  color: #504b4b;
-}
-.privateInfoDiv{
-  border-radius: 10px;
-  height: 100%;
-  color: white;
-  margin-top: 5%;
-  width: 100%;
-}
-.privateInfoDiv label{
-  display: block;
-}
-.privateInfoDiv input{
-  width: 50%;
-  border: 1px solid rgb(28, 31, 31);
-  background-color: rgba(145, 141, 141, 0.2);
-  color: white;
-}
-.privateNameDiv{
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 5%;
-}
-.privateLastnameDiv{
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 5%;
-}
-.privateEmailDiv{
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 5%;
-}
-.privateNumberDiv{
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 5%;
-}
-.bookedMovie{
-  width: 100%;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  background-color: rgba(145, 141, 141, 0.2);
-}
-.bookedMovie > label{
-  margin-top: 0.5%;
-  width: 50%;
-}
-.bookedMovie > input{
-  width: 100%;
-  color: #b3acac;
-  background-color: rgba(145, 141, 141, 0.01);
-  border-color: rgba(145, 141, 141, 0.01);
 }
