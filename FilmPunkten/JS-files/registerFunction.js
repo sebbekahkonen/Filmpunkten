@@ -1,9 +1,9 @@
-var username = document.getElementById('username');
-var password = document.getElementById('password');
-var repeatPassword = document.getElementById('repeatPassword');
-var firstName = document.getElementById('firstName');
-var lastName = document.getElementById('lastName');
-var phoneNumber = document.getElementById('phoneNumber');
+let username = document.getElementById('username');
+let password = document.getElementById('password');
+let repeatPassword = document.getElementById('repeatPassword');
+let firstName = document.getElementById('firstName');
+let lastName = document.getElementById('lastName');
+let phoneNumber = document.getElementById('phoneNumber');
 
 let usernameIsOkay = false;
 let passwordIsOkay = false;
