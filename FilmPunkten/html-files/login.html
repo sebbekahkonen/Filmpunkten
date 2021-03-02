@@ -1,4 +1,5 @@
 <main>
+  <link rel="stylesheet" href="styles/login.css">
   <hr class="designLineTop">
   <div class="username">
     <label class="usernameLabel">Användarnamn (E-postadress)</label>
@@ -11,11 +12,11 @@
   <div class="showpasswordbox">
     <input class="showpassword" type="checkbox" id="checkbox1">
     <label for="checkbox1">Visa Lösenord</label>
-    <a href="Just trying" class="forgot">glömt ditt lösenord?</a>
+    <a href="#login" class="forgot">glömt ditt lösenord?</a>
   </div>
   <button id="loginbutton" class="login">Logga in</button>
-  <h3 class="ellerLine"><span>eller</span></h2>
-    <button class="register">Registrera dig</button>
+  <h3 class="ellerLine">eller</h2>
+    <button class="register" onClick="window.location='#register'">Registrera dig</button>
     <hr class="designLineBottom">
     </hr>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" 15

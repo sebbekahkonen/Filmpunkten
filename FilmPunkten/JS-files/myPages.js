@@ -24,109 +24,132 @@ async function privateInformation() {
       <input id= "numberInput" type="text" for="privateNumber" maxlength= "12" value=${value[user].phoneNumber} oninput="updateInformation(${user})">
     </div>
   </div>`)
-  console.log(user);
 }
 
 
 function bookingInformation() {
+  let movie = JSON.parse(sessionStorage.getItem("newItem"));
   $("div.addMyPages").empty();
   $(".addMyPages").append(/*html*/`
   <div class= "bookingInformation">
-    <p>HistorikIsWorking</p>
+    <p>${movie}</p>
   </div>`);
 }
 
 async function ongoingBookingInformation() {
-  let movieBooking = await db.run(/*sql*/`
+  $("div.addMyPages").empty();
+  let booking = await db.run(/*sql*/`
   SELECT *
   FROM booking
   `);
-  let showTimes = await db.run(/*sql*/`
-  SELECT * 
-  FROM show_times
-  `)
-  let thisuser = await db.run(/*sql*/`
+  let registerTable = await db.run(/*sql*/`
   SELECT * 
   FROM RegisterTable
   `)
-  let userSeats = await db.run(/*sql*/`
-  SELECT * 
-  FROM booking_seat
-  `)
-  let AllMovies = await db.run(/*sql*/`
+  let filmTable = await db.run(/*sql*/`
   SELECT * 
   FROM FilmTable
   `)
-  let saveBookingId = [];
-  let saveBookingMovie = [];
-  let num = 0;
-  let num1 = 0;
   let userId = sessionStorage.getItem("user");
-
-  $("div.addMyPages").empty();
-  movieBooking.forEach(function (booking) {
-    if (booking.RegisterTable_username === thisuser[userId].username) {
-      saveBookingId[num] = booking.id;
-      saveBookingMovie[num] = booking.show_times_id;
+  let movieId = [];
+  let seatId = [];
+  let saveSeat = [];
+  let movies = [];
+  let num = 0;
+  booking.forEach(function (user) {
+    if (user.RegisterTable_username === registerTable[userId].username) {
+      movieId[num] = user.show_times_id;
+      seatId[num] = user.id;
       num++;
     }
   });
-  AllMovies.forEach(function (movie) {
-    if (movie.id === saveBookingMovie[num1]) {
+
+  let num2 = 0;
+  filmTable.forEach(function (movie) {
+    if (movie.id === movieId[num2]) {
+      movies[num2] = movie;
+      num2++;
+    }
+  });
+
+  movies.forEach(function (movie) {
+    $(".addMyPages").append(/*html*/`
+      <div class= "bookingInformation" id= "bookingInfo">
+        <div class= "bookedMovie" id= "bookedMovieId">
+          <label id= "bookedMovieTitle">Film: </label>
+          <input for= "bookedMovieTitle" id= "movieTitle${movie.title}" value=${movie.title}>
+          <label id= "bookedMovieGenre">Genre: </label>
+          <input for= "bookedMovieGenre" value="${movie.Genre}">
+          <button onClick = "location.href = '#html-movies/${movie.title}Page'"> Filminfo</button >
+        </div>
+      </div>`);
+  })
+}
+
+async function cancelMovie() {
+  document.getElementById('cancelText').remove();
+  document.getElementById('cancelButton').remove();
+  $(".addMyPages").append(/*html*/`
+  <h4 id= 'cancelMovieText'>Skriv in titeln på filmen du vill avboka:</h4>
+  <input id= 'cancelMovie'>
+  `);
+  let movieTitle = "movieTitle";
+  let movie = JSON.parse(sessionStorage.getItem("newItem"));
+  let movieInput = document.getElementById('cancelMovie');
+  movieInput.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+      for (let i = 0; i < movie.length; i++) {
+        console.log(i);
+        if (document.getElementById('movieTitle' + i).value === movieInput.value) {
+          document.getElementById('bookingInfo' + i).remove();
+          if (document.getElementById('noMovie')) { document.getElementById('noMovie').remove() };
+          console.log("it worked " + movieInput.value + "");
+          return;
+        }
+      }
       $(".addMyPages").append(/*html*/`
-        <div class= "bookingInformation">
-          <div class= "bookedMovie">
-            <label id= "bookedMovieTitle">Film: </label>
-            <input for= "bookedMovieTitle" id= "movieTitle" value=${movie.title}>
-            <label id= "bookedMovieGenre">Genre: </label>
-            <input for= "bookedMovieGenre" value="${movie.Genre}">
-            <button onClick= "location.href = '#html-movies/${movie.title}Page'">Filminfo</button>
-            <button onClick= "getMovieInfo()">Avboka</button>
-          </div>
-        </div>`);
-      num1++;
-      //    <label id= "bookedMovieSeat">Plats: </label>
-      //    <input for= "bookedMovieSeat" value= ""></input>
+      <h5 id= 'noMovie'>Finns ingen film vid namn ${movieInput.value}<h5>
+      `);
+      console.log("it didnt work");
     }
   })
-
-  // let num2 = 0;
-  // userSeats.forEach(function (userBookingId) {
-  //   for (let i = 0; i < saveBookingId.length; i++) {
-  //     if (userBookingId.booking_id === saveBookingId[i]) {
-  //       if (userBookingId.booking_id === userBookingId.booking_id) {
-  //         console.log("it works");
-  //       }
-  //       $(".addMyPages").append(/*html*/`
-  //       <div class= "bookingInformation">
-  //         <div class= "bookedMovie">
-  //           <label id= "bookedMovieTitle">Film: </label>
-  //           <input for= "bookedMovieTitle" value="${saveBookingMovie[num2]}">
-  //           <label id= "bookedMovieSeat">Plats: </label>
-  //           <input for= "bookedMovieSeat" value= "${userBookingId.seat}">
-  //           <label id= "bookedMovieTickets">Biljett: </label>
-  //           <input for= "bookedMovieTickets" value="Vuxen/barn/pensionär">
-  //           <button>Ändra</button>
-  //           <button>Avboka</button>
-  //         </div>
-  //       </div>`);
-  //     }
-  //   }
-  // })
-}
-
-function getMovieInfo() {
-  let movieInfo = document.getElementById('movieTitle').value;
-  console.log(movieInfo);
 }
 
 
-function receiptsInformation() {
+async function receiptsInformation() {
   $("div.addMyPages").empty();
-  $(".addMyPages").append(/*html*/`
-  <div class= "bookingInformation">
-    <p>Kvitton is working</p>
-  </div>`);
+  let booking = await db.run(/*sql*/`
+  SELECT *
+  FROM booking
+  `);
+  let registerTable = await db.run(/*sql*/`
+  SELECT * 
+  FROM RegisterTable
+  `)
+  let filmTable = await db.run(/*sql*/`
+  SELECT * 
+  FROM FilmTable
+  `)
+  let userId = sessionStorage.getItem("user");
+  booking.forEach(function (bookingBooked) {
+    if (bookingBooked.RegisterTable_username === registerTable[userId].username) {
+      filmTable.forEach(function (movie) {
+        if (movie.id === bookingBooked.show_times_id) {
+          $(".addMyPages").append(/*html*/`
+          <div class= "receiptInformation">
+            <div class= "receiptDiv">
+              <label id= "receiptTitle">Film: </label>
+              <input for= "receiptTitle" value= "${movie.title}">
+              <label id= "receiptId">id: </label>
+              <input for= "receiptId" value= "${bookingBooked.id}">
+              <label id= "receiptBookingNumber">Bokningsnummer: </label>
+              <input for= "receiptBookingNumber" value= "${bookingBooked.number}">
+            </div>
+          </div>`);
+        }
+      })
+    }
+  })
 }
 
 async function updateInformation(user) {
@@ -160,7 +183,6 @@ async function updateInformation(user) {
 
 
 document.getElementById("privateInfo").addEventListener("click", privateInformation);
-document.getElementById("bookingInfo").addEventListener("click", bookingInformation);
 document.getElementById("ongoingBookingInfo").addEventListener("click", ongoingBookingInformation);
 document.getElementById("receiptsInfo").addEventListener("click", receiptsInformation);
 
