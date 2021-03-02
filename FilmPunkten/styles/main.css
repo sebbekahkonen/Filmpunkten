@@ -61,7 +61,7 @@ li a{
   text-decoration: none;
   color: lightgray;
   font-family: 'Changa', sans-serif;
-  font-size: 1px;
+  font-size: 30px;
 }
 header li a:hover {
   color: rgb(77, 77, 77);
