@@ -227,7 +227,7 @@ header nav a.active {
   cursor: pointer;
 }
 
-#nextStageBooking, #nextButtonTickets{
+#nextStageBooking, #nextButtonTickets, #nextButtonConfBooking{
   float: right;
   margin-right: 10%;
   background-color: black;
@@ -311,6 +311,9 @@ header nav a.active {
   background-color: #0F0;
 }
 
+#nextButtonConfBooking  {
+
+}
 
 #chooseTypeTitle  {
   color: rgb(233, 233, 233);
