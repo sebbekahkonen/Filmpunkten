@@ -154,46 +154,58 @@ function createSeats()  {
 
     $('#nextButtonConfBooking').click(function (e) {
         e.preventDefault();
+        
+        let chosenSeatsString1 = '<p>Du har valt plats: ';
+        for (let number of chosenSeats) {
+            chosenSeatsString1 += number + ','
+        }
+        let chosenSeatsString = chosenSeatsString1.substring(0, (chosenSeatsString1.length - 1));
+        chosenSeatsString += '</p>';
 
         let bookingNumber = Math.random().toString(36).substr(2, 8);
         let username = "user_" + bookingNumber;
+
+        $.get($(this).attr('href'), function (data) {
+            $('main').html(data);
+            $('#thanksHeader').append(username);
+            $('#renderChoices').append(`<br>Bokningsnummer: ${bookingNumber}`);
+            $('#renderChoices').append(chosenSeatsString);
+            
+            
+        });
+
         
-        console.log("TEST");
-        let banan = testtest(bookingNumber);
-        console.log(banan);
-        console.log("END TEST");
+
+        
+        
+        
         
         let bookingId = insertBooking(selectedBookingId, bookingNumber, username);
-
+        console.log(bookingId);
+       
         // let bookingId = 28; //Dev!
-
-        
-
         console.log(bookingId);
 
-        // Här
+        bookingId = parseInt(sessionStorage.getItem('id')) + 1;
+        console.log(bookingId);
 
+
+        //Nu har jag:
+        // bookingId, username, bookingNumber, chosenSeats, 
+
+        // Här
     });
 
     updateSeats();
 }
 
-async function testtest(bookingNumber) {
-
-    aaa = "SELECT id FROM booking WHERE number='87lo1ovd'";
-    let result2 = await db.run(aaa);
-
-    apa = result2;
 
     // return result2.pop(0).id;
 
     // row.id bör returnera värdet men får tillbaka ett Promise objekt istället, varför?
     // Samma lösning för att hämta från databas fungerar på andra ställen, ex. updateSeats()
     // Fungerar att plocka utt värdet i console
-    for (let row of result2) {
-        return row.id;
-    }
-}
+
 
 async function getBookingId(bookingNumber) {
 
@@ -205,7 +217,7 @@ async function getBookingId(bookingNumber) {
     // return result2.pop(0).id;
 
     for (let row of result2) {
-        ccc = row;
+        sessionStorage.setItem('id', row.id);
         return row.id;
     }
 }
