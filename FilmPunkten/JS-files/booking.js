@@ -91,8 +91,10 @@ $(function () {
         e.preventDefault();
 
         $.get($(this).attr("href"), function (data) {
+
             $("main").html(data);
             bookingSeats = $('#bookingSeats');
+
             //Kalla funktion för att skapa rendering av platser
             createSeats();
         });
@@ -103,7 +105,6 @@ $(function () {
 chosenSeats = [];
 
 function createSeats()  {
-    let seatCount = 0;
     let numOfSeats = 100;
     let html = "";
 
@@ -155,102 +156,81 @@ function createSeats()  {
     $('#nextButtonConfBooking').click(function (e) {
         e.preventDefault();
         
+        let bookingNumber = Math.random().toString(36).substr(2, 8);
+        let username = "user_" + bookingNumber;
         let chosenSeatsString1 = '<p>Du har valt plats: ';
+
+        insertBooking(selectedBookingId, bookingNumber, username);
+
         for (let number of chosenSeats) {
             chosenSeatsString1 += number + ','
         }
-        let chosenSeatsString = chosenSeatsString1.substring(0, (chosenSeatsString1.length - 1));
-        chosenSeatsString += '</p>';
 
-        let bookingNumber = Math.random().toString(36).substr(2, 8);
-        let username = "user_" + bookingNumber;
+        let chosenSeatsString = chosenSeatsString1.substring(0, (chosenSeatsString1.length - 1)) + '</p>';
 
         $.get($(this).attr('href'), function (data) {
             $('main').html(data);
             $('#thanksHeader').append(username);
             $('#renderChoices').append(`<br>Bokningsnummer: ${bookingNumber}`);
             $('#renderChoices').append(chosenSeatsString);
-            
-            
         });
 
-        
-
-        
-        
-        
-        
-        let bookingId = insertBooking(selectedBookingId, bookingNumber, username);
-        console.log(bookingId);
-       
-        // let bookingId = 28; //Dev!
-        console.log(bookingId);
-
-        bookingId = parseInt(sessionStorage.getItem('id')) + 1;
-        console.log(bookingId);
-
-
-        //Nu har jag:
-        // bookingId, username, bookingNumber, chosenSeats, 
-
-        // Här
     });
 
     updateSeats();
+
+    setInterval(function () {
+        updateSeats();
+    }, 3000);
 }
-
-
-    // return result2.pop(0).id;
-
-    // row.id bör returnera värdet men får tillbaka ett Promise objekt istället, varför?
-    // Samma lösning för att hämta från databas fungerar på andra ställen, ex. updateSeats()
-    // Fungerar att plocka utt värdet i console
 
 
 async function getBookingId(bookingNumber) {
 
-    aaa = "SELECT id FROM booking WHERE number='" + bookingNumber + "'";
-    let result2 = await db.run(aaa);
-
-    bbb = result2;
-
-    // return result2.pop(0).id;
-
-    for (let row of result2) {
-        sessionStorage.setItem('id', row.id);
-        return row.id;
+    let result = await db.run("SELECT id FROM booking WHERE number='" + bookingNumber + "'");
+    for (let row of result) {
+        sessionStorage.setItem('id', parseInt(row.id));
     }
 }
 
-async function insertBooking(showTimesId, bookingNumber, username) {
+async function insertSeat(bookingId, seatNumber) {
 
-    console.log("InsertBooking");
+    await db.run('BEGIN TRANSACTION');
+    await db.run(`
+        INSERT INTO booking_seat (
+            booking_id,
+            seat
+        ) VALUES (?, ?);
+    `, [
+        bookingId,
+        seatNumber
+    ]);
+    await db.run('COMMIT');
+}
+
+async function insertBooking(showTimesId, bookingNumber, username) {
     
-    await db.run('BEGIN');
-    let result = await db.run(`
+    await db.run('BEGIN TRANSACTION');
+    await db.run(`
         INSERT INTO booking (
             number,
             show_times_id,
             RegisterTable_username
-        ) VALUES (
-            $A_bookingNumber,
-            $A_showTimesId,
-            $A_username
-        );
-    `, {
-        A_bookingNumber : bookingNumber,
-        A_showTimesId : showTimesId,
-        A_username : username,
-    }, function (err) {
-        console.log(err);
-        console.log(this.lastID);
-    });
+        ) VALUES (?, ?, ?);
+    `, [
+        bookingNumber,
+        showTimesId,
+        username,
+    ]);
     await db.run('COMMIT');
 
-    bookingId = await getBookingId(bookingNumber);
-    return bookingId;
+    await getBookingId(bookingNumber);  // return fungerar ej, använder sessionStorage för att få tillbaka värdet
+    let bookingId = sessionStorage.getItem('id');
 
-    // return "test";
+    for (let number of chosenSeats) {
+        await insertSeat(bookingId, number);
+    }
+
 }
 
 
@@ -269,11 +249,8 @@ async function updateSeats()    {
     `);
 
     for (let row of result) {
-
         seats.push(row.seat);
-
         bookingSeats.find("td[data-seat=" + row.seat + "]").addClass("reserved");
-
     }
 }
 
