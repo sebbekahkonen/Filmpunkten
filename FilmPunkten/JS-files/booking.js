@@ -42,6 +42,7 @@ $(function () {
     $('main').on('click', 'button', function () {
         selectedBookingId = $(this).attr('value');
         clickTitle = $(this).text();
+        sessionStorage.setItem('title', clickTitle);
 
         //Om clickTitle har fått ett värde lägger vi till knapp "nästa"
         if (clickTitle !== undefined) {
@@ -155,22 +156,27 @@ function createSeats()  {
 
     $('#nextButtonConfBooking').click(function (e) {
         e.preventDefault();
-        
+        //Föbereder innehåll till confirmation booking och lägger till det i DOMen
         let bookingNumber = Math.random().toString(36).substr(2, 8);
         let username = "user_" + bookingNumber;
+        let chosenTitle = sessionStorage.getItem('title');
         let chosenSeatsString1 = '<p>Du har valt plats: ';
 
         insertBooking(selectedBookingId, bookingNumber, username);
 
+        
+        
         for (let number of chosenSeats) {
             chosenSeatsString1 += number + ','
         }
 
+        
         let chosenSeatsString = chosenSeatsString1.substring(0, (chosenSeatsString1.length - 1)) + '</p>';
 
         $.get($(this).attr('href'), function (data) {
             $('main').html(data);
             $('#thanksHeader').append(username);
+            $('#chosenTitle').append(chosenTitle);
             $('#renderChoices').append(`<br>Bokningsnummer: ${bookingNumber}`);
             $('#renderChoices').append(chosenSeatsString);
         });
@@ -194,7 +200,7 @@ async function getBookingId(bookingNumber) {
 }
 
 async function insertSeat(bookingId, seatNumber) {
-
+    //spara bokade platser i DB, ske först när man trycker på "Slutför" på stolsbokningssidan
     await db.run('BEGIN TRANSACTION');
     await db.run(`
         INSERT INTO booking_seat (
@@ -285,92 +291,4 @@ async function showMovies(dateChoice) {
     }
 }
 
-
-/*
-let moviePlay = movies.map(movies => movies.date.filter(movie => movie.date === '2021-02-24') );
-console.log(moviePlay);
-*/
-
-/*
-let moviePlay = movies.map((movie) => {
-    return {...movie, date: movie.date.filter((date) => movie.date === '2021-03-24' )}
-})
-*/
-/*
-for (movie of movies) {
-
-
-
-    for (movieShow of movie.date) {
-        if (movieShow.view === '2021-03-01') {
-            console.log(movie.title + '\nis displayed on chosen day');
-        }
-    }
-}
-*/
-/*
-let moviePlay = movies.map((movie) => {
-    return {...movie, date: movie.date.filter((date) => date.view === '2021-02-24')}
-})
-console.log(moviePlay);
-*/
-
-
-/*
-arrayOfElements.map((element) => {
-  return {...element, subElements: element.subElements.filter((subElement) => subElement.surname === 1)}
-})
-*/
-
-/*
-
-for (let i = 0; i < movies.length; i++) {
-    let movie = movies[i];
-    let moviesDate = movie.date;
-
-    for (let j = 0; j < moviesDate.length; j++)    {
-        let date = moviesDate[j];
-        if (date === "2021-02-24") {
-            console.log(movie.title);
-        }
-    }
-}
-*/
-
-/*
-    // FUNKTION LÄNKAR I HEADER
-    $('.navigation a').click(function (e) {
-        e.preventDefault();
-
-        $.get($(this).attr("href"), function (data) {
-            $(".container").html(data);
-        });
-    });
-
-    // FUNKTION LÄNKAR I FOOTER
-    $('footer a').click(function (e) {
-        e.preventDefault();
-
-        $.get($(this).attr("href"), function (data) {
-            $(".container").html(data);
-        });
-    });
-
-
-// FUNKTIONER FÖR ATT BYGGA SIDORNA
-
-
-// MAIN-SIDAN INITIALISERAS MED HTML FRÅN STARTSIDA.HTML (DÄR LIGGER ALLT CONTENT SOM SKA IN I CONTAINER FÖR STARTSIDA)
-
-buildMainHtml();
-
-async function buildMainHtml() {
-    let html = `
-    ${await $.get('/html-files/Startsida.html')}
-  `;
-
-    $('.container').html(html);
-}
-
-*/
 
