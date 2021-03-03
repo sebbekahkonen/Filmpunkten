@@ -27,6 +27,7 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
         //Samlar upp valt datum och visar filmer därefter
         $('main').on("change", "#selectDate", function () {
             dateChoice = $(this).val();
+            sessionStorage.setItem('chosenDate', dateChoice);
 
             $('main').append($('#dateToView'));
             $('main').append($('#moviesToView'));
@@ -44,6 +45,7 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
         $('main').on('click', 'button', function () {
             selectedBookingId = $(this).attr('value');
             clickTitle = $(this).text();
+            sessionStorage.setItem('title', clickTitle);
 
             //Om clickTitle har fått ett värde lägger vi till knapp "nästa"
             if (clickTitle !== undefined) {
@@ -168,6 +170,8 @@ function createSeats() {
         //Föbereder innehåll till confirmation booking och lägger till det i DOMen
         let bookingNumber = Math.random().toString(36).substr(2, 8);
         let chosenTitle = sessionStorage.getItem('title');
+        let chosenDate = sessionStorage.getItem('chosenDate');
+        console.log(chosenDate);
         let registerTable = await db.run(/*sql*/`
         SELECT * 
         FROM RegisterTable
@@ -175,24 +179,21 @@ function createSeats() {
         let userId = sessionStorage.getItem("user");
         
         let username = registerTable[userId].username;
-        let chosenSeatsString1 = '<p>Du har valt plats: ';
-
         insertBooking(selectedBookingId, bookingNumber, username);
+        
+        let chosenSeatsString1 = '<p>Du har valt plats:<span id="renderChosenSeats"> ';
 
-        
-        
         for (let number of chosenSeats) {
-            chosenSeatsString1 += number + ','
+            chosenSeatsString1 += number + ', '
         }
-
-        
-        let chosenSeatsString = chosenSeatsString1.substring(0, (chosenSeatsString1.length - 1)) + '</p>';
+        let chosenSeatsString = chosenSeatsString1.substring(0, (chosenSeatsString1.length - 2)) + '</span></p>';
 
         $.get($(this).attr('href'), function (data) {
             $('main').html(data);
             $('#thanksHeader').append(username);
             $('#chosenTitle').append(chosenTitle);
-            $('#renderChoices').append(`<br>Bokningsnummer: ${bookingNumber}`);
+            $('#renderChoices').append(`<p id="chosenDate">${chosenDate}&nbsp;&nbsp;&nbsp;20:00</p>`);
+            $('#renderChoices').append(`<br><p>Bokningsnummer: <span id="renderBookingNumber">${bookingNumber}</span></p>`);
             $('#renderChoices').append(chosenSeatsString);
         });
 

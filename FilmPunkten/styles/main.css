@@ -318,3 +318,34 @@ footer {
   padding: 3px 5px 0 5px;
   text-align: left;
 }
+
+#confBox  {
+    border: 0.5px solid grey;
+    margin: 35px 0 0 0;
+    padding: 14px;
+    display: inline-block;
+    text-align: left;
+}
+
+#chosenTitle  {
+  text-align: center;
+}
+
+#confBox p{
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+#renderBookingNumber   {
+  font-style: italic;
+  margin-left: 15px;
+}
+
+#renderChosenSeats  {
+  font-style: italic;
+  margin-left: 15px;
+}
+
+#chosenDate {
+  text-align: center;
+}
