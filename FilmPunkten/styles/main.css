@@ -124,6 +124,20 @@ footer {
 
 
 /* CSS BOKNINGSSIDA */
+.bokaLogin{
+  width: 93%;
+  color: white;
+  background-color: dimgrey;
+  padding: 5px;
+  border-radius: 5px;
+}
+.bokaRegister{
+  width: 93%;
+  color: white;
+  background-color: rgb(61, 59, 59);
+  padding: 5px;
+  border-radius: 5px;
+}
 
 #dateToView {
   color: rgb(233, 233, 233);
