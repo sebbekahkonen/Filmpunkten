@@ -4,7 +4,7 @@ async function getInfo() {
       SELECT username,password
       FROM RegisterTable 
       `);
-  console.log(result);
+  
   let loginOkay = false;
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;

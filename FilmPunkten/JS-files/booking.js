@@ -150,7 +150,6 @@ function createSeats() {
         } else if (chosenSeats.length < tickets['total']) {
 
             chosenSeats.push($(this).text());
-            console.log(chosenSeats);
             $(this).addClass('selectedSeat');
         } else {
             // Max seats selected
@@ -171,7 +170,7 @@ function createSeats() {
         let bookingNumber = Math.random().toString(36).substr(2, 8);
         let chosenTitle = sessionStorage.getItem('title');
         let chosenDate = sessionStorage.getItem('chosenDate');
-        console.log(chosenDate);
+
         let registerTable = await db.run(/*sql*/`
         SELECT * 
         FROM RegisterTable
