@@ -71,7 +71,7 @@ async function ongoingBookingInformation() {
       num2++;
     }
   });
-
+  console.log(movies);
   movies.forEach(function (movie) {
     $(".addMyPages").append(/*html*/`
       <div class= "bookingInformation" id= "bookingInfo">
@@ -160,21 +160,23 @@ async function updateInformation(user) {
   let nameUpdate = document.getElementById('nameInput').value;
   let lastnameUpdate = document.getElementById('lastnameInput').value;
   let numberUpdate = document.getElementById('numberInput').value;
-  if (nameUpdate != value[user].firstName) {
-    await db.run('BEGIN TRANSACTION');
-    await db.run('UPDATE RegisterTable SET firstName = (?) WHERE username = (?)', [nameUpdate, value[user].username]);
-    await db.run('COMMIT');
-  }
-  if (lastnameUpdate != value[user].lastName) {
-    await db.run('BEGIN TRANSACTION');
-    await db.run('UPDATE RegisterTable SET lastName = (?) WHERE username = (?)', [lastnameUpdate, value[user].username]);
-    await db.run('COMMIT');
-  }
-  if (numberUpdate != value[user].phoneNumber) {
-    await db.run('BEGIN TRANSACTION');
-    await db.run('UPDATE RegisterTable SET phoneNumber = (?) WHERE username = (?)', [numberUpdate, value[user].username]);
-    await db.run('COMMIT');
-  }
+  setTimeout(async function () {
+    if (nameUpdate != value[user].firstName) {
+      await db.run('BEGIN TRANSACTION');
+      await db.run('UPDATE RegisterTable SET firstName = (?) WHERE username = (?)', [nameUpdate, value[user].username]);
+      await db.run('COMMIT');
+    }
+    if (lastnameUpdate != value[user].lastName) {
+      await db.run('BEGIN TRANSACTION');
+      await db.run('UPDATE RegisterTable SET lastName = (?) WHERE username = (?)', [lastnameUpdate, value[user].username]);
+      await db.run('COMMIT');
+    }
+    if (numberUpdate != value[user].phoneNumber) {
+      await db.run('BEGIN TRANSACTION');
+      await db.run('UPDATE RegisterTable SET phoneNumber = (?) WHERE username = (?)', [numberUpdate, value[user].username]);
+      await db.run('COMMIT');
+    }
+  }, 5000);
 }
 
 
