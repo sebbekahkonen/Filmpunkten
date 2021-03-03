@@ -40,46 +40,6 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
         tickets = [];
         bookingSeats = '';
 
-$(function () {
-    
-    //Sätt datumväljaren till dagens datum och max ett år framåt
-    let today = new Date();
-    let yyyy = today.getFullYear();
-    let mm = today.getMonth() + 1;
-    let dd = today.getDate();
-
-    if (mm < 10) { mm = '0' + mm; }
-    if (dd < 10) { dd = '0' + dd; }
-
-    let todaysDate = yyyy + '-' + mm + '-' + dd;
-    let maxDate = (yyyy + 1) + '-' + mm + '-' + dd;
-
-    $('#selectDate').attr({
-        'min': todaysDate,
-        'max': maxDate
-    });
-
-    //Samlar upp valt datum och visar filmer därefter
-    $('main').on("change", "#selectDate", function () {
-        dateChoice = $(this).val();
-        
-        $('main').append($('#dateToView'));
-        $('main').append($('#moviesToView'));
-
-        showMovies(dateChoice);
-    });
-
-    //Variabler för vald film, visningens id, biljetter, boka platser
-    let clickTitle;
-    selectedBookingId = 0;
-    tickets = [];
-    bookingSeats = '';
-
-    //Samlar upp vald film (titel), den valda filmens visnings-id
-    $('main').on('click', 'button', function () {
-        selectedBookingId = $(this).attr('value');
-        clickTitle = $(this).text();
-        sessionStorage.setItem('title', clickTitle);
         //Samlar upp vald film (titel), den valda filmens visnings-id
         $('main').on('click', 'button', function () {
             selectedBookingId = $(this).attr('value');
@@ -207,14 +167,13 @@ function createSeats() {
         e.preventDefault();
         //Föbereder innehåll till confirmation booking och lägger till det i DOMen
         let bookingNumber = Math.random().toString(36).substr(2, 8);
-        let username = "user_" + bookingNumber;
         let chosenTitle = sessionStorage.getItem('title');
         let registerTable = await db.run(/*sql*/`
         SELECT * 
         FROM RegisterTable
-        `)
+        `);
         let userId = sessionStorage.getItem("user");
-        let bookingNumber = Math.random().toString(36).substr(2, 8);
+        
         let username = registerTable[userId].username;
         let chosenSeatsString1 = '<p>Du har valt plats: ';
 
