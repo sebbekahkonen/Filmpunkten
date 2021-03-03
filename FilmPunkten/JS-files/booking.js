@@ -163,11 +163,15 @@ function createSeats() {
         $('#bookingSeatsText span').text(tickets['total'] - chosenSeats.length);
     });
 
-    $('#nextButtonConfBooking').click(function (e) {
+    $('#nextButtonConfBooking').click(async function (e) {
         e.preventDefault();
-
+        let registerTable = await db.run(/*sql*/`
+        SELECT * 
+        FROM RegisterTable
+        `)
+        let userId = sessionStorage.getItem("user");
         let bookingNumber = Math.random().toString(36).substr(2, 8);
-        let username = "user_" + bookingNumber;
+        let username = registerTable[userId].username;
         let chosenSeatsString1 = '<p>Du har valt plats: ';
 
         insertBooking(selectedBookingId, bookingNumber, username);
