@@ -12,6 +12,16 @@ let firstNameIsOkay = false;
 let lastNameIsOkay = false;
 let phoneNumberIsOkay = false;
 
+function showPassword() {
+  if (password.type === "password") {
+    password.type = "text";
+    repeatPassword.type = "text";
+  } else {
+    password.type = "password";
+    repeatPassword.type = "password";
+  }
+}
+
 function checkUsernameLength(usrnme) {
   if (usrnme.length < 10 || usrnme.length > 30) {
     $('.usernameMessage').html('');

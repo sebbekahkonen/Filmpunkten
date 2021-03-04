@@ -9,13 +9,17 @@
         onchange="checkUsernameLength(this.value)">
       <div class="usernameMessage"></div>
       <label class="passwordRegister">Ditt Lösenord*</label>
-      <input id="password" type="text" placeholder="Lösenord" onkeypress="checkSpace(event)"
+      <input id="password" type="password" placeholder="Lösenord" onkeypress="checkSpace(event)"
         onchange="checkPasswordLength(this.value); checkRepeatedPassword()">
       <div class="passwordMessage"></div>
       <label class="repeatpasswordRegister">Repetera Lösenord*</label>
-      <input id="repeatPassword" type="text" placeholder="Repetera Lösenord" onkeypress="checkSpace(event)"
+      <input id="repeatPassword" type="password" placeholder="Repetera Lösenord" onkeypress="checkSpace(event)"
         onchange="checkRepeatedPassword()">
       <div class="repeatPasswordMessage"></div>
+      <div class="showpasswordbox">
+        <input class="showpassword" type="checkbox" id="checkbox1" onchange="showPassword()">
+        <label for="checkbox1">Visa Lösenord</label>
+      </div>
     </div>
 
     <div class="rightRegister">
