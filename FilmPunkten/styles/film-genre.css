@@ -1,14 +1,4 @@
 
-
-/*#container2 h3{
-
-  /*font-size:0.7rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  
-}*/
-
 #container2 a:link, a:visited{
  text-decoration: none;
 color:lightgray;
@@ -20,7 +10,7 @@ color:lightgray;
 }
 #container2>span,#container2 a:link 
 {
-  padding-top: 4px;
+
 
   display:inline-block;
 width:185px;
@@ -59,8 +49,6 @@ margin-top:-36%;
       margin: 5px;
       background-size: 200% 100%;
   
- -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
       box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
