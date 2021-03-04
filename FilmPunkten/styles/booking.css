@@ -1,0 +1,227 @@
+
+/* CSS BOKNINGSSIDA */
+.bokaLogin{
+  width: 93%;
+  color: white;
+  background-color: dimgrey;
+  padding: 5px;
+  border-radius: 5px;
+}
+.bokaRegister{
+  width: 93%;
+  color: white;
+  background-color: rgb(61, 59, 59);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#dateToView {
+  color: rgb(233, 233, 233);
+  font-size: 1.3em;
+  padding: 0;
+  font-weight: bold;
+}
+
+#moviesToView{
+  font-size: 1.7em;
+  color: rgb(233, 233, 233);
+}
+
+#selectMovie{
+  display: flex;
+  background-color: black;
+  color: rgb(233, 233, 233);
+  font-size: 1.1em;
+  font-weight: bold;
+  border: 0.5px solid  rgb(77, 74, 74);
+  border-radius: 18px;
+  margin-left: 20%;
+  cursor: pointer;
+}
+
+#nextStageBooking, #nextButtonTickets {
+  float: right;
+  margin-right: 10%;
+  background-color: black;
+  color: rgb(233, 233, 233);
+  cursor: pointer;
+  padding:1.5%;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+#bookingSeatsText {
+  font-size: 1.9em;
+  font-weight: 550;
+  padding: 2%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+#nextButtonConfBooking  {
+  display: inline-block;
+  margin-top: 5%;
+  background-color: black;
+  color: rgb(233, 233, 233);
+  cursor: pointer;
+  padding:1.5%;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+
+#selectDate {
+  padding: 10px 20px;
+  margin: 0 0 2% 0;
+  border-radius: 10px;
+  border: 4px solid  rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.choiceheader{
+  font-size: 1.9em;
+  font-weight: 550;
+  padding: 2%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/*CSS Bokingssida-2*/
+
+.chosenMovie{
+  font-size: 1.9em;
+  font-weight: 550;
+  padding: 2%;
+  box-sizing: border-box;
+  resize: vertical;
+}  
+
+.chosenMovie span{
+  color: white;
+  font-weight: 800;
+}
+
+/*seatbooking*/
+
+#screen {
+    height: 7px;
+    width: 55%;
+    background-color: grey;
+    border-radius: 10px;
+    margin: 0 22% 40px 22%;
+}
+
+#bookingSeats td {
+    background-color: rgb(59 164 59);
+    border-radius: 4px;
+    padding: 2px;
+    width: 10%;
+}
+
+#bookingSeats {
+  width: 50%;
+  margin: 2% 25%;
+  color: #000;
+}
+#bookingSeats td{
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+#bookingSeats td:hover{
+  border: 1px solid #0F0;
+}
+#bookingSeats td.reserved{
+  background-color: rgb(195 34 34);
+  cursor: default;
+}
+#bookingSeats td.reserved:hover{
+  border: 1px solid transparent;
+}
+#bookingSeats td.selectedSeat{
+  background-color: #0F0;
+}
+
+
+#chooseTypeTitle  {
+  color: rgb(233, 233, 233);
+  font-size: 1.3em;
+  padding: 0;
+  font-weight: bold;
+}
+
+#ticketButtons label  {
+  background-color: black;
+  color: rgb(233, 233, 233);
+  font-size: 1.1em;
+  font-weight: bold;
+  border: 0.5px solid  rgb(77, 74, 74);
+  border-radius: 10px;
+  padding: 3px;
+}
+
+#chooseTickets input{
+  width: 35px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: rgb(182, 182, 182);
+  color: rgb(92, 92, 92);
+  border: none;
+  margin: 0 0 5px 25px;
+  vertical-align: middle;
+}
+
+#chooseTickets input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#ticketChoice {
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: bold;
+  color:  rgb(141, 141, 141);
+  text-align: center;
+  float: left;
+}
+
+#chooseTickets  {
+  display: inline-block;
+  border: 1px solid rgb(161, 161, 161);
+  border-radius: 5px;
+  justify-content: space-between;
+  padding: 3px 5px 0 5px;
+  text-align: left;
+}
+
+#confBox  {
+    border: 0.5px solid grey;
+    margin: 35px 0 0 0;
+    padding: 14px;
+    display: inline-block;
+    text-align: left;
+}
+
+#chosenTitle  {
+  text-align: center;
+}
+
+#confBox p{
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+#renderBookingNumber   {
+  font-style: italic;
+  margin-left: 15px;
+}
+
+#renderChosenSeats  {
+  font-style: italic;
+  margin-left: 15px;
+}
+
+#chosenDate {
+  text-align: center;
+}
