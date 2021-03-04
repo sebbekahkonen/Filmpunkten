@@ -5,6 +5,8 @@ let firstName = document.getElementById('firstName');
 let lastName = document.getElementById('lastName');
 let phoneNumber = document.getElementById('phoneNumber');
 
+let regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+
 let usernameIsOkay = false;
 let passwordIsOkay = false;
 let repeatPasswordIsOkay = false;
@@ -26,9 +28,12 @@ function checkUsernameLength(usrnme) {
   if (usrnme.length < 10 || usrnme.length > 30) {
     $('.usernameMessage').html('');
     $('<h5 class="popupMessage">Ditt användarnamn måste bestå av 10-30 tecken!</h5>').appendTo('.usernameMessage');
-  } else {
+  } else if (regexEmail.test(usrnme)) {
     $('.usernameMessage').html('');
     usernameIsOkay = true;
+  } else {
+    $('.usernameMessage').html('');
+    $('<h5 class="popupMessage">Du måste ange en giltig e-postadress!</h5>').appendTo('.usernameMessage');
   }
 }
 
