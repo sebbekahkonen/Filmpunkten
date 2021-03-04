@@ -1,5 +1,5 @@
 
-/* CSS BOKNINGSSIDA */
+
 .bokaLogin{
   width: 93%;
   color: white;
@@ -106,18 +106,18 @@
 /*seatbooking*/
 
 #screen {
-    height: 7px;
-    width: 55%;
-    background-color: grey;
-    border-radius: 10px;
-    margin: 0 22% 40px 22%;
+  height: 7px;
+  width: 55%;
+  background-color: grey;
+  border-radius: 10px;
+  margin: 0 22% 40px 22%;
 }
 
 #bookingSeats td {
-    background-color: rgb(59 164 59);
-    border-radius: 4px;
-    padding: 2px;
-    width: 10%;
+  background-color: rgb(59 164 59);
+  border-radius: 4px;
+  padding: 2px;
+  width: 10%;
 }
 
 #bookingSeats {
@@ -173,8 +173,8 @@
 }
 
 #chooseTickets input[type=number]::-webkit-inner-spin-button {
-    opacity: 1;
-    cursor: pointer;
+  opacity: 1;
+  cursor: pointer;
 }
 
 #ticketChoice {
@@ -196,11 +196,11 @@
 }
 
 #confBox  {
-    border: 0.5px solid grey;
-    margin: 35px 0 0 0;
-    padding: 14px;
-    display: inline-block;
-    text-align: left;
+  border: 0.5px solid grey;
+  margin: 35px 0 0 0;
+  padding: 14px;
+  display: inline-block;
+  text-align: left;
 }
 
 #chosenTitle  {

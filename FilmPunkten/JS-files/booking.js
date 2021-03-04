@@ -168,8 +168,23 @@ function createSeats() {
         e.preventDefault();
         //Föbereder innehåll till confirmation booking och lägger till det i DOMen
         let bookingNumber = Math.random().toString(36).substr(2, 8);
-        let chosenTitle = sessionStorage.getItem('title');
+        let chosenMovie = sessionStorage.getItem('title');
         let chosenDate = sessionStorage.getItem('chosenDate');
+
+        let chosenShowTimeId = await db.run(/*sql*/`
+        SELECT show_times_id
+        FROM booking 
+        WHERE number='${bookingNumber}'
+        `);
+
+        console.log(chosenMovie);
+        console.log(chosenShowTimeId);              //PLOCKA IN TID FRÅN DB
+
+        let showTime = await db.run(/*sql*/`
+        SELECT time
+        FROM show_times                             
+        WHERE date=${chosenDate} AND 
+        `);
 
         let registerTable = await db.run(/*sql*/`
         SELECT * 
@@ -181,7 +196,7 @@ function createSeats() {
         insertBooking(selectedBookingId, bookingNumber, username);
         
         let chosenSeatsString1 = '<p>Du har valt plats:<span id="renderChosenSeats"> ';
-
+        chosenSeats.sort();
         for (let number of chosenSeats) {
             chosenSeatsString1 += number + ', '
         }
@@ -190,7 +205,7 @@ function createSeats() {
         $.get($(this).attr('href'), function (data) {
             $('main').html(data);
             $('#thanksHeader').append(username);
-            $('#chosenTitle').append(chosenTitle);
+            $('#chosenTitle').append(chosenMovie);
             $('#renderChoices').append(`<p id="chosenDate">${chosenDate}&nbsp;&nbsp;&nbsp;20:00</p>`);
             $('#renderChoices').append(`<br><p>Bokningsnummer: <span id="renderBookingNumber">${bookingNumber}</span></p>`);
             $('#renderChoices').append(chosenSeatsString);
