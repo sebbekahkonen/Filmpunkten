@@ -13,7 +13,7 @@ let lastNameIsOkay = false;
 let phoneNumberIsOkay = false;
 
 function showPassword() {
-  if (password.type === "password") {
+  if (password.type === "password" || repeatPassword.type === "password") {
     password.type = "text";
     repeatPassword.type = "text";
   } else {
