@@ -1,8 +1,8 @@
 /* COVER-FLOW.CSS */
-h3{
+ h3{
   text-align: center;
   padding: 10px;
-  }
+}
 
 .main-container {
   margin: 10px auto 0 auto;
@@ -13,9 +13,11 @@ h3{
   padding: 2em 0 0 0;
   text-align: center;
 }
+
 .coverflow-container {
   box-reflect: below 0px -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.1) 100%);
 }
+
 label {
   color: rgb(182, 180, 180);
   display: inline-block;
@@ -28,6 +30,7 @@ label {
 label:hover {
   color: #FFF;
 }
+
 .coverflow-list {
   width: 100%;
 }
@@ -71,6 +74,7 @@ label:hover {
   background: #212121;
   transform: rotateY(45deg);
 }
+
 input[type="radio"] {
   display: none;
 }
@@ -90,9 +94,11 @@ input[type="radio"]:checked + .coverflow-item ~ .coverflow-item {
   transform: rotateY(-45deg);
   background: #515151;
 }
+
 ol{
   padding: 0;
 }
+
 .right-now{
   margin-top: -35px;
 }
