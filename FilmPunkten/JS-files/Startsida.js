@@ -1,19 +1,6 @@
-<!--
- <h3>TopMovies</h3>
-<iframe id="video1" width="480" height="225" src="https:www.youtube.com/embed/TcMBFSGVi1c" frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen></iframe>
+$("main").append(/*html*/`
 
-<h3>Nyheter</h3>
-<iframe id="video2" width="480" height="225" src="https:www.youtube.com/embed/odM92ap8_c0" frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen></iframe>
-
--->
-<main>
-  <link rel="stylesheet" href="styles/cover-flow.css">
-
- <!--- <h3 class="right-now">Just nu</h3>
+<h3 class="right-now">Just nu</h3>
   <div class="main-container">
     <div class="coverflow-container">
       <ol class="coverflow-list">
@@ -371,9 +358,4 @@
       <label for="cover-46">6</label>
     </div>
   </div>
-  -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    
-  <script src="/JS-files/Startsida.js"></script>
-</main>
+`)
