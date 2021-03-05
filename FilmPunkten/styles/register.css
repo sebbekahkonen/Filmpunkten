@@ -57,22 +57,26 @@
 
 .leftRegister {
   float: left;
+  width: 50%;
 }
 
-.leftRegister input {
+.leftRegister .inputfield {
   border: 1px solid rgb(28, 31, 31);
   background-color: rgba(145, 141, 141, 0.2);
   color: white;
+  width: 60%;
 }
 
 .rightRegister {
   float: right;
+  width: 50%;
 }
 
-.rightRegister input {
+.rightRegister .inputfield {
   border: 1px solid rgb(28, 31, 31);
   background-color: rgba(145, 141, 141, 0.2);
   color: white;
+  width: 60%;
 }
 
 .lineunderLabels {
@@ -88,12 +92,18 @@
   border-color: #000;
 }
 
+.showpasswordbox {
+  width: 60%;
+  margin: 0 auto;
+}
+
 .showpassword {
   float: left;
+  margin-right: 2%;
 }
 
 .showPasswordText {
+  font-size: 78%;
   float: left;
   margin: 0;
-  width: 50%;
 }

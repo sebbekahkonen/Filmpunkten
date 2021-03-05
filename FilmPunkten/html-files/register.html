@@ -4,17 +4,17 @@
   </hr>
   <div class="maindivRegister">
     <div class="leftRegister">
-      <label class="usernameRegister">Användarnamn (E-postadress)*</label>
-      <input id="username" type="text" placeholder="Användarnamn" onkeypress="checkSpace(event)"
+      <label class="usernameRegister">E-postadress*</label>
+      <input class="inputfield" id="username" type="text" placeholder="E-postadress" onkeypress="checkSpace(event)"
         onchange="checkUsernameLength(this.value)">
       <div class="usernameMessage"></div>
       <label class="passwordRegister">Ditt Lösenord*</label>
-      <input id="password" type="password" placeholder="Lösenord" onkeypress="checkSpace(event)"
+      <input class="inputfield" id="password" type="password" placeholder="Lösenord" onkeypress="checkSpace(event)"
         onchange="checkPasswordLength(this.value); checkRepeatedPassword()">
       <div class="passwordMessage"></div>
       <label class="repeatpasswordRegister">Repetera Lösenord*</label>
-      <input id="repeatPassword" type="password" placeholder="Repetera Lösenord" onkeypress="checkSpace(event)"
-        onchange="checkRepeatedPassword()">
+      <input class="inputfield" id="repeatPassword" type="password" placeholder="Repetera Lösenord"
+        onkeypress="checkSpace(event)" onchange="checkRepeatedPassword()">
       <div class="repeatPasswordMessage"></div>
       <div class="showpasswordbox">
         <input class="showpassword" type="checkbox" id="checkbox1" onchange="showPassword()">
@@ -24,15 +24,15 @@
 
     <div class="rightRegister">
       <label class="firstnameRegister">Förnamn*</label>
-      <input id="firstName" type="text" placeholder="Förnamn" onkeypress="checkSpace(event)"
+      <input class="inputfield" id="firstName" type="text" placeholder="Förnamn" onkeypress="checkSpace(event)"
         onchange="checkFirstName(this.value)">
       <div class="firstNameMessage"></div>
       <label class="lastnameRegister">Efternamn*</label>
-      <input id="lastName" type="text" placeholder="Efternamn" onkeypress="checkSpace(event)"
+      <input class="inputfield" id="lastName" type="text" placeholder="Efternamn" onkeypress="checkSpace(event)"
         onchange="checkLastName(this.value)">
       <div class="lastNameMessage"></div>
       <label class="phonenumberRegister">Telefonnummer*</label>
-      <input id="phoneNumber" type="text" placeholder="Telefonnummer" onkeypress="checkSpace(event)"
+      <input class="inputfield" id="phoneNumber" type="text" placeholder="Telefonnummer" onkeypress="checkSpace(event)"
         onchange="checkPhoneNumber(this.value)">
       <div class="phoneNumberMessage"></div>
     </div>
