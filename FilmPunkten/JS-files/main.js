@@ -1,7 +1,6 @@
 async function buildNavigationHTML() {
   let html = `
     ${await $.get('html-files/headerAndFooter.html')}
-    <main></main>
   `;
 
   $('body').append(html);
