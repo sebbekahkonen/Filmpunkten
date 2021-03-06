@@ -1,17 +1,5 @@
 $("main").append(/*html*/`
-  <div id='buttonPosition'>
-    <span class="button">Genre &ensp; &nbsp; &or;</span>
-    <input type="hidden" value="" class="mehidden" />
-    <ul class="selectBox">
-      <li class='item1'>Action</li>
-      <li class='item2'>Skräck</li>
-      <a href='img .drama/fantasy'>
-      <li class='item5'>Drama</li></a>
-      <li class='item6'>Barn</li>
-      <li class='item7'>Familj</li>
-      <li class='item8'>Komedi</li>
-    </ul>
-  </div>
+
   <div id="container2">
     <a href="#html-movies/aQuietPlacePage">
       <span><img class='skräck/drama' src="images/filmCovers/aQuietPlace2.jpg">
@@ -131,3 +119,4 @@ $("main").append(/*html*/`
     </a>
   </div>
 `)
+ 
