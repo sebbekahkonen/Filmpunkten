@@ -51,6 +51,9 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
             if (clickTitle !== undefined) {
                 $('#moviesToView div').html('<a href="/html-files/tickets.html" id="nextStageBooking">Nästa</a>');
             }
+
+            $('main').find('button').removeClass('active');
+            $(this).addClass('active');
         });
 
         //Funktion för "nästa"-knappen på bokningssidan
@@ -293,10 +296,12 @@ async function updateSeats() {
 //Visa filmer som visas på valt datum (matchar datum mot DB)
 async function showMovies(dateChoice) {
 
-    let moviesToDisplay = '';
+    let moviesToDisplay = '<ul id="selectMovie">';
     let result = await db.run(/*sql*/`
         SELECT FilmTable.*,
-        show_times.id AS show_times_id
+        show_times.id AS show_times_id,
+        show_times.saloon AS show_times_saloon,
+        show_times.time AS show_times_time
         FROM FilmTable
         JOIN show_times
         ON show_times.film_table_id = FilmTable.id
@@ -306,8 +311,14 @@ async function showMovies(dateChoice) {
 
     for (let row of result) {
         //Plocka med visningens id från DB för att använda vid stolsbokning
-        moviesToDisplay += `<button id="selectMovie" value="${row.show_times_id}"> ${row.title} </button><br>`;
+        moviesToDisplay += `<li>
+        <button value="${row.show_times_id}"> ${row.title} </button>
+        <span class="saloon">${row.show_times_saloon}</span>
+        <span>${row.show_times_time}</span>
+        </li>`;
     }
+
+    moviesToDisplay += '</ul>';
 
     if (moviesToDisplay.length > 2) {
         $('#dateToView').html('<br>Välj film för att fortsätta:');
