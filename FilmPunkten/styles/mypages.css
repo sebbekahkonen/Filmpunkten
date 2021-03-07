@@ -51,30 +51,40 @@
   justify-content: space-between;
   padding-bottom: 5%;
 }
+.bookingInformation{
+  width: 100%;
+}
 .bookedMovie{
   width: 100%;
   color: white;
   display: flex;
   justify-content: space-between;
   background-color: rgba(145, 141, 141, 0.2);
+  margin-top: 3%;
+  position: relative;
 }
+
 .bookedMovie > label{
   margin-top: 0.5%;
-  width: 50%;
+  width: 10%;
 }
 .bookedMovie > input{
   width: 100%;
   color: #b3acac;
+  
   background-color: rgba(145, 141, 141, 0.01);
   border-color: rgba(145, 141, 141, 0.01);
 }
-
+.bookedMovieSpot > input{
+  width: 10%;
+}
 .receiptDiv{
   width: 100%;
   color: white;
   display: flex;
   justify-content: space-between;
   background-color: rgba(145, 141, 141, 0.2);
+  margin-top: 3%;
 }
 .receiptDiv > label{
   margin-top: 0.5%;
