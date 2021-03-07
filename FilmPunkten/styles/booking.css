@@ -1,5 +1,3 @@
-
-
 .bokaLogin{
   width: 93%;
   color: white;
@@ -7,6 +5,7 @@
   padding: 5px;
   border-radius: 5px;
 }
+
 .bokaRegister{
   width: 93%;
   color: white;
@@ -31,12 +30,14 @@
   padding: 0;
   list-style: none;
 }
+
 #selectMovie li{
   position: relative;
   text-align: left;
   height: 1.6em;
   margin-bottom: 1em;
 }
+
 #selectMovie li button{
   padding: 0px 14px;
   background-color: black;
@@ -48,18 +49,22 @@
   cursor: pointer;
   border: 2px solid transparent;
 }
+
 #selectMovie li button:hover, #selectMovie li button.active{
   border: 2px solid #fff;
 }
+
 #selectMovie li button:focus{
   outline: none;
 }
+
 #selectMovie li span{
   position: absolute;
   right: 0;
   bottom: 0;
   font-size: 0.7em;
 }
+
 #selectMovie li span.saloon{
   top: 0;
 }
@@ -106,7 +111,6 @@
 }
 
 /*CSS Bokingssida-2*/
-
 .chosenMovie{
   font-size: 1.9em;
   font-weight: 550;
@@ -121,7 +125,6 @@
 }
 
 /*seatbooking*/
-
 #screen {
   height: 7px;
   width: 55%;
