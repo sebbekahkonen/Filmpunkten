@@ -97,6 +97,7 @@ input[type="radio"]:checked + .coverflow-item ~ .coverflow-item {
 
 ol{
   padding: 0;
+  margin-left: -4%;
 }
 
 .right-now{
