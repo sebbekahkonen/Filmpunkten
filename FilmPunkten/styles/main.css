@@ -22,7 +22,7 @@ body{
 main{
   display: block;
   border-radius: 10px;
-  width: 40%;
+ /* width: 40%;*/
   padding: 30px 30px 0 30px;
   margin: 1% auto 0 auto;
   min-height: 790px;
@@ -110,11 +110,48 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
+  }
+  /*
+@media(max-width: 768px){/*for tablet/
+  #filmheader {
+   margin-left:-45;
+  }
+  }
+  */
+@media(max-width: 768px){/*for tablet*/
+  .coverflow-list .coverflow-item { 
+   margin:0 -40px;
+  }
 }
+@media(max-width: 768px){/*for tablet*/
+  #leftPics img, #rightPics img {
+   margin: 2.6em 0;
+  }
+}
+@media(max-width: 768px){/*for tablet*/
+ .showpasswordbox {
+   padding:5px;
+
+   justify-content: space-evenly;
+ }
+}
+@media(max-width: 768px){/*for tablet*/
+  ol .coverflow-list, .main-container .controls { 
+   margin-left:20%;
+  }
+}
+
 @media(max-width: 768px){
   #leftPics img, #rightPics img {
     display: none;
   }
+}
+
+@media(min-width: 769px){
+  main {
+    width: 40%;
+  }
+}
   .container  {
     width: 80%;
     font-size: 0.8em;
@@ -122,7 +159,7 @@ footer {
   header, footer{
     font-size: 0.75em;
   }
-}
+
 .forgotPasswordDiv{
   display: block;
 }
