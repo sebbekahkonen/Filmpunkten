@@ -111,13 +111,12 @@ footer {
   width: 100%;
   text-align: center;
   }
-  /*
-@media(max-width: 768px){/*for tablet/
-  #filmheader {
-   margin-left:-45;
+ 
+@media(max-width: 767px){
+  header {
+    box-shadow:none;
   }
-  }
-  */
+}
 @media(max-width: 768px){/*for tablet*/
   .coverflow-list .coverflow-item { 
    margin:0 -40px;

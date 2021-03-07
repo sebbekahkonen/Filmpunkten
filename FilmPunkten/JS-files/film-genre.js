@@ -1,3 +1,8 @@
+
+
+$('.ticket').click(function () {
+});
+
 $("main").append(/*html*/`
 
   <div id="container2">

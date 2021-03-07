@@ -5,12 +5,10 @@ color:lightgray;
 }
 .filmheader{
   text-align:center;
-  margin-left:-90%;
   margin-bottom:30%;
 }
 #container2>span,#container2 a:link 
 {
-
 
   display:inline-block;
 width:185px;
@@ -22,64 +20,4 @@ cursor:pointer;
 width:160px; 
 height:230px; 
   border-radius: 10px;
-}
-.toggler
-{
-    overflow:visible;
-}
-#buttonPosition{
-margin-left:40%;
-margin-bottom:30%;
-margin-top:-37%;
-}
-
-.button{
-
-  border: none;
-  color: white;
-   background: linear-gradient(to right, rgb(36, 34, 34) 50%, white 50%);
-   
-   font-size: 16px;
-      padding: 1px 10px;
-
-      transition: color 3s ease;
-      transition: box-shadow 0.2s ease-in-out;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 5px;
-      background-size: 200% 100%;
-  
-      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-}
-
-.selectBox
-{
- color:white;
-    border: 1px solid black;;
-  background-color: rgb(36, 34, 34);
-    list-style-type: none;
-  
-    margin-left:7%;
-    margin-top: 8px;
-    padding: 8px;
-    position:absolute;
-    width: 200px;
-    display:none;
-     justify-content: space-between;
-cursor:pointer;
-
-}
-
-.selectBox li{
-  width: 90px;
-  float: left;
-  height:30px;
-  margin: 10 px;
-  padding:2px;
-}
-
-.selectBox li:hover
-{
-    background: rgb(53, 50, 50); 
-   
 }

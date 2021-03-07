@@ -1,0 +1,6 @@
+
+$('.ticket').click(function () {
+});
+
+
+  
