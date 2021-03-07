@@ -186,20 +186,6 @@ function createSeats() {
         let chosenMovie = sessionStorage.getItem('title');
         let chosenDate = sessionStorage.getItem('chosenDate');
 
-        let chosenShowTimeId = await db.run(/*sql*/`
-        SELECT show_times_id
-        FROM booking 
-        WHERE number='${bookingNumber}'
-        `);
-
-        console.log(chosenMovie);
-        console.log(chosenShowTimeId);              //PLOCKA IN TID FRÅN DB
-
-        let showTime = await db.run(/*sql*/`
-        SELECT time
-        FROM show_times                             
-        WHERE date=${chosenDate} AND 
-        `);
 
         let registerTable = await db.run(/*sql*/`
         SELECT * 
@@ -217,6 +203,7 @@ function createSeats() {
         }
         let chosenSeatsString = chosenSeatsString1.substring(0, (chosenSeatsString1.length - 2)) + '</span></p>';
 
+        //print booking confirmation
         $.get($(this).attr('href'), function (data) {
             $('main').html(data);
             $('#thanksHeader').append(username);

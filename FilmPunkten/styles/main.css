@@ -22,7 +22,7 @@ body{
 main{
   display: block;
   border-radius: 10px;
- /* width: 40%;*/
+  width: 40%;
   padding: 30px 30px 0 30px;
   margin: 1% auto 0 auto;
   min-height: 790px;
@@ -146,19 +146,24 @@ footer {
     display: none;
   }
 }
-
-@media(min-width: 769px){
+@media(max-width: 1024px){
   main {
-    width: 40%;
+    width: 48%;
   }
 }
-  .container  {
-    width: 80%;
-    font-size: 0.8em;
+@media(max-width: 768px){
+  main {
+    width: 94%;
   }
-  header, footer{
-    font-size: 0.75em;
-  }
+}
+
+.container  {
+  width: 80%;
+  font-size: 0.8em;
+}
+header, footer{
+  font-size: 0.75em;
+}
 
 .forgotPasswordDiv{
   display: block;
