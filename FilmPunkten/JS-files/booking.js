@@ -6,7 +6,6 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
     <p id="moviesToView"></p>
     `)
     $(function () {
-
         //Sätt datumväljaren till dagens datum och max ett år framåt
         let today = new Date();
         let yyyy = today.getFullYear();
@@ -23,25 +22,21 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
             'min': todaysDate,
             'max': maxDate
         });
-
         //Samlar upp valt datum och visar filmer därefter
         $('main').on("change", "#selectDate", function () {
             dateChoice = $(this).val();
             sessionStorage.setItem('chosenDate', dateChoice);
-
             $('main').append($('#dateToView'));
             $('main').append($('#moviesToView'));
 
             showMovies(dateChoice);
         });
-
         //Variabler för vald film, visningens id, biljetter, boka platser
         let clickTitle;
         selectedBookingId = 0;
         selectedTime = "";
         tickets = [];
         bookingSeats = '';
-
         //Samlar upp vald film (titel), den valda filmens visnings-id
         $('main').on('click', 'button', function () {
             selectedBookingId = $(this).attr('value');
@@ -53,7 +48,6 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
             if (clickTitle !== undefined) {
                 $('#moviesToView div').html('<a href="/html-files/tickets.html" class="nextButton" id="nextStageBooking">Nästa</a>');
             }
-
             $('main').find('button').removeClass('active');
             $(this).addClass('active');
         });
@@ -61,7 +55,6 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
         //Funktion för "nästa"-knappen på bokningssidan
         $('main').on('click', '#nextStageBooking', function (e) {
             e.preventDefault();
-
             //läser in innehållet från tickets.html och tar även med vald titel
             $.get($(this).attr("href"), function (data) {
                 $("main").html(data);
@@ -94,9 +87,7 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
                     tickets["price"] += parseInt(tickets[key]*75);
                 }
             });
-
             $('#ticketsTotalPrice').text("Summa: "+tickets["price"]+"kr");
-
             //visa "nästa"-knapp om boolean = true
             if (showNext) {
                 $('#nextButtonTickets').show();
@@ -110,7 +101,6 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
             e.preventDefault();
 
             $.get($(this).attr("href"), function (data) {
-
                 $("main").html(data);
                 bookingSeats = $('#bookingSeats');
 
@@ -118,7 +108,6 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
                 createSeats();
             });
         });
-
     });
 } else {
     $('main').append(/*html*/`
@@ -134,17 +123,14 @@ chosenSeats = [];
 function createSeats() {
     let numOfSeats = 100;
     let html = "";
-
     //Bygga tabellens rader med rätt antal platser/rad
     html += "<tr>";
     for (let i = 0; i < numOfSeats; i++) {
         //10 platser/rad
         if (i % 10 == 0) {
             html += "</tr><tr>";
-        }
-        //Renderas med stolsnummer (och färg ledig/upptagen)
+        }   //Renderas med stolsnummer (och färg ledig/upptagen)
         html += '<td data-seat="' + (i + 1) + '">' + (i + 1) + '</td>';
-
     }
     html += "</tr>";
 
@@ -152,8 +138,7 @@ function createSeats() {
     $('#bookingSeatsText span').text(tickets['total']);
 
     bookingSeats.find("td").click(function () {
-        //Valda platser sparas i chosenSeats
-        //Om man klickar igen på plats man valt så av-väjer man den
+        //Valda platser sparas i chosenSeats, Om man klickar igen på plats man valt så av-väjer man den
         let chosenNumber = $(this).text();
         if (chosenSeats.includes(chosenNumber)) {
 
@@ -163,36 +148,30 @@ function createSeats() {
             $(this).removeClass('selectedSeat');
 
         } else if (chosenSeats.length < tickets['total']) {
-
             chosenSeats.push($(this).text());
             $(this).addClass('selectedSeat');
-        } else {
-            // Max seats selected
-        }
+        } else {}
 
         if (chosenSeats.length == tickets['total']) {
             $('#nextButtonConfBooking').show();
         } else {
             $('#nextButtonConfBooking').hide();
         }
-
         $('#bookingSeatsText span').text(tickets['total'] - chosenSeats.length);
     });
 
     $('#nextButtonConfBooking').click(async function (e) {
         e.preventDefault();
-        //Föbereder innehåll till confirmation booking och lägger till det i DOMen
+        //Föbereder innehåll till confirmation booking och lägger till det
         let bookingNumber = Math.random().toString(36).substr(2, 8);
         let chosenMovie = sessionStorage.getItem('title');
         let chosenDate = sessionStorage.getItem('chosenDate');
-
-
         let registerTable = await db.run(/*sql*/`
-        SELECT * 
+        
+        SELECT *
         FROM RegisterTable
         `);
         let userId = sessionStorage.getItem("user");
-        
         let username = registerTable[userId].username;
         insertBooking(selectedBookingId, bookingNumber, username);
         
@@ -203,8 +182,7 @@ function createSeats() {
         }
         let chosenSeatsString = chosenSeatsString1.substring(0, (chosenSeatsString1.length - 2)) + '</span></p>';
 
-        //print booking confirmation
-        $.get($(this).attr('href'), function (data) {
+        $.get($(this).attr('href'), function (data) {               //print booking confirmation
             $('main').html(data);
             $('#thanksHeader').append(username);
             $('#chosenTitle').append(chosenMovie);
@@ -213,19 +191,14 @@ function createSeats() {
             $('#renderChoices').append(chosenSeatsString);
             $('#renderTotal').html("Summa:&nbsp;&nbsp;&nbsp;"+tickets["price"]+"kr");
         });
-
     });
-
     updateSeats();
-
     setInterval(function () {
         updateSeats();
     }, 3000);
 }
 
-
 async function getBookingId(bookingNumber) {
-
     let result = await db.run("SELECT id FROM booking WHERE number='" + bookingNumber + "'");
     for (let row of result) {
         sessionStorage.setItem('id', parseInt(row.id));
@@ -233,8 +206,7 @@ async function getBookingId(bookingNumber) {
 }
 
 async function insertSeat(bookingId, seatNumber) {
-    //spara bokade platser i DB, ske först när man trycker på "Slutför" på stolsbokningssidan
-    await db.run('BEGIN TRANSACTION');
+    await db.run('BEGIN TRANSACTION');          //spara bokade platser i DB, sker först när man trycker på "Slutför" på stolsbokningssidan
     await db.run(`
         INSERT INTO booking_seat (
             booking_id,
@@ -262,20 +234,15 @@ async function insertBooking(showTimesId, bookingNumber, username) {
         username,
     ]);
     await db.run('COMMIT');
-
     await getBookingId(bookingNumber);  // return fungerar ej, använder sessionStorage för att få tillbaka värdet
     let bookingId = sessionStorage.getItem('id');
 
     for (let number of chosenSeats) {
         await insertSeat(bookingId, number);
     }
-
 }
-
-
 //Hämta från DB vilka platser som är upptagna och rendera dem annorlunda
 async function updateSeats() {
-
     let seats = [];
 
     let result = await db.run(/*sql*/`
@@ -286,7 +253,6 @@ async function updateSeats() {
         WHERE show_times_id='${selectedBookingId}'
         ORDER BY seat
     `);
-
     for (let row of result) {
         seats.push(row.seat);
         bookingSeats.find("td[data-seat=" + row.seat + "]").addClass("reserved");
@@ -326,9 +292,7 @@ async function showMovies(dateChoice) {
         $('#dateToView').html('<br>Välj film för att fortsätta:');
         $('#moviesToView').html(moviesToDisplay);
         $('#moviesToView').append('<div></div>');
-    }
-    //Om inga filmer matchar datum, rendera följande.
-    else {
+    } else {
         $('#dateToView').empty();
         $('#moviesToView').html('Inga filmer visas på valt datum');
     }
