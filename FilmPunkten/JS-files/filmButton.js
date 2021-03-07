@@ -1,6 +1,0 @@
-
-$('.ticket').click(function () {
-});
-
-
-  
