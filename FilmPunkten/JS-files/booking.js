@@ -38,6 +38,7 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
         //Variabler för vald film, visningens id, biljetter, boka platser
         let clickTitle;
         selectedBookingId = 0;
+        selectedTime = "";
         tickets = [];
         bookingSeats = '';
 
@@ -46,6 +47,7 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
             selectedBookingId = $(this).attr('value');
             clickTitle = $(this).text();
             sessionStorage.setItem('title', clickTitle);
+            selectedTime = $(this).siblings('.saloonTime').text();
 
             //Om clickTitle har fått ett värde lägger vi till knapp "nästa"
             if (clickTitle !== undefined) {
@@ -71,7 +73,8 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
         $('main').on('change', '#chooseTickets input', function (e) {
             //"Boolean-värde för "nästa"-knapp i detta steg.
             let showNext = false;
-            let count = 0;
+            tickets["price"] = 0;
+            tickets["total"] = 0;
 
             $('#chooseTickets input').each(function () {
                 //om någon biljett-typ har värde större än 0 visas knapp "nästa"
@@ -79,11 +82,20 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
                     showNext = true;
                 }
                 //fyller tickets med vald biljett-typ och antal med biljett-typ som nyckel till antal
-                tickets[$(this).attr('id')] = parseInt($(this).val());
-                count += parseInt($(this).val());
+                let key = $(this).attr('id');
+                tickets[key] = parseInt($(this).val());
+                tickets["total"] += parseInt($(this).val());
+
+                if (key == "adult") {
+                    tickets["price"] += parseInt(tickets[key]*85);
+                } else if (key == "child" || key == "student") {
+                    tickets["price"] += parseInt(tickets[key]*65);
+                } else if (key == "retired") {
+                    tickets["price"] += parseInt(tickets[key]*75);
+                }
             });
 
-            tickets["total"] = count;
+            $('#ticketsTotalPrice').text("Summa: "+tickets["price"]+"kr");
 
             //visa "nästa"-knapp om boolean = true
             if (showNext) {
@@ -209,9 +221,10 @@ function createSeats() {
             $('main').html(data);
             $('#thanksHeader').append(username);
             $('#chosenTitle').append(chosenMovie);
-            $('#renderChoices').append(`<p id="chosenDate">${chosenDate}&nbsp;&nbsp;&nbsp;20:00</p>`);
+            $('#renderChoices').append(`<p id="chosenDate">${chosenDate}&nbsp;&nbsp;&nbsp;${selectedTime}</p>`);
             $('#renderChoices').append(`<br><p>Bokningsnummer: <span id="renderBookingNumber">${bookingNumber}</span></p>`);
             $('#renderChoices').append(chosenSeatsString);
+            $('#renderTotal').html("Summa:&nbsp;&nbsp;&nbsp;"+tickets["price"]+"kr");
         });
 
     });
@@ -296,6 +309,7 @@ async function updateSeats() {
 //Visa filmer som visas på valt datum (matchar datum mot DB)
 async function showMovies(dateChoice) {
 
+    let showMovies = false;
     let moviesToDisplay = '<ul id="selectMovie">';
     let result = await db.run(/*sql*/`
         SELECT FilmTable.*,
@@ -314,13 +328,14 @@ async function showMovies(dateChoice) {
         moviesToDisplay += `<li>
         <button value="${row.show_times_id}"> ${row.title} </button>
         <span class="saloon">${row.show_times_saloon}</span>
-        <span>${row.show_times_time}</span>
+        <span class="saloonTime">${row.show_times_time}</span>
         </li>`;
+        showMovies = true;
     }
 
     moviesToDisplay += '</ul>';
 
-    if (moviesToDisplay.length > 2) {
+    if (showMovies) {
         $('#dateToView').html('<br>Välj film för att fortsätta:');
         $('#moviesToView').html(moviesToDisplay);
         $('#moviesToView').append('<div></div>');
