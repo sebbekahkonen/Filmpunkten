@@ -111,50 +111,6 @@ footer {
   width: 100%;
   text-align: center;
   }
- 
-@media(max-width: 767px){
-  header {
-    box-shadow:none;
-  }
-}
-@media(max-width: 768px){/*for tablet*/
-  .coverflow-list .coverflow-item { 
-   margin:0 -40px;
-  }
-}
-@media(max-width: 768px){/*for tablet*/
-  #leftPics img, #rightPics img {
-   margin: 2.6em 0;
-  }
-}
-@media(max-width: 768px){/*for tablet*/
- .showpasswordbox {
-   padding:5px;
-
-   justify-content: space-evenly;
- }
-}
-@media(max-width: 768px){/*for tablet*/
-  ol .coverflow-list, .main-container .controls { 
-   margin-left:20%;
-  }
-}
-
-@media(max-width: 768px){
-  #leftPics, #rightPics {
-    display: none;
-  }
-}
-@media(max-width: 1024px){
-  main {
-    width: 48%;
-  }
-}
-@media(max-width: 768px){
-  main {
-    width: 94%;
-  }
-}
 
 .container  {
   width: 80%;
@@ -192,8 +148,6 @@ header, footer{
   color: white;
   width: 93%;
 }
-
-
 #scheme{
   margin-bottom: 6px;
   padding: 6px 6px 1px 6px;
