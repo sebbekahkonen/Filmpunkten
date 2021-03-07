@@ -32,6 +32,10 @@ async function replaceContent() {
     savedCache[fileName] = html;
     $('main').replaceWith(html);
   }
+
+  setTimeout(function () {
+    $("main").css('min-height', $("#rightPics").height());
+  }, 200);
 }
 
 //Creating Movie Scheme
@@ -75,10 +79,6 @@ async function buildMovieScheme() {
   scheme += '</ul>';
 
   $('#scheme').html(scheme);
-
-  setTimeout(function () {
-    $("main").css('min-height', $("#rightPics").height() + 110);
-  }, 200);
 }
 
 
