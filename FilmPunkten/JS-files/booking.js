@@ -49,7 +49,7 @@ if (document.getElementById('login_href').text === 'Min sida' === true) {
 
             //Om clickTitle har fått ett värde lägger vi till knapp "nästa"
             if (clickTitle !== undefined) {
-                $('#moviesToView div').html('<a href="/html-files/tickets.html" id="nextStageBooking">Nästa</a>');
+                $('#moviesToView div').html('<a href="/html-files/tickets.html" class="nextButton" id="nextStageBooking">Nästa</a>');
             }
 
             $('main').find('button').removeClass('active');
