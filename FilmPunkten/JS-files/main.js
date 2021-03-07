@@ -5,6 +5,7 @@ async function buildNavigationHTML() {
 
   $('body').append(html);
   replaceContent();
+  buildMovieScheme();
 }
 
 let savedCache = {};
@@ -31,6 +32,50 @@ async function replaceContent() {
     savedCache[fileName] = html;
     $('main').replaceWith(html);
   }
+}
+
+//Creating Movie Scheme
+async function buildMovieScheme() {
+
+  let result = await db.run(/*sql*/`
+      SELECT
+          FilmTable.title,
+          show_times.id AS show_times_id,
+          show_times.saloon AS show_times_saloon,
+          show_times.date AS show_times_date,
+          show_times.time AS show_times_time
+      FROM FilmTable
+      JOIN show_times
+      ON show_times.film_table_id = FilmTable.id
+      WHERE
+          show_times.date >= DATE('now')
+          AND
+          show_times.date <= DATE('now', '+10 days')
+      ORDER BY show_times_date, show_times_time`);
+
+  let scheme = '';
+  let onDate = '';
+  let onFirst = true;
+
+  for (let row of result) {
+
+    if (onDate != row.show_times_date) {
+
+      if (!onFirst) {
+        scheme += '</ul>';
+      }
+      scheme += '<ul>';
+      scheme += '<li>'+row.show_times_date+'</li>';
+
+      onDate = row.show_times_date;
+      onFirst = false;
+    }      
+    scheme += '<li>-'+row.title+'</li>';
+  }
+  scheme += '</ul>';
+
+  $('#scheme').html(scheme);
+
 }
 
 

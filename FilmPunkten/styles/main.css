@@ -112,7 +112,7 @@ footer {
   text-align: center;
 }
 @media(max-width: 768px){
-  #leftPics img, #rightPics img {
+  #leftPics, #rightPics {
     display: none;
   }
   .container  {
@@ -153,7 +153,30 @@ footer {
 }
 
 
-
+#scheme{
+  margin-bottom: 6px;
+  padding: 6px 6px 1px 6px;
+  background-color: #000;
+  border-radius: 15px;
+  font-family: 'Changa', sans-serif;
+}
+#scheme ul{
+  margin: 0 0 1em 0;
+  padding: 0;
+  list-style: none;
+}
+#scheme ul li{
+  margin: 4px 0;
+  text-align: left;
+  line-height: 14px;
+  font-size: 14px;
+}
+#scheme ul li:first-child{
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 16px;
+  text-align: center;
+}
 
 
 
