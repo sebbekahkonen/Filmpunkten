@@ -76,6 +76,9 @@ async function buildMovieScheme() {
 
   $('#scheme').html(scheme);
 
+  setTimeout(function () {
+    $("main").css('min-height', $("#rightPics").height() + 110);
+  }, 100);
 }
 
 
